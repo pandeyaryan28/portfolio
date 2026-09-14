@@ -1,173 +1,122 @@
 import React from 'react';
-import { useRouter } from '../context/RouterContext';
-import { StatusPill } from '../components/ui/StatusPill';
-import { SectionBadge } from '../components/ui/SectionBadge';
+import { Link } from '../context/RouterContext';
 import { ProductMockupGuildOrbit } from '../components/visual/ProductMockupGuildOrbit';
-import { useSound } from '../context/SoundContext';
-import { ArrowLeft, MessageSquare, CheckSquare, ShieldCheck, BarChart3, Workflow, Settings } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowLeft, MessageSquare, CheckSquare, ShieldCheck, BarChart3, Settings } from 'lucide-react';
 
-interface GuildOrbitDetailProps {
-  isModal?: boolean;
-  onClose?: () => void;
-}
-
-export const GuildOrbitDetail: React.FC<GuildOrbitDetailProps> = ({ isModal = false, onClose }) => {
-  const { navigate } = useRouter();
-  const { playClick } = useSound();
-
-  const builtPillars = [
+export const GuildOrbitDetail: React.FC = () => {
+  const features = [
     {
-      title: 'Context-Threaded Team Communication',
+      title: 'Contextual Chat Channels',
       icon: MessageSquare,
-      desc: 'Channel messages anchored directly to executable work items, preventing decisions from getting buried in unsearchable chat history.',
+      desc: 'Discussions stay tied to specific tasks and deliverables, preventing important decisions from getting buried in endless chat logs.',
     },
     {
-      title: 'Task Management & Sprint Kanban',
+      title: 'Sprint Kanban Boards',
       icon: CheckSquare,
-      desc: 'Fluid state tracking with automated milestone checkpoints, squad task assignment, and blocked-item escalation.',
+      desc: 'Interactive task boards with milestone assignments, blocked-item flags, and drag-and-drop state transitions.',
     },
     {
-      title: 'Multi-Tier Operational Approvals',
+      title: 'Multi-Tier Approvals',
       icon: ShieldCheck,
-      desc: 'Structured authorization gates with role-based sign-offs, automated notifications, and compliance audit trails.',
+      desc: 'Clear sign-off gates for design reviews, code merges, and releases before items transition to completed.',
     },
     {
-      title: 'Automated Status & Velocity Reporting',
+      title: 'Velocity & Progress Tracking',
       icon: BarChart3,
-      desc: 'Real-time operational dashboards eliminating manual weekly status report writing for team leads.',
+      desc: 'Automated sprint reports and velocity tracking, reducing the need for manual status meetings.',
     },
     {
-      title: 'Admin Governance & Role Guardrails',
+      title: 'Admin Console & Role Permissions',
       icon: Settings,
-      desc: 'Granular workspace policies, member onboarding links with join PINs, and department isolation.',
-    },
-    {
-      title: 'Cross-Team Orchestration Workflows',
-      icon: Workflow,
-      desc: 'Trigger-based workflow automation interconnecting communication threads with system actions.',
+      desc: 'Granular workspace access control, team member invites, and organization security settings.',
     },
   ];
 
-  const handleBack = () => {
-    playClick();
-    if (isModal && onClose) {
-      onClose();
-    } else {
-      navigate('/#work');
-    }
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-      className={`max-w-4xl mx-auto ${isModal ? 'py-4' : 'min-h-screen pt-28 pb-24 px-4 sm:px-8'}`}
-    >
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-10">
       {/* Back Button */}
-      {!isModal && (
-        <button
-          onClick={handleBack}
-          className="inline-flex items-center gap-2 text-xs font-mono text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-ink-dark-primary transition-colors mb-10 group"
-        >
-          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
-          <span>BACK TO ARCHIVE</span>
-        </button>
-      )}
+      <Link
+        to="/work"
+        className="inline-flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-gray-900 transition-colors group"
+      >
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>BACK TO PROJECTS</span>
+      </Link>
 
-      {/* Header Info */}
-      <div className="space-y-6 max-w-3xl">
-        <div className="flex flex-wrap items-center gap-3">
-          <SectionBadge label="SYSTEM 02" index="LIVE" />
-          <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">/</span>
-          <span className="font-mono text-xs text-ink-secondary dark:text-ink-dark-secondary uppercase">Execution Operating System</span>
-          <StatusPill status="MVP LIVE" type="live" />
+      {/* Header */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
+          <span>Collaboration Software</span>
+          <span>·</span>
+          <span className="text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-medium">Live MVP</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-sans font-medium tracking-tight text-ink-primary dark:text-ink-dark-primary">
+        <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
           Guild Orbit
         </h1>
 
-        <p className="text-lg sm:text-xl text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
-          A workspace that brings communication, tasks, approvals and reporting into one unified execution system.
+        <p className="text-lg text-gray-600 leading-relaxed max-w-2xl font-normal">
+          An execution workspace that brings team chat, task boards, and operational sign-offs into one cohesive system.
         </p>
 
-        <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 border-y border-ink-border/60 dark:border-white/10 py-4 text-xs font-mono">
+        {/* Quick Specs */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
           <div>
-            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">My Role</span>
-            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Product Strategy & Architecture</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Role</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Product Strategy & Engineering</span>
           </div>
           <div>
-            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Current Status</span>
-            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">MVP Live</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Status</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">MVP Live</span>
           </div>
           <div>
-            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Category</span>
-            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Enterprise Workspace OS</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Core Tech</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">React 19, TypeScript, WebSockets</span>
           </div>
         </div>
       </div>
 
       {/* Primary Visual Showcase */}
-      <div className="my-10 sm:my-14">
-        <ProductMockupGuildOrbit interactive={true} />
+      <div className="py-2">
+        <ProductMockupGuildOrbit />
       </div>
 
-      {/* Narrative Sections */}
-      <div className="space-y-14 max-w-3xl">
-        {/* The Thesis */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
-            The Core Thesis
-          </h2>
-          <div className="p-6 rounded-2xl bg-canvas-soft dark:bg-stone-900/60 border-l-2 border-l-neutral-900 dark:border-l-white border-y border-r border-ink-border/80 dark:border-white/10">
-            <p className="text-lg sm:text-xl font-serif italic text-ink-primary dark:text-ink-dark-primary">
-              “Communication and execution shouldn't have to live in completely different tools.”
-            </p>
-            <p className="mt-3 text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
-              Modern high-velocity teams lose hours daily context-switching between chat apps, ticketing systems, document drives, and spreadsheets. Guild Orbit collapses this disconnect by making every conversation an executable object.
-            </p>
-          </div>
-        </section>
-
-        {/* What I Built */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
-            Core Modules Built
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {builtPillars.map((pillar) => {
-              const Icon = pillar.icon;
-              return (
-                <div
-                  key={pillar.title}
-                  className="p-5 rounded-2xl bg-white/90 dark:bg-stone-900/80 border border-ink-border/60 dark:border-white/10 hover:border-ink-border dark:hover:border-white/20 transition-all space-y-2 shadow-xs"
-                >
-                  <div className="flex items-center gap-2 text-ink-primary dark:text-ink-dark-primary">
-                    <Icon className="w-4 h-4 text-amber-500" />
-                    <h3 className="text-sm font-semibold">{pillar.title}</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
-                    {pillar.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Current Status */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
-            Current Status
-          </h2>
-          <p className="text-base text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
-            <strong className="font-medium text-ink-primary dark:text-ink-dark-primary">MVP LIVE:</strong> Complete workspace initialization, role-based guardrails, threaded communication channels, Kanban task tracking, and multi-tier approval chains are running end-to-end.
+      {/* Core Thesis & Problem */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-900">Why I Built This</h2>
+        <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 text-sm text-gray-700 space-y-3 leading-relaxed">
+          <p className="font-medium text-gray-900">
+            Communication and execution shouldn't live in completely separate tools.
           </p>
-        </section>
+          <p>
+            When teams discuss an issue in chat, create a ticket in a project tracker, and approve work over email, context gets fragmented. People waste hours asking for status updates or tracking down past decisions. Guild Orbit makes discussions an integrated part of tasks and sprint milestones.
+          </p>
+        </div>
       </div>
-    </motion.div>
+
+      {/* Key Modules Built */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-900">Core Features Built</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {features.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.title}
+                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs"
+              >
+                <div className="flex items-center gap-2 text-gray-900">
+                  <Icon className="w-4 h-4 text-gray-700" />
+                  <h3 className="text-sm font-semibold">{item.title}</h3>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                  {item.desc}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 };

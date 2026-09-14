@@ -4,25 +4,12 @@
 
 @layer base {
   :root {
-    --canvas: #FAF9F5;
-    --canvas-soft: #F4F3ED;
+    --canvas: #FAFAF9;
     --canvas-card: #FFFFFF;
-    --ink-primary: #121212;
-    --ink-secondary: #52525B;
-    --ink-tertiary: #71717A;
-    --border-subtle: rgba(24, 24, 27, 0.08);
-    --border-glow: rgba(24, 24, 27, 0.16);
-  }
-
-  .dark {
-    --canvas: #09090B;
-    --canvas-soft: #121215;
-    --canvas-card: #151518;
-    --ink-primary: #F4F4F5;
-    --ink-secondary: #A1A1AA;
-    --ink-tertiary: #71717A;
-    --border-subtle: rgba(244, 244, 245, 0.08);
-    --border-glow: rgba(244, 244, 245, 0.2);
+    --ink-primary: #111827;
+    --ink-secondary: #4B5563;
+    --ink-tertiary: #9CA3AF;
+    --border-subtle: #E5E7EB;
   }
 
   html {
@@ -37,149 +24,37 @@
     color: var(--ink-primary);
     overflow-x: hidden;
     min-height: 100vh;
-    transition: background-color 0.4s ease, color 0.4s ease;
   }
 }
 
-/* Custom subtle noise texture overlay */
-.bg-noise {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-.dark .bg-noise {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-.subtle-grid {
-  background-size: 48px 48px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
-}
-
-.dark .subtle-grid {
-  background-size: 48px 48px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
-
-/* Technical coordinate grid overlay */
-.tech-crosshair {
-  position: relative;
-}
-.tech-crosshair::before,
-.tech-crosshair::after {
-  content: '';
-  position: absolute;
-  background-color: rgba(24, 24, 27, 0.15);
-}
-.dark .tech-crosshair::before,
-.dark .tech-crosshair::after {
-  background-color: rgba(244, 244, 245, 0.15);
-}
-
-/* Glassmorphism utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(24, 24, 27, 0.08);
-}
-
-.dark .glass-panel {
-  background: rgba(18, 18, 22, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-panel-elevated {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(24, 24, 27, 0.1);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
-}
-
-.dark .glass-panel-elevated {
-  background: rgba(22, 22, 28, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
-}
-
-.glass-nav {
-  background: rgba(250, 249, 245, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(24, 24, 27, 0.08);
-}
-
-.dark .glass-nav {
-  background: rgba(10, 10, 14, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
+/* Crisp subtle border utilities */
 .subtle-border {
-  border: 1px solid rgba(24, 24, 27, 0.08);
-}
-.dark .subtle-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #E5E7EB;
 }
 
 .subtle-border-b {
-  border-bottom: 1px solid rgba(24, 24, 27, 0.08);
-}
-.dark .subtle-border-b {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .subtle-border-t {
-  border-top: 1px solid rgba(24, 24, 27, 0.08);
-}
-.dark .subtle-border-t {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #E5E7EB;
 }
 
-/* Custom interactive grain and focus */
-.interactive-ring:focus-visible {
-  outline: 2px solid #D97706;
-  outline-offset: 2px;
-}
-
-/* Smooth scrollbar styling */
+/* Smooth minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(24, 24, 27, 0.16);
-  border-radius: 9999px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
+  background: #D1D5DB;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(24, 24, 27, 0.32);
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.32);
+  background: #9CA3AF;
 }
 
-/* Text balance utility */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

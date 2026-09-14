@@ -1,199 +1,152 @@
 import React from 'react';
-import { useRouter } from '../context/RouterContext';
-import { StatusPill } from '../components/ui/StatusPill';
-import { SectionBadge } from '../components/ui/SectionBadge';
+import { Link } from '../context/RouterContext';
 import { HardwareRenderNullWave } from '../components/visual/HardwareRenderNullWave';
-import { useSound } from '../context/SoundContext';
-import { ArrowLeft, Sparkles, MicOff, Wind, Volume2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowLeft, MicOff, Wind, Volume2, Shield } from 'lucide-react';
 
-interface NullWaveDetailProps {
-  isModal?: boolean;
-  onClose?: () => void;
-}
-
-export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false, onClose }) => {
-  const { navigate } = useRouter();
-  const { playClick } = useSound();
-
+export const NullWaveDetail: React.FC = () => {
   const corePillars = [
     {
       title: 'Acoustic Voice Containment',
       icon: MicOff,
-      desc: 'Internal acoustic absorption chamber that captures speech sound waves, allowing users to speak at normal conversational volume in crowded cafes or transit without any sound escaping.',
+      desc: 'An internal sound chamber absorbs speech audio waves, allowing users to speak at normal volume without being overheard by people nearby.',
     },
     {
-      title: 'Whisper-Quiet Bladeless Micro-Airflow',
+      title: 'Silent Micro-Airflow',
       icon: Wind,
-      desc: 'Continuous non-turbulent air circulation system ensuring hours of thermal comfort without microphone turbulence or annoying motor hum.',
+      desc: 'A quiet micro-ducting channel circulates fresh air continuously for comfort without creating wind noise in the microphone.',
     },
     {
-      title: 'Real-Time Bidirectional Speech Translation',
+      title: 'Crisp Voice Capture for AI & Calls',
       icon: Volume2,
-      desc: 'Direct integration with translation engines providing near-zero latency multilingual audio sync directly to the user’s ear canal.',
+      desc: 'Dual MEMS microphone arrays isolate your voice from loud background noise for reliable transcription and clear phone calls.',
     },
     {
-      title: 'AI Automated Meeting Transcription',
-      icon: Sparkles,
-      desc: 'Continuous background transcription and structured action-item extraction for confidential executive calls and discussions.',
+      title: 'Titanium & Silicone Ergonomics',
+      icon: Shield,
+      desc: 'A lightweight grade-5 titanium shell paired with hypoallergenic silicone creates an airtight yet comfortable facial seal.',
     },
   ];
 
-  const iterationStudies = [
+  const designPhases = [
     {
-      phase: 'Iteration 01 — Volume & Silhouette Contours',
-      focus: 'Balancing ergonomic facial contours and jaw articulation with internal sound-damping cavity volume.',
+      phase: 'Phase 1: Ergonomics & Seal Geometry',
+      focus: 'Testing facial curves and jaw articulation to maintain an airtight acoustic seal while speaking naturally.',
     },
     {
-      phase: 'Iteration 02 — Material & CMF Selection',
-      focus: 'Pairing grade-5 matte titanium outer shield with hypoallergenic medical-grade silicone contact seals.',
+      phase: 'Phase 2: Acoustic Chamber Modeling',
+      focus: 'Designing internal baffle geometry to dampen vocal frequencies by over 40 dB.',
     },
     {
-      phase: 'Iteration 03 — Acoustic Absorption Matrix',
-      focus: 'Fine-tuning multi-frequency porous chamber baffles to neutralize high-frequency sibilance and vocal resonance.',
+      phase: 'Phase 3: Silent Airflow & Thermal Comfort',
+      focus: 'Integrating whisper-quiet micro-ducting along the perimeter to circulate air and prevent heat buildup.',
     },
     {
-      phase: 'Iteration 04 — Micro-Airflow Integration',
-      focus: 'Integrating whisper-quiet bladeless micro-ducting along the perimeter for optimal thermal regulation.',
+      phase: 'Phase 4: CMF & Physical Mockups',
+      focus: 'Pairing bead-blasted matte titanium with skin-safe silicone for a clean, durable physical product.',
     },
   ];
-
-  const handleBack = () => {
-    playClick();
-    if (isModal && onClose) {
-      onClose();
-    } else {
-      navigate('/#ongoing');
-    }
-  };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-      className={`max-w-4xl mx-auto ${isModal ? 'py-4' : 'min-h-screen pt-28 pb-24 px-4 sm:px-8'}`}
-    >
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-10">
       {/* Back Button */}
-      {!isModal && (
-        <button
-          onClick={handleBack}
-          className="inline-flex items-center gap-2 text-xs font-mono text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-ink-dark-primary transition-colors mb-10 group"
-        >
-          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
-          <span>BACK TO ARCHIVE</span>
-        </button>
-      )}
+      <Link
+        to="/work"
+        className="inline-flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-gray-900 transition-colors group"
+      >
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>BACK TO PROJECTS</span>
+      </Link>
 
-      {/* Header Info */}
-      <div className="space-y-6 max-w-3xl">
-        <div className="flex flex-wrap items-center gap-3">
-          <SectionBadge label="HARDWARE 03" index="PROTOTYPE" />
-          <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">/</span>
-          <span className="font-mono text-xs text-ink-secondary dark:text-ink-dark-secondary uppercase">Hardware / Product</span>
-          <StatusPill status="IN DEVELOPMENT" type="development" />
+      {/* Header */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
+          <span>Wearable Hardware</span>
+          <span>·</span>
+          <span className="text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-medium">Prototype</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-sans font-medium tracking-tight text-ink-primary dark:text-ink-dark-primary">
+        <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
           NullWave
         </h1>
 
-        <p className="text-lg sm:text-xl text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
-          Exploring the intersection of function, form and identity through a new generation of ergonomic wearable hardware.
+        <p className="text-lg text-gray-600 leading-relaxed max-w-2xl font-normal">
+          An ergonomic acoustic wearable mask engineered for private voice conversations and voice computing in public spaces.
         </p>
 
-        <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 border-y border-ink-border/60 dark:border-white/10 py-4 text-xs font-mono">
+        {/* Quick Specs */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
           <div>
-            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Core Mission</span>
-            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Building the Future of Voice</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Role</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Hardware & Acoustic Design</span>
           </div>
           <div>
-            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Current Phase</span>
-            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Prototyping & Form Studies</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Current Phase</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Prototype Testing</span>
           </div>
           <div>
-            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Category</span>
-            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Wearable Voice Privacy</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Materials</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Grade-5 Titanium, Silicone</span>
           </div>
         </div>
       </div>
 
-      {/* Primary Hardware Visual Stage */}
-      <div className="my-10 sm:my-14">
-        <HardwareRenderNullWave interactive={true} />
+      {/* Primary Hardware Showcase */}
+      <div className="py-2">
+        <HardwareRenderNullWave />
       </div>
 
-      {/* Narrative & Visual Exploration */}
-      <div className="space-y-14 max-w-3xl">
-        {/* Core Thesis */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
-            Design Thesis & Identity
-          </h2>
-          <div className="p-6 rounded-2xl bg-canvas-soft dark:bg-stone-900/60 border-l-2 border-l-neutral-900 dark:border-l-white border-y border-r border-ink-border/80 dark:border-white/10">
-            <p className="text-lg sm:text-xl font-serif italic text-ink-primary dark:text-ink-dark-primary">
-              “The future of voice interaction is not possible without privacy.”
-            </p>
-            <p className="mt-3 text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
-              As AI models become voice-first and remote collaboration dominates, speaking aloud in shared or public environments remains a major friction point. NullWave solves acoustic leakage while crafting an understated, premium fashion statement.
-            </p>
-          </div>
-        </section>
+      {/* The Problem & Vision */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-900">Why I Built This</h2>
+        <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 text-sm text-gray-700 space-y-3 leading-relaxed">
+          <p className="font-medium text-gray-900">
+            Voice is the fastest way to communicate with AI models and teams, but privacy in public is still an unsolved issue.
+          </p>
+          <p>
+            Whether on a train, in an airport lounge, or working in a busy cafe, speaking aloud to take an urgent call or dictating prompts creates noise and exposes confidential information. NullWave solves this at the physical level by containing speech directly at the mouth.
+          </p>
+        </div>
+      </div>
 
-        {/* Feature Matrix */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
-            Hardware & Acoustic Subsystems
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {corePillars.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.title}
-                  className="p-5 rounded-2xl bg-white/90 dark:bg-stone-900/80 border border-ink-border/60 dark:border-white/10 hover:border-ink-border dark:hover:border-white/20 transition-all space-y-2 shadow-xs"
-                >
-                  <div className="flex items-center gap-2 text-ink-primary dark:text-ink-dark-primary">
-                    <Icon className="w-4 h-4 text-amber-500" />
-                    <h3 className="text-sm font-semibold">{item.title}</h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
-                    {item.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Design Iterations */}
-        <section className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
-              Design Iterations & Physical Studies
-            </h2>
-            <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">04 CYCLES</span>
-          </div>
-
-          <div className="space-y-3">
-            {iterationStudies.map((study) => (
+      {/* Subsystems */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-900">Engineering & Subsystems</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {corePillars.map((item) => {
+            const Icon = item.icon;
+            return (
               <div
-                key={study.phase}
-                className="p-5 rounded-2xl bg-white/80 dark:bg-stone-900/60 border border-ink-border/60 dark:border-white/10 space-y-1.5 shadow-xs"
+                key={item.title}
+                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs"
               >
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                  <h3 className="text-sm font-semibold text-ink-primary dark:text-ink-dark-primary font-mono">{study.phase}</h3>
+                <div className="flex items-center gap-2 text-gray-900">
+                  <Icon className="w-4 h-4 text-gray-700" />
+                  <h3 className="text-sm font-semibold">{item.title}</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light pl-3.5">
-                  {study.focus}
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                  {item.desc}
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
+            );
+          })}
+        </div>
       </div>
-    </motion.div>
+
+      {/* Development Phases */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-900">Prototyping & Iteration</h2>
+        <div className="space-y-2.5">
+          {designPhases.map((phase) => (
+            <div
+              key={phase.phase}
+              className="p-4 rounded-xl border border-gray-200 bg-white space-y-1 text-xs sm:text-sm"
+            >
+              <h3 className="font-semibold text-gray-900">{phase.phase}</h3>
+              <p className="text-gray-600 leading-relaxed font-normal">{phase.focus}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
