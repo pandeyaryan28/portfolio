@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from '../context/RouterContext';
 import { BookMockupTheSystem } from '../components/visual/BookMockupTheSystem';
 import { BookMockupDistribution } from '../components/visual/BookMockupDistribution';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowRight, BookOpen, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { SITE_LINKS } from '../data/links';
 
 export const WritingPage: React.FC = () => {
   return (
@@ -23,7 +25,11 @@ export const WritingPage: React.FC = () => {
       {/* Publications Grid */}
       <div className="space-y-12">
         {/* Book 1: The System Is Being Rewritten */}
-        <article className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs hover:border-gray-300 transition-all">
+        <motion.article
+          whileHover={{ y: -3 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs hover:border-gray-400 hover:shadow-md transition-all"
+        >
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-4 text-xs font-mono text-gray-500">
             <div className="flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-gray-700" />
@@ -62,21 +68,35 @@ export const WritingPage: React.FC = () => {
                 <span className="px-2.5 py-1 rounded bg-gray-100">Physical Reality</span>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-3 flex flex-wrap items-center gap-3">
+                <a
+                  href={SITE_LINKS.writing.theSystem.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-1.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+                >
+                  <span>Amazon Kindle Edition</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                </a>
+
                 <Link
                   to="/writing/the-system"
-                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-colors inline-flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-800 text-xs font-medium transition-all inline-flex items-center gap-1.5 hover:scale-[1.01] active:scale-[0.99]"
                 >
-                  <span>Explore Book & Outline</span>
+                  <span>Explore Outline & Chapters</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           </div>
-        </article>
+        </motion.article>
 
         {/* Book 2: Building Distribution */}
-        <article className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs hover:border-gray-300 transition-all">
+        <motion.article
+          whileHover={{ y: -3 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs hover:border-gray-400 hover:shadow-md transition-all"
+        >
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-4 text-xs font-mono text-gray-500">
             <div className="flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-gray-700" />
@@ -109,23 +129,23 @@ export const WritingPage: React.FC = () => {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono text-gray-600">
-                <span className="px-2.5 py-1 rounded bg-gray-100">4 Working Parts</span>
-                <span className="px-2.5 py-1 rounded bg-gray-100">Direct Loops</span>
-                <span className="px-2.5 py-1 rounded bg-gray-100">Algorithm Independence</span>
+                <span className="px-2.5 py-1 rounded bg-gray-100">Audience vs Distribution</span>
+                <span className="px-2.5 py-1 rounded bg-gray-100">Inherent Virality</span>
+                <span className="px-2.5 py-1 rounded bg-gray-100">Compounding Pipes</span>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-3">
                 <Link
                   to="/writing/building-distribution"
-                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-colors inline-flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-1.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
                 >
-                  <span>Explore Working Structure</span>
+                  <span>Read Working Outline</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           </div>
-        </article>
+        </motion.article>
       </div>
     </div>
   );

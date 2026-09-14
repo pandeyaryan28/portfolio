@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from '../context/RouterContext';
 import { BookMockupTheSystem } from '../components/visual/BookMockupTheSystem';
-import { ArrowLeft, BookOpen, Quote } from 'lucide-react';
+import { ArrowLeft, BookOpen, Quote, ExternalLink } from 'lucide-react';
+import { SITE_LINKS } from '../data/links';
 
 export const TheSystemDetail: React.FC = () => {
   const [selectedExcerpt, setSelectedExcerpt] = useState<number>(0);
@@ -64,6 +65,19 @@ export const TheSystemDetail: React.FC = () => {
           An examination of the technological, economic, and geopolitical forces reshaping computing and modern institutions.
         </p>
 
+        {/* Action Buttons */}
+        <div className="pt-2">
+          <a
+            href={SITE_LINKS.writing.theSystem.url}
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-2 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+          >
+            <span>Get Amazon Kindle Edition</span>
+            <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+          </a>
+        </div>
+
         {/* Quick Specs */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
           <div>
@@ -80,7 +94,7 @@ export const TheSystemDetail: React.FC = () => {
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Format</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Open Archive</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Kindle & Archive</span>
           </div>
         </div>
       </div>

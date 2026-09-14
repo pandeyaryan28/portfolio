@@ -14,6 +14,9 @@ import { BuildingDistributionDetail } from './pages/BuildingDistributionDetail';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 
+import { AnimatePresence, motion } from 'framer-motion';
+import { pageVariants } from './components/ui/motionVariants';
+
 const MainContent: React.FC = () => {
   const { currentPath } = useRouter();
 
@@ -53,9 +56,19 @@ const MainContent: React.FC = () => {
       {/* Pristine Light Multi-page Navigation */}
       <Navbar />
 
-      {/* Main Routed Content */}
-      <main className="flex-1">
-        {renderRoute()}
+      {/* Main Routed Content with Smooth Page Transitions */}
+      <main className="flex-1 overflow-x-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPath}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            {renderRoute()}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Minimal Footer */}

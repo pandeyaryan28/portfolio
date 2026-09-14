@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { ProductMockupGuildOrbit } from '../components/visual/ProductMockupGuildOrbit';
-import { ArrowLeft, MessageSquare, CheckSquare, ShieldCheck, BarChart3, Settings } from 'lucide-react';
+import { ArrowLeft, MessageSquare, CheckSquare, ShieldCheck, BarChart3, Settings, Globe, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { SITE_LINKS } from '../data/links';
 
 export const GuildOrbitDetail: React.FC = () => {
   const features = [
@@ -46,7 +48,7 @@ export const GuildOrbitDetail: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
-          <span>Collaboration Software</span>
+          <span>Operational Workspace</span>
           <span>·</span>
           <span className="text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-medium">Live MVP</span>
         </div>
@@ -59,15 +61,39 @@ export const GuildOrbitDetail: React.FC = () => {
           An execution workspace that brings team chat, task boards, and operational sign-offs into one cohesive system.
         </p>
 
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <a
+            href={SITE_LINKS.projects.guildOrbit.url}
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-2 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            <span>Visit Live Website</span>
+            <ExternalLink className="w-3 h-3 opacity-60" />
+          </a>
+
+          <a
+            href={SITE_LINKS.projects.guildOrbit.repo}
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2.5 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-800 text-xs font-medium transition-all inline-flex items-center gap-2 hover:scale-[1.01] active:scale-[0.99]"
+          >
+            <span>View Source Code</span>
+            <ExternalLink className="w-3 h-3 opacity-60" />
+          </a>
+        </div>
+
         {/* Quick Specs */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Role</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Product Strategy & Engineering</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Product Architect & Builder</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Status</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">MVP Live</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">MVP Live in Production</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Core Tech</span>
@@ -101,9 +127,11 @@ export const GuildOrbitDetail: React.FC = () => {
           {features.map((item) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={item.title}
-                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs"
+                whileHover={{ y: -3 }}
+                transition={{ duration: 0.2 }}
+                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs hover:border-gray-300"
               >
                 <div className="flex items-center gap-2 text-gray-900">
                   <Icon className="w-4 h-4 text-gray-700" />
@@ -112,7 +140,7 @@ export const GuildOrbitDetail: React.FC = () => {
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { ProductMockupUniCare } from '../components/visual/ProductMockupUniCare';
-import { ArrowLeft, Shield, Database, Activity } from 'lucide-react';
+import { ArrowLeft, Shield, Database, Activity, Globe, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { SITE_LINKS } from '../data/links';
 
 export const UniCareDetail: React.FC = () => {
   const features = [
@@ -41,7 +43,7 @@ export const UniCareDetail: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
-          <span>Healthcare Software</span>
+          <span>Healthcare Operating System</span>
           <span>·</span>
           <span className="text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-medium">Live MVP</span>
         </div>
@@ -54,15 +56,39 @@ export const UniCareDetail: React.FC = () => {
           A clinical operating system designed to connect reception check-in, doctor consultations, patient medical records, and pharmacy inventory in real time.
         </p>
 
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <a
+            href={SITE_LINKS.projects.unicare.url}
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-2 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            <span>Visit Live Website</span>
+            <ExternalLink className="w-3 h-3 opacity-60" />
+          </a>
+
+          <a
+            href={SITE_LINKS.projects.unicare.repo}
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2.5 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-800 text-xs font-medium transition-all inline-flex items-center gap-2 hover:scale-[1.01] active:scale-[0.99]"
+          >
+            <span>View Source Code</span>
+            <ExternalLink className="w-3 h-3 opacity-60" />
+          </a>
+        </div>
+
         {/* Quick Specs */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Role</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Product Strategy & Development</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Product Architect & Builder</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Status</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">MVP Live</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">MVP Live in Production</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Core Tech</span>
@@ -94,9 +120,11 @@ export const UniCareDetail: React.FC = () => {
         <h2 className="text-2xl font-semibold text-gray-900">What I Built</h2>
         <div className="space-y-3">
           {features.map((item, idx) => (
-            <div
+            <motion.div
               key={item.title}
-              className="p-4 rounded-xl border border-gray-200 bg-white space-y-1"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+              className="p-4 rounded-xl border border-gray-200 bg-white space-y-1 hover:border-gray-300"
             >
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded bg-gray-100 flex items-center justify-center text-[11px] font-mono text-gray-600">
@@ -107,7 +135,7 @@ export const UniCareDetail: React.FC = () => {
               <p className="text-xs sm:text-sm text-gray-600 pl-7 leading-relaxed font-normal">
                 {item.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

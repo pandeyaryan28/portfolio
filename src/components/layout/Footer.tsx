@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from '../../context/RouterContext';
 
+import { SITE_LINKS } from '../../data/links';
+
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -16,43 +18,43 @@ export const Footer: React.FC = () => {
             Aryan Pandey
           </Link>
           <p className="text-xs text-gray-500 mt-0.5">
-            Software engineer and hardware builder.
+            Innovator and builder.
           </p>
         </div>
 
         {/* Links */}
         <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-gray-600">
-          <Link to="/work" className="hover:text-gray-950">
+          <Link to="/work" className="hover:text-gray-950 transition-colors">
             Projects
           </Link>
-          <Link to="/writing" className="hover:text-gray-950">
+          <Link to="/writing" className="hover:text-gray-950 transition-colors">
             Writing
           </Link>
-          <Link to="/about" className="hover:text-gray-950">
+          <Link to="/about" className="hover:text-gray-950 transition-colors">
             About
           </Link>
-          <Link to="/contact" className="hover:text-gray-950">
+          <Link to="/contact" className="hover:text-gray-950 transition-colors">
             Contact
           </Link>
           <a
-            href="https://github.com/aryanpandey28"
+            href={SITE_LINKS.profile.github}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-gray-950"
+            className="hover:text-gray-950 transition-colors"
           >
             GitHub
           </a>
           <a
-            href="https://linkedin.com"
+            href={SITE_LINKS.profile.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-gray-950"
+            className="hover:text-gray-950 transition-colors"
           >
             LinkedIn
           </a>
           <a
-            href="mailto:aryanpandey.build@gmail.com"
-            className="hover:text-gray-950"
+            href={`mailto:${SITE_LINKS.profile.email}`}
+            className="hover:text-gray-950 transition-colors"
           >
             Email
           </a>
