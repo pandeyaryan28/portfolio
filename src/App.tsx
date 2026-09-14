@@ -1,7 +1,12 @@
 import React from 'react';
 import { RouterProvider, useRouter } from './context/RouterContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { SoundProvider } from './context/SoundContext';
+import { ToastProvider } from './components/ui/Toast';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
+import { CustomCursor } from './components/ui/CustomCursor';
+import { ScrollProgress } from './components/ui/ScrollProgress';
 import { HomePage } from './pages/HomePage';
 import { UniCareDetail } from './pages/UniCareDetail';
 import { GuildOrbitDetail } from './pages/GuildOrbitDetail';
@@ -32,12 +37,18 @@ const MainContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-canvas text-ink-primary relative selection:bg-neutral-900 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-canvas dark:bg-canvas-dark text-ink-primary dark:text-ink-dark-primary relative selection:bg-amber-500 selection:text-black transition-colors duration-400">
+      {/* Top Scroll Progress Bar */}
+      <ScrollProgress />
+
+      {/* Interactive Custom Cursor */}
+      <CustomCursor />
+
       {/* Background subtle noise and fine atmospheric mesh */}
       <div className="fixed inset-0 bg-noise opacity-40 pointer-events-none -z-20" />
       <div className="fixed inset-0 subtle-grid opacity-30 pointer-events-none -z-20" />
 
-      {/* Floating Glass Navigation Bar */}
+      {/* Floating Glass Navigation Bar with Command Menu */}
       <Navbar />
 
       {/* Main Routed Content Stage */}
@@ -47,7 +58,7 @@ const MainContent: React.FC = () => {
         </AnimatePresence>
       </main>
 
-      {/* Minimal Footer */}
+      {/* Architectural Colophon Footer */}
       <Footer />
     </div>
   );
@@ -55,9 +66,15 @@ const MainContent: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <RouterProvider>
-      <MainContent />
-    </RouterProvider>
+    <ThemeProvider>
+      <SoundProvider>
+        <ToastProvider>
+          <RouterProvider>
+            <MainContent />
+          </RouterProvider>
+        </ToastProvider>
+      </SoundProvider>
+    </ThemeProvider>
   );
 };
 

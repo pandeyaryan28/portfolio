@@ -4,13 +4,16 @@ import { EbookCard } from './EbookCard';
 
 export const EbooksSection: React.FC = () => {
   return (
-    <section id="ebooks" className="py-16 sm:py-24 px-6 sm:px-10 max-w-5xl mx-auto border-t border-ink-border/50">
+    <section id="ebooks" className="py-20 sm:py-28 px-4 sm:px-8 max-w-6xl mx-auto border-t border-ink-border/60 dark:border-white/10">
       {/* Section Header */}
       <div className="mb-12 sm:mb-16 max-w-2xl">
-        <SectionBadge label="03 / EBOOKS" />
-        <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-sans font-medium tracking-tight text-ink-primary leading-tight text-balance">
-          Long-form writing on technology, systems and the forces shaping the world.
+        <SectionBadge label="PUBLICATIONS & ESSAYS" index="03" />
+        <h2 className="mt-4 text-3xl sm:text-5xl font-sans font-medium tracking-tight text-ink-primary dark:text-ink-dark-primary leading-[1.1] text-balance">
+          Long-form writing on systemic shifts, technology, and economic incentives.
         </h2>
+        <p className="mt-3.5 text-sm sm:text-base text-ink-secondary dark:text-ink-dark-secondary font-light leading-relaxed">
+          Deep dives into macroeconomic rewrites, cryptographic state ownership, compute scaling laws, and sovereign distribution architectures.
+        </p>
       </div>
 
       {/* Main Ebook Card */}

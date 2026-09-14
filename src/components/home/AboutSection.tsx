@@ -1,20 +1,27 @@
 import React from 'react';
 import { useRouter } from '../../context/RouterContext';
+import { useSound } from '../../context/SoundContext';
 import { SectionBadge } from '../ui/SectionBadge';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const AboutSection: React.FC = () => {
   const { navigate } = useRouter();
+  const { playClick } = useSound();
+
+  const handleLinkClick = (path: string) => {
+    playClick();
+    navigate(path);
+  };
 
   return (
-    <section id="about" className="py-16 sm:py-24 px-6 sm:px-10 max-w-5xl mx-auto border-t border-ink-border/50">
-      <div className="mb-8">
-        <SectionBadge label="ABOUT" />
+    <section id="about" className="py-20 sm:py-28 px-4 sm:px-8 max-w-6xl mx-auto border-t border-ink-border/60 dark:border-white/10">
+      <div className="mb-10">
+        <SectionBadge label="ABOUT & LEDGER" index="05" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-        {/* Left Column: Editorial Introduction */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Left Column: Editorial Narrative */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,24 +29,30 @@ export const AboutSection: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 space-y-6"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-medium tracking-tight text-ink-primary leading-tight">
-            A little about me.
+          <h2 className="text-3xl sm:text-5xl font-sans font-medium tracking-tight text-ink-primary dark:text-ink-dark-primary leading-[1.1]">
+            A little about me, systems architecture, and 0→1 execution.
           </h2>
 
-          <div className="space-y-4 text-base sm:text-lg text-ink-secondary leading-relaxed font-light">
+          <div className="space-y-4 text-base sm:text-lg text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
             <p>
-              I'm Aryan Pandey. I like working at the intersection of products, technology and business.
+              I'm <strong className="font-medium text-ink-primary dark:text-ink-dark-primary">Aryan Pandey</strong>. I design and build systems at the intersection of products, infrastructure technology, and business economics.
             </p>
             <p>
-              Most of my work starts with a question: <span className="text-ink-primary font-normal">what would this look like if we built it differently?</span>
+              Most of my work begins with a first-principles inquiry:{' '}
+              <span className="font-serif italic font-normal text-ink-primary dark:text-ink-dark-primary">
+                what would this look like if we engineered it from the fundamental ground up?
+              </span>
             </p>
             <p>
-              I enjoy taking ambiguous problems, breaking them down, understanding the system around them and turning the interesting parts into something tangible.
+              I take ambiguous, structurally broken problems—whether that’s fragmented healthcare records across clinical silos, unsearchable organizational chat decisions, or acoustic privacy in public spaces—dissect the systemic forces around them, and turn the essential invariants into tangible, high-conviction prototypes and products.
+            </p>
+            <p>
+              I don't treat software, hardware, and distribution as isolated disciplines. Coherent systems win when code architecture, physical human ergonomics, and network distribution incentives reinforce each other seamlessly.
             </p>
           </div>
         </motion.div>
 
-        {/* Right Column: Compact "Now" & Living Ledger */}
+        {/* Right Column: Living Ledger & Current Focus */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,81 +60,96 @@ export const AboutSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5"
         >
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-ink-border shadow-glass-sm space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-ink-border/60">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-ink-primary">
-                Now / Ledger
+          <div className="bg-white/85 dark:bg-[#101015] backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-ink-border dark:border-white/10 shadow-glass-md space-y-6">
+            <div className="flex items-center justify-between pb-4 border-b border-ink-border/60 dark:border-white/10">
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-ink-primary dark:text-ink-dark-primary">
+                Now / Living Ledger
               </span>
-              <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">
+              <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/60">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                ACTIVE
+                ACTIVE SPRINT
               </span>
             </div>
 
             {/* Currently Active */}
             <div className="space-y-4">
               <div>
-                <span className="font-mono text-[10px] text-ink-tertiary uppercase tracking-widest block mb-2">
-                  Building
+                <span className="font-mono text-[10px] text-amber-600 dark:text-amber-400 uppercase tracking-widest block mb-2 font-semibold">
+                  Active Engineering
                 </span>
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <button
-                    onClick={() => navigate('/work/unicare')}
-                    className="w-full flex items-center justify-between p-2 rounded-lg bg-stone-50/80 hover:bg-stone-100/90 text-xs font-medium text-ink-primary transition-all text-left group"
+                    onClick={() => handleLinkClick('/work/unicare')}
+                    data-cursor-text="VIEW"
+                    className="w-full flex items-center justify-between p-3 rounded-xl bg-stone-50 dark:bg-stone-900/60 hover:bg-stone-100 dark:hover:bg-stone-800 text-xs font-medium text-ink-primary dark:text-ink-dark-primary transition-all text-left group border border-ink-border/40 dark:border-white/5"
                   >
-                    <span>UniCare</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-ink-tertiary group-hover:text-ink-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    <div>
+                      <span className="font-semibold block">UniCare</span>
+                      <span className="text-[10px] font-mono text-ink-tertiary dark:text-ink-dark-tertiary">
+                        Clinical OS · Telemetry & FEFO Engine
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-ink-tertiary group-hover:text-ink-primary dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                   </button>
+
                   <button
-                    onClick={() => navigate('/ongoing/nullwave')}
-                    className="w-full flex items-center justify-between p-2 rounded-lg bg-stone-50/80 hover:bg-stone-100/90 text-xs font-medium text-ink-primary transition-all text-left group"
+                    onClick={() => handleLinkClick('/ongoing/nullwave')}
+                    data-cursor-text="VIEW"
+                    className="w-full flex items-center justify-between p-3 rounded-xl bg-stone-50 dark:bg-stone-900/60 hover:bg-stone-100 dark:hover:bg-stone-800 text-xs font-medium text-ink-primary dark:text-ink-dark-primary transition-all text-left group border border-ink-border/40 dark:border-white/5"
                   >
-                    <span>NullWave</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-ink-tertiary group-hover:text-ink-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    <div>
+                      <span className="font-semibold block">NullWave</span>
+                      <span className="text-[10px] font-mono text-ink-tertiary dark:text-ink-dark-tertiary">
+                        Hardware Prototype · Acoustic Containment
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-ink-tertiary group-hover:text-ink-primary dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                   </button>
                 </div>
               </div>
 
               <div>
-                <span className="font-mono text-[10px] text-ink-tertiary uppercase tracking-widest block mb-2">
+                <span className="font-mono text-[10px] text-amber-600 dark:text-amber-400 uppercase tracking-widest block mb-2 font-semibold">
                   Writing
                 </span>
                 <button
-                  onClick={() => navigate('/ongoing/building-distribution')}
-                  className="w-full flex items-center justify-between p-2 rounded-lg bg-stone-50/80 hover:bg-stone-100/90 text-xs font-medium text-ink-primary transition-all text-left group"
+                  onClick={() => handleLinkClick('/ongoing/building-distribution')}
+                  data-cursor-text="VIEW"
+                  className="w-full flex items-center justify-between p-3 rounded-xl bg-stone-50 dark:bg-stone-900/60 hover:bg-stone-100 dark:hover:bg-stone-800 text-xs font-medium text-ink-primary dark:text-ink-dark-primary transition-all text-left group border border-ink-border/40 dark:border-white/5"
                 >
-                  <span>Building Distribution</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-ink-tertiary group-hover:text-ink-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <div>
+                    <span className="font-semibold block">Building Distribution</span>
+                    <span className="text-[10px] font-mono text-ink-tertiary dark:text-ink-dark-tertiary">
+                      Essay Collection · Sovereign Network Pipes
+                    </span>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-ink-tertiary group-hover:text-ink-primary dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </button>
               </div>
             </div>
 
             {/* Previously Built / Written */}
-            <div className="pt-4 border-t border-ink-border/60 space-y-4">
+            <div className="pt-4 border-t border-ink-border/60 dark:border-white/10 space-y-3">
               <div>
-                <span className="font-mono text-[10px] text-ink-tertiary uppercase tracking-widest block mb-2">
-                  Previously Built
+                <span className="font-mono text-[10px] text-ink-tertiary dark:text-ink-dark-tertiary uppercase tracking-widest block mb-2">
+                  Previously Built & Published
                 </span>
-                <button
-                  onClick={() => navigate('/work/guild-orbit')}
-                  className="w-full flex items-center justify-between p-2 rounded-lg bg-stone-50/80 hover:bg-stone-100/90 text-xs font-medium text-ink-primary transition-all text-left group"
-                >
-                  <span>Guild Orbit</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-ink-tertiary group-hover:text-ink-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </button>
-              </div>
-
-              <div>
-                <span className="font-mono text-[10px] text-ink-tertiary uppercase tracking-widest block mb-2">
-                  Written
-                </span>
-                <button
-                  onClick={() => navigate('/ebooks/the-system-is-being-rewritten')}
-                  className="w-full flex items-center justify-between p-2 rounded-lg bg-stone-50/80 hover:bg-stone-100/90 text-xs font-medium text-ink-primary transition-all text-left group"
-                >
-                  <span>The System Is Being Rewritten</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-ink-tertiary group-hover:text-ink-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </button>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => handleLinkClick('/work/guild-orbit')}
+                    className="p-2.5 rounded-xl bg-stone-50/70 dark:bg-stone-900/40 hover:bg-stone-100 dark:hover:bg-stone-800 text-left transition-all border border-ink-border/40 dark:border-white/5"
+                  >
+                    <span className="text-xs font-semibold text-ink-primary dark:text-ink-dark-primary block">Guild Orbit</span>
+                    <span className="text-[10px] font-mono text-ink-tertiary dark:text-ink-dark-tertiary">Workspace OS</span>
+                  </button>
+                  <button
+                    onClick={() => handleLinkClick('/ebooks/the-system-is-being-rewritten')}
+                    className="p-2.5 rounded-xl bg-stone-50/70 dark:bg-stone-900/40 hover:bg-stone-100 dark:hover:bg-stone-800 text-left transition-all border border-ink-border/40 dark:border-white/5"
+                  >
+                    <span className="text-xs font-semibold text-ink-primary dark:text-ink-dark-primary block">The System</span>
+                    <span className="text-[10px] font-mono text-ink-tertiary dark:text-ink-dark-tertiary">Book (100+ pgs)</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

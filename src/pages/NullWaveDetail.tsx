@@ -3,6 +3,7 @@ import { useRouter } from '../context/RouterContext';
 import { StatusPill } from '../components/ui/StatusPill';
 import { SectionBadge } from '../components/ui/SectionBadge';
 import { HardwareRenderNullWave } from '../components/visual/HardwareRenderNullWave';
+import { useSound } from '../context/SoundContext';
 import { ArrowLeft, Sparkles, MicOff, Wind, Volume2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -13,6 +14,7 @@ interface NullWaveDetailProps {
 
 export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false, onClose }) => {
   const { navigate } = useRouter();
+  const { playClick } = useSound();
 
   const corePillars = [
     {
@@ -57,6 +59,7 @@ export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false,
   ];
 
   const handleBack = () => {
+    playClick();
     if (isModal && onClose) {
       onClose();
     } else {
@@ -70,13 +73,13 @@ export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false,
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className={`max-w-4xl mx-auto ${isModal ? 'py-4' : 'min-h-screen pt-28 pb-24 px-6 sm:px-10'}`}
+      className={`max-w-4xl mx-auto ${isModal ? 'py-4' : 'min-h-screen pt-28 pb-24 px-4 sm:px-8'}`}
     >
       {/* Back Button */}
       {!isModal && (
         <button
           onClick={handleBack}
-          className="inline-flex items-center gap-2 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-colors mb-10 group"
+          className="inline-flex items-center gap-2 text-xs font-mono text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-ink-dark-primary transition-colors mb-10 group"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
           <span>BACK TO ARCHIVE</span>
@@ -86,32 +89,32 @@ export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false,
       {/* Header Info */}
       <div className="space-y-6 max-w-3xl">
         <div className="flex flex-wrap items-center gap-3">
-          <SectionBadge label="PROJECT 03" />
-          <span className="font-mono text-xs text-ink-tertiary">/</span>
-          <span className="font-mono text-xs text-ink-secondary uppercase">Hardware / Product</span>
+          <SectionBadge label="HARDWARE 03" index="PROTOTYPE" />
+          <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">/</span>
+          <span className="font-mono text-xs text-ink-secondary dark:text-ink-dark-secondary uppercase">Hardware / Product</span>
           <StatusPill status="IN DEVELOPMENT" type="development" />
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-sans font-medium tracking-tight text-ink-primary">
+        <h1 className="text-4xl sm:text-6xl font-sans font-medium tracking-tight text-ink-primary dark:text-ink-dark-primary">
           NullWave
         </h1>
 
-        <p className="text-lg sm:text-xl text-ink-secondary leading-relaxed font-light">
+        <p className="text-lg sm:text-xl text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
           Exploring the intersection of function, form and identity through a new generation of ergonomic wearable hardware.
         </p>
 
-        <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 border-y border-ink-border/60 py-4 text-xs font-mono">
+        <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 border-y border-ink-border/60 dark:border-white/10 py-4 text-xs font-mono">
           <div>
-            <span className="text-ink-tertiary block text-[10px] uppercase">Core Mission</span>
-            <span className="text-ink-primary font-medium">Building the Future of Voice</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Core Mission</span>
+            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Building the Future of Voice</span>
           </div>
           <div>
-            <span className="text-ink-tertiary block text-[10px] uppercase">Current Phase</span>
-            <span className="text-ink-primary font-medium">Prototyping & Form Studies</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Current Phase</span>
+            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Prototyping & Form Studies</span>
           </div>
           <div>
-            <span className="text-ink-tertiary block text-[10px] uppercase">Category</span>
-            <span className="text-ink-primary font-medium">Wearable Voice Privacy</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Category</span>
+            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Wearable Voice Privacy</span>
           </div>
         </div>
       </div>
@@ -125,14 +128,14 @@ export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false,
       <div className="space-y-14 max-w-3xl">
         {/* Core Thesis */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary tracking-tight">
+          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
             Design Thesis & Identity
           </h2>
-          <div className="p-6 rounded-2xl bg-canvas-soft border-l-2 border-l-neutral-900 border-y border-r border-ink-border/80">
-            <p className="text-lg sm:text-xl font-serif italic text-ink-primary">
+          <div className="p-6 rounded-2xl bg-canvas-soft dark:bg-stone-900/60 border-l-2 border-l-neutral-900 dark:border-l-white border-y border-r border-ink-border/80 dark:border-white/10">
+            <p className="text-lg sm:text-xl font-serif italic text-ink-primary dark:text-ink-dark-primary">
               “The future of voice interaction is not possible without privacy.”
             </p>
-            <p className="mt-3 text-sm text-ink-secondary leading-relaxed font-light">
+            <p className="mt-3 text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
               As AI models become voice-first and remote collaboration dominates, speaking aloud in shared or public environments remains a major friction point. NullWave solves acoustic leakage while crafting an understated, premium fashion statement.
             </p>
           </div>
@@ -140,7 +143,7 @@ export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false,
 
         {/* Feature Matrix */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary tracking-tight">
+          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
             Hardware & Acoustic Subsystems
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -149,13 +152,13 @@ export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false,
               return (
                 <div
                   key={item.title}
-                  className="p-5 rounded-2xl bg-white/90 border border-ink-border/60 hover:border-ink-border transition-all space-y-2"
+                  className="p-5 rounded-2xl bg-white/90 dark:bg-stone-900/80 border border-ink-border/60 dark:border-white/10 hover:border-ink-border dark:hover:border-white/20 transition-all space-y-2 shadow-xs"
                 >
-                  <div className="flex items-center gap-2 text-ink-primary">
-                    <Icon className="w-4 h-4 text-amber-600" />
+                  <div className="flex items-center gap-2 text-ink-primary dark:text-ink-dark-primary">
+                    <Icon className="w-4 h-4 text-amber-500" />
                     <h3 className="text-sm font-semibold">{item.title}</h3>
                   </div>
-                  <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
                     {item.desc}
                   </p>
                 </div>
@@ -167,23 +170,23 @@ export const NullWaveDetail: React.FC<NullWaveDetailProps> = ({ isModal = false,
         {/* Design Iterations */}
         <section className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-sans font-semibold text-ink-primary tracking-tight">
+            <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
               Design Iterations & Physical Studies
             </h2>
-            <span className="font-mono text-xs text-ink-tertiary">04 CYCLES</span>
+            <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">04 CYCLES</span>
           </div>
 
           <div className="space-y-3">
             {iterationStudies.map((study) => (
               <div
                 key={study.phase}
-                className="p-5 rounded-2xl bg-white/80 border border-ink-border/60 space-y-1.5"
+                className="p-5 rounded-2xl bg-white/80 dark:bg-stone-900/60 border border-ink-border/60 dark:border-white/10 space-y-1.5 shadow-xs"
               >
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                  <h3 className="text-sm font-semibold text-ink-primary font-mono">{study.phase}</h3>
+                  <h3 className="text-sm font-semibold text-ink-primary dark:text-ink-dark-primary font-mono">{study.phase}</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-light pl-3.5">
+                <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light pl-3.5">
                   {study.focus}
                 </p>
               </div>

@@ -3,7 +3,7 @@ import { BookOpen, Bookmark } from 'lucide-react';
 
 export const BookMockupDistribution: React.FC = () => {
   return (
-    <div className="w-full flex items-center justify-center p-4 sm:p-8 bg-[#F4F3ED] rounded-2xl border border-ink-border relative overflow-hidden group">
+    <div className="w-full flex items-center justify-center p-4 sm:p-8 bg-[#F4F3ED] dark:bg-[#15151A] rounded-2xl border border-ink-border dark:border-white/10 relative overflow-hidden group">
       {/* Subtle paper grain & warm shadow */}
       <div className="absolute inset-0 bg-noise opacity-40 pointer-events-none" />
 
@@ -35,7 +35,7 @@ export const BookMockupDistribution: React.FC = () => {
         <div className="pt-6 border-t border-stone-800 flex items-end justify-between">
           <div>
             <span className="text-[10px] font-mono uppercase text-stone-400 tracking-wider">Author</span>
-            <p className="text-xs font-medium text-stone-200">Aryan Pandey</p>
+            <p className="text-xs font-medium text-stone-200 font-mono">Aryan Pandey</p>
           </div>
           <span className="font-mono text-[10px] bg-stone-800/80 px-2 py-0.5 rounded text-amber-300/90 border border-stone-700">
             WRITING

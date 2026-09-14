@@ -1,45 +1,56 @@
 import React, { useState } from 'react';
 import { TrendingDown, TrendingUp, Sparkles, AlertCircle } from 'lucide-react';
+import { useSound } from '../../context/SoundContext';
 
 export const DistributionInteractiveMatrix: React.FC = () => {
   const [model, setModel] = useState<'audience' | 'distribution'>('distribution');
-  const [stepMonths, setStepMonths] = useState<number>(12);
+  const [stepMonths, setStepMonths] = useState<number>(18);
+  const { playTick, playClick } = useSound();
+
+  const audienceValue = Math.round(stepMonths * 14 + (stepMonths > 12 ? -15 : 10));
+  const distributionValue = Math.round(Math.pow(stepMonths, 1.45) * 6.5);
 
   return (
-    <div className="w-full bg-[#FAF9F5] rounded-3xl p-5 sm:p-8 border border-ink-border shadow-glass-sm space-y-6">
+    <div className="w-full bg-[#FAF9F5] dark:bg-[#121217] rounded-3xl p-5 sm:p-8 border border-ink-border dark:border-white/10 shadow-glass-sm space-y-6">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-ink-border/60">
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-ink-border/60 dark:border-white/10">
         <div>
-          <span className="font-mono text-[10px] text-ink-tertiary uppercase tracking-wider block">
-            Interactive Theoretical Framework
+          <span className="font-mono text-[10px] text-amber-600 dark:text-amber-400 uppercase tracking-wider block font-semibold">
+            Interactive Theoretical Simulator
           </span>
-          <h4 className="text-base font-semibold text-ink-primary">
-            Audience Vanity vs. Distribution Pipelines
+          <h4 className="text-base font-semibold text-ink-primary dark:text-ink-dark-primary">
+            Vanity Impressions vs. Embedded Distribution Pipes
           </h4>
         </div>
 
         {/* Model Toggle */}
-        <div className="flex items-center bg-white p-1 rounded-xl border border-ink-border text-xs">
+        <div className="flex items-center bg-white dark:bg-black/60 p-1 rounded-xl border border-ink-border dark:border-white/10 text-xs">
           <button
-            onClick={() => setModel('audience')}
+            onClick={() => {
+              playClick();
+              setModel('audience');
+            }}
             className={`px-3 py-1.5 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1.5 ${
               model === 'audience'
-                ? 'bg-stone-900 text-white shadow-xs'
-                : 'text-ink-secondary hover:text-ink-primary'
+                ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-xs'
+                : 'text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-ink-dark-primary'
             }`}
           >
-            <TrendingDown className="w-3.5 h-3.5 text-amber-400" />
+            <TrendingDown className="w-3.5 h-3.5 text-amber-500" />
             Audience Model
           </button>
           <button
-            onClick={() => setModel('distribution')}
+            onClick={() => {
+              playClick();
+              setModel('distribution');
+            }}
             className={`px-3 py-1.5 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1.5 ${
               model === 'distribution'
-                ? 'bg-stone-900 text-white shadow-xs'
-                : 'text-ink-secondary hover:text-ink-primary'
+                ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-xs'
+                : 'text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-ink-dark-primary'
             }`}
           >
-            <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+            <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
             Distribution System
           </button>
         </div>
@@ -50,43 +61,43 @@ export const DistributionInteractiveMatrix: React.FC = () => {
         {/* Left Column: Dynamics */}
         <div className="space-y-4 text-xs">
           {model === 'audience' ? (
-            <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2">
-              <div className="flex items-center gap-2 text-amber-900 font-semibold">
-                <AlertCircle className="w-4 h-4 text-amber-600" />
-                <span>The Algorithmic Treadmill</span>
+            <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 space-y-2.5">
+              <div className="flex items-center gap-2 text-amber-900 dark:text-amber-300 font-semibold">
+                <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                <span>The Algorithmic Rented Treadmill</span>
               </div>
-              <p className="text-amber-800 leading-relaxed font-light">
-                Follower counts create the illusion of reach, but reach is taxed by platform algorithm decay (~2-5% organic delivery). When posting stops, flow halts completely.
+              <p className="text-amber-800 dark:text-amber-200 leading-relaxed font-light">
+                Follower counts give the illusion of leverage, but reach is continuously taxed by third-party platform algorithm decay (~2-4% organic reach). When broadcasting pauses, value flow plummets immediately.
               </p>
-              <div className="pt-2 font-mono text-[11px] text-amber-900 space-y-1">
-                <div>• Asset Ownership: Rented from third-party networks</div>
-                <div>• Transfer Cost: Escalating per cycle</div>
-                <div>• Compounding Rate: Near 0 (Ephemeral)</div>
+              <div className="pt-2 font-mono text-[11px] text-amber-900 dark:text-amber-300 space-y-1">
+                <div>• Asset Ownership: Rented from walled platforms</div>
+                <div>• Marginal Cost of Retargeting: Escalating linearly</div>
+                <div>• Compounding Gravity: Approaches 0 (Ephemeral)</div>
               </div>
             </div>
           ) : (
-            <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 space-y-2">
-              <div className="flex items-center gap-2 text-emerald-900 font-semibold">
-                <Sparkles className="w-4 h-4 text-emerald-600" />
-                <span>Embedded Structural Pipes</span>
+            <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/60 space-y-2.5">
+              <div className="flex items-center gap-2 text-emerald-900 dark:text-emerald-300 font-semibold">
+                <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <span>Embedded Structural Distribution Pipes</span>
               </div>
-              <p className="text-emerald-800 leading-relaxed font-light">
-                Distribution is built into workflow loops, integrations, direct protocols, and sovereign incentives. The system delivers value automatically without perpetual broadcasting.
+              <p className="text-emerald-800 dark:text-emerald-200 leading-relaxed font-light">
+                Distribution is engineered into product workflow loops, programmatic integrations, direct protocols, and sovereign incentives. Value delivers automatically without continuous broadcast panic.
               </p>
-              <div className="pt-2 font-mono text-[11px] text-emerald-900 space-y-1">
+              <div className="pt-2 font-mono text-[11px] text-emerald-900 dark:text-emerald-300 space-y-1">
                 <div>• Asset Ownership: Sovereign & self-hosted</div>
-                <div>• Transfer Cost: Marginal cost approaches zero</div>
-                <div>• Compounding Rate: Non-linear network gravity</div>
+                <div>• Marginal Cost of Delivery: Approaches zero</div>
+                <div>• Compounding Gravity: Non-linear network flywheel</div>
               </div>
             </div>
           )}
         </div>
 
         {/* Right Column: Interactive Velocity Comparison */}
-        <div className="bg-white p-5 rounded-2xl border border-ink-border space-y-4">
+        <div className="bg-white dark:bg-stone-900/70 p-5 rounded-2xl border border-ink-border dark:border-white/10 space-y-4">
           <div className="flex justify-between items-center text-xs font-mono">
-            <span className="text-ink-tertiary uppercase">Time Horizon</span>
-            <span className="font-semibold text-ink-primary">{stepMonths} Months Projection</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary uppercase">Time Horizon</span>
+            <span className="font-semibold text-ink-primary dark:text-ink-dark-primary">{stepMonths} Months Projection</span>
           </div>
 
           <input
@@ -95,35 +106,42 @@ export const DistributionInteractiveMatrix: React.FC = () => {
             max="36"
             step="3"
             value={stepMonths}
-            onChange={(e) => setStepMonths(Number(e.target.value))}
-            className="w-full accent-neutral-900 cursor-pointer"
+            onChange={(e) => {
+              playTick();
+              setStepMonths(Number(e.target.value));
+            }}
+            className="w-full accent-amber-500 cursor-pointer"
           />
 
           <div className="space-y-3 pt-2">
             <div>
-              <div className="flex justify-between text-xs mb-1">
-                <span className="text-ink-secondary">Effective Value Transferred</span>
-                <span className="font-mono font-semibold text-ink-primary">
+              <div className="flex justify-between text-xs mb-1 font-mono">
+                <span className="text-ink-secondary dark:text-ink-dark-secondary">Effective Value Transferred</span>
+                <span className="font-semibold text-ink-primary dark:text-ink-dark-primary">
                   {model === 'distribution'
-                    ? `${Math.round(Math.pow(stepMonths, 1.4) * 8)} Units (Compounding)`
-                    : `${Math.round(stepMonths * 12 + Math.random() * 5)} Units (Plateauing)`}
+                    ? `${distributionValue} Units (Exponential Pipe)`
+                    : `${audienceValue} Units (Algorithm Plateau)`}
                 </span>
               </div>
-              <div className="w-full bg-stone-100 h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-stone-100 dark:bg-stone-800 h-2.5 rounded-full overflow-hidden">
                 <div
                   className={`h-full transition-all duration-300 rounded-full ${
-                    model === 'distribution' ? 'bg-emerald-600' : 'bg-amber-500'
+                    model === 'distribution' ? 'bg-emerald-500' : 'bg-amber-500'
                   }`}
                   style={{
                     width: `${Math.min(
-                      model === 'distribution'
-                        ? (Math.pow(stepMonths, 1.4) * 8) / 12
-                        : (stepMonths * 12) / 6,
+                      model === 'distribution' ? (distributionValue / 720) * 100 : (audienceValue / 400) * 100,
                       100
                     )}%`,
                   }}
                 />
               </div>
+            </div>
+
+            <div className="pt-2 flex justify-between text-[10px] font-mono text-ink-tertiary dark:text-ink-dark-tertiary">
+              <span>M0: Setup</span>
+              <span>M18: Inflection</span>
+              <span>M36: Moat Established</span>
             </div>
           </div>
         </div>

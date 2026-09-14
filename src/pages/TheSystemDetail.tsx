@@ -3,6 +3,7 @@ import { useRouter } from '../context/RouterContext';
 import { StatusPill } from '../components/ui/StatusPill';
 import { SectionBadge } from '../components/ui/SectionBadge';
 import { BookMockupTheSystem } from '../components/visual/BookMockupTheSystem';
+import { useSound } from '../context/SoundContext';
 import { ArrowLeft, Type } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -13,6 +14,7 @@ interface TheSystemDetailProps {
 
 export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = false, onClose }) => {
   const { navigate } = useRouter();
+  const { playClick, playTick } = useSound();
   const [selectedExcerpt, setSelectedExcerpt] = useState<number>(0);
   const [fontSize, setFontSize] = useState<'normal' | 'large'>('normal');
 
@@ -44,6 +46,7 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
   ];
 
   const handleBack = () => {
+    playClick();
     if (isModal && onClose) {
       onClose();
     } else {
@@ -57,13 +60,13 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className={`max-w-4xl mx-auto ${isModal ? 'py-4' : 'min-h-screen pt-28 pb-24 px-6 sm:px-10'}`}
+      className={`max-w-4xl mx-auto ${isModal ? 'py-4' : 'min-h-screen pt-28 pb-24 px-4 sm:px-8'}`}
     >
       {/* Back Button */}
       {!isModal && (
         <button
           onClick={handleBack}
-          className="inline-flex items-center gap-2 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-colors mb-10 group"
+          className="inline-flex items-center gap-2 text-xs font-mono text-ink-secondary dark:text-ink-dark-secondary hover:text-ink-primary dark:hover:text-ink-dark-primary transition-colors mb-10 group"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
           <span>BACK TO ARCHIVE</span>
@@ -73,39 +76,39 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
       {/* Header Info */}
       <div className="space-y-6 max-w-3xl">
         <div className="flex flex-wrap items-center gap-3">
-          <SectionBadge label="PUBLICATION" />
-          <span className="font-mono text-xs text-ink-tertiary">/</span>
-          <span className="font-mono text-xs text-ink-secondary uppercase">Long-form Essay Collection</span>
+          <SectionBadge label="PUBLICATION 05" index="BOOK" />
+          <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">/</span>
+          <span className="font-mono text-xs text-ink-secondary dark:text-ink-dark-secondary uppercase">Long-form Essay Collection</span>
           <StatusPill status="PUBLISHED" type="published" />
-          <span className="font-mono text-[11px] px-2.5 py-1 rounded-full bg-stone-100 text-ink-secondary border border-ink-border">
+          <span className="font-mono text-[11px] px-2.5 py-1 rounded-full bg-stone-100 dark:bg-stone-900 text-ink-secondary dark:text-ink-dark-secondary border border-ink-border dark:border-white/10">
             100+ PAGES
           </span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-serif font-normal tracking-tight text-ink-primary leading-[1.12]">
+        <h1 className="text-4xl sm:text-6xl font-serif font-normal tracking-tight text-ink-primary dark:text-ink-dark-primary leading-[1.12]">
           The System Is Being Rewritten
         </h1>
 
-        <p className="text-lg sm:text-xl text-ink-secondary leading-relaxed font-light">
+        <p className="text-lg sm:text-xl text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
           Understanding the Forces Shaping the Next Global Order.
         </p>
 
-        <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 border-y border-ink-border/60 py-4 text-xs font-mono">
+        <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 border-y border-ink-border/60 dark:border-white/10 py-4 text-xs font-mono">
           <div>
-            <span className="text-ink-tertiary block text-[10px] uppercase">Author</span>
-            <span className="text-ink-primary font-medium">Aryan Pandey</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Author</span>
+            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Aryan Pandey</span>
           </div>
           <div>
-            <span className="text-ink-tertiary block text-[10px] uppercase">Pages</span>
-            <span className="text-ink-primary font-medium">100+ Pages</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Pages</span>
+            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">100+ Pages</span>
           </div>
           <div>
-            <span className="text-ink-tertiary block text-[10px] uppercase">Status</span>
-            <span className="text-ink-primary font-medium">Published</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Status</span>
+            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Published</span>
           </div>
           <div>
-            <span className="text-ink-tertiary block text-[10px] uppercase">Access</span>
-            <span className="text-ink-primary font-medium">Open Archive</span>
+            <span className="text-ink-tertiary dark:text-ink-dark-tertiary block text-[10px] uppercase">Access</span>
+            <span className="text-ink-primary dark:text-ink-dark-primary font-medium">Open Archive</span>
           </div>
         </div>
       </div>
@@ -119,10 +122,10 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
       <div className="space-y-14 max-w-3xl">
         {/* Introduction */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-sans font-semibold text-ink-primary tracking-tight">
+          <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
             Introduction
           </h2>
-          <div className="text-base text-ink-secondary leading-relaxed font-light space-y-4">
+          <div className="text-base text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light space-y-4">
             <p>
               An exploration of the technological, economic, geopolitical and societal forces reshaping the world, and how these forces are changing the systems we rely on.
             </p>
@@ -136,15 +139,18 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
         <section className="space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <h2 className="text-2xl font-sans font-semibold text-ink-primary tracking-tight">
+              <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
                 Selected Excerpts
               </h2>
-              <span className="font-mono text-xs text-ink-tertiary">3 PASSAGES</span>
+              <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">3 PASSAGES</span>
             </div>
 
             <button
-              onClick={() => setFontSize(fontSize === 'normal' ? 'large' : 'normal')}
-              className="px-2.5 py-1 rounded-lg border border-ink-border bg-white text-xs font-mono flex items-center gap-1 hover:bg-stone-50"
+              onClick={() => {
+                playTick();
+                setFontSize(fontSize === 'normal' ? 'large' : 'normal');
+              }}
+              className="px-2.5 py-1 rounded-lg border border-ink-border dark:border-white/10 bg-white dark:bg-stone-900 text-xs font-mono flex items-center gap-1 hover:bg-stone-50 dark:hover:bg-stone-800"
             >
               <Type className="w-3 h-3" />
               <span>{fontSize === 'normal' ? '1x Text' : '1.2x Text'}</span>
@@ -156,11 +162,14 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
             {excerpts.map((excerpt, idx) => (
               <button
                 key={excerpt.title}
-                onClick={() => setSelectedExcerpt(idx)}
+                onClick={() => {
+                  playTick();
+                  setSelectedExcerpt(idx);
+                }}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all ${
                   selectedExcerpt === idx
-                    ? 'bg-neutral-900 text-white shadow-xs'
-                    : 'bg-white/80 text-ink-secondary border border-ink-border hover:text-ink-primary'
+                    ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-xs'
+                    : 'bg-white/80 dark:bg-stone-900/80 text-ink-secondary dark:text-ink-dark-secondary border border-ink-border dark:border-white/10 hover:text-ink-primary dark:hover:text-white'
                 }`}
               >
                 0{idx + 1} / {excerpt.chapter.split('·')[0].trim()}
@@ -174,17 +183,17 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="p-6 sm:p-8 rounded-3xl bg-stone-100/80 border border-ink-border/80 space-y-4 shadow-glass-sm"
+            className="p-6 sm:p-8 rounded-3xl bg-stone-100/80 dark:bg-stone-900/60 border border-ink-border/80 dark:border-white/10 space-y-4 shadow-glass-sm"
           >
-            <div className="flex items-center justify-between text-xs font-mono text-ink-tertiary border-b border-ink-border/60 pb-3">
+            <div className="flex items-center justify-between text-xs font-mono text-ink-tertiary dark:text-ink-dark-tertiary border-b border-ink-border/60 dark:border-white/10 pb-3">
               <span>{excerpts[selectedExcerpt].chapter}</span>
               <span>ESSAY EXCERPT</span>
             </div>
-            <h3 className="text-lg font-serif font-medium text-ink-primary">
+            <h3 className="text-lg font-serif font-medium text-ink-primary dark:text-ink-dark-primary">
               {excerpts[selectedExcerpt].title}
             </h3>
             <p
-              className={`font-serif italic text-ink-secondary leading-relaxed font-normal pt-2 ${
+              className={`font-serif italic text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-normal pt-2 ${
                 fontSize === 'large' ? 'text-lg sm:text-xl' : 'text-base sm:text-lg'
               }`}
             >
@@ -196,23 +205,23 @@ export const TheSystemDetail: React.FC<TheSystemDetailProps> = ({ isModal = fals
         {/* Table of Contents */}
         <section className="space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-sans font-semibold text-ink-primary tracking-tight">
+            <h2 className="text-2xl font-sans font-semibold text-ink-primary dark:text-ink-dark-primary tracking-tight">
               Table of Contents
             </h2>
-            <span className="font-mono text-xs text-ink-tertiary">6 CHAPTERS</span>
+            <span className="font-mono text-xs text-ink-tertiary dark:text-ink-dark-tertiary">6 CHAPTERS</span>
           </div>
 
           <div className="space-y-2">
             {tableOfContents.map((chap) => (
               <div
                 key={chap.num}
-                className="flex items-center justify-between p-4 rounded-xl bg-white/85 border border-ink-border/60 text-xs sm:text-sm text-ink-primary"
+                className="flex items-center justify-between p-4 rounded-xl bg-white/85 dark:bg-stone-900/80 border border-ink-border/60 dark:border-white/10 text-xs sm:text-sm text-ink-primary dark:text-ink-dark-primary shadow-xs"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-ink-tertiary text-xs">{chap.num}</span>
+                  <span className="font-mono text-ink-tertiary dark:text-ink-dark-tertiary text-xs">{chap.num}</span>
                   <span className="font-medium">{chap.title}</span>
                 </div>
-                <span className="font-mono text-[11px] text-ink-tertiary">{chap.pages}</span>
+                <span className="font-mono text-[11px] text-ink-tertiary dark:text-ink-dark-tertiary">{chap.pages}</span>
               </div>
             ))}
           </div>

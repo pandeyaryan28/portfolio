@@ -4,38 +4,41 @@ import { BookMockupTheSystem } from '../visual/BookMockupTheSystem';
 import { ParallaxTiltCard } from '../ui/ParallaxTiltCard';
 import { ProjectDetailModal } from '../ui/ProjectDetailModal';
 import { TheSystemDetail } from '../../pages/TheSystemDetail';
+import { useSound } from '../../context/SoundContext';
 import { ArrowRight, BookOpen, Feather } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const EbookCard: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const { playClick } = useSound();
 
   const chaptersOverview = [
-    { num: '01', title: 'Macro Infrastructure & Compute Shifts', desc: 'Geopolitics of energy and silicon fabrication' },
-    { num: '02', title: 'Decentralized Institutional Trust', desc: 'Cryptographic invariants replacing bureaucratic drift' },
-    { num: '03', title: 'The Mechanics of Systemic Rewrites', desc: 'How legacy physical constraints force architectural revisions' },
+    { num: '01', title: 'Macro Infrastructure & Compute Shifts', desc: 'Geopolitics of energy density, power grids, and silicon fabrication nodes' },
+    { num: '02', title: 'Decentralized Institutional Trust', desc: 'Cryptographic state verification replacing legacy bureaucratic paper drag' },
+    { num: '03', title: 'The Mechanics of Systemic Rewrites', desc: 'Why legacy institutional debt forces complete architectural redesigns' },
   ];
 
   return (
     <>
-      <ParallaxTiltCard maxTilt={4}>
+      <ParallaxTiltCard maxTilt={3}>
         <motion.article
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-white/85 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-ink-border shadow-glass-sm hover:shadow-glass-md transition-all duration-300"
+          className="bg-white/85 dark:bg-[#101015] backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-ink-border dark:border-white/10 shadow-glass-md hover:shadow-glass-lg transition-all duration-300"
         >
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+          {/* Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-7">
             <div className="flex items-center gap-3">
-              <span className="font-mono text-xs text-ink-tertiary">01</span>
+              <span className="font-mono text-xs font-bold text-amber-600 dark:text-amber-400">05</span>
               <span className="w-1 h-1 rounded-full bg-ink-tertiary"></span>
-              <span className="font-mono text-xs text-ink-secondary uppercase tracking-wider">
-                Long-Form Publication
+              <span className="font-mono text-xs text-ink-secondary dark:text-ink-dark-secondary uppercase tracking-wider">
+                Long-Form Systems Publication
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[11px] px-2.5 py-1 rounded-full bg-stone-100 text-ink-secondary border border-ink-border">
+              <span className="font-mono text-[11px] px-2.5 py-1 rounded-full bg-stone-100 dark:bg-stone-900 text-ink-secondary dark:text-ink-dark-secondary border border-ink-border dark:border-white/10">
                 100+ PAGES
               </span>
               <StatusPill status="PUBLISHED" type="published" />
@@ -46,49 +49,55 @@ export const EbookCard: React.FC = () => {
             {/* Left Editorial Info */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-ink-tertiary uppercase tracking-wider mb-2">
-                  <Feather className="w-3 h-3 text-ink-secondary" /> Author · Aryan Pandey
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-ink-tertiary dark:text-ink-dark-tertiary uppercase tracking-wider mb-2">
+                  <Feather className="w-3.5 h-3.5 text-amber-500" /> Author · Aryan Pandey
                 </div>
-                <h3 className="text-3xl sm:text-4xl font-serif font-normal tracking-tight text-ink-primary leading-snug">
+                <h3 className="text-3xl sm:text-4xl font-serif font-normal tracking-tight text-ink-primary dark:text-ink-dark-primary leading-snug">
                   The System Is Being Rewritten
                 </h3>
-                <p className="mt-2 text-sm sm:text-base font-sans font-medium text-ink-secondary">
+                <p className="mt-2 text-sm sm:text-base font-sans font-medium text-ink-secondary dark:text-ink-dark-secondary">
                   Understanding the Forces Shaping the Next Global Order
                 </p>
               </div>
 
-              <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed font-light">
-                An exploration of the technological, economic, geopolitical and societal forces reshaping the world, and how these forces are changing the systems we rely on.
+              <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed font-light">
+                An extensive, 100+ page exploration of the technological, economic, thermodynamic, and geopolitical forces transforming modern society, examining how compute, energy, and decentralized trust are rewiring foundational human institutions.
               </p>
 
               {/* Chapters Sample Preview */}
               <div className="space-y-2 pt-1">
-                <span className="font-mono text-[10px] text-ink-tertiary uppercase tracking-wider block">
+                <span className="font-mono text-[10px] text-ink-tertiary dark:text-ink-dark-tertiary uppercase tracking-wider block font-medium">
                   Key Chapters Covered
                 </span>
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   {chaptersOverview.map((item) => (
                     <div
                       key={item.num}
-                      className="p-2.5 rounded-xl bg-stone-50/80 border border-ink-border/40 text-xs text-ink-primary flex items-start gap-2.5"
+                      className="p-3 rounded-xl bg-stone-50 dark:bg-stone-900/60 border border-ink-border/50 dark:border-white/5 text-xs text-ink-primary dark:text-ink-dark-primary flex items-start gap-3"
                     >
-                      <span className="font-mono text-[10px] text-ink-tertiary mt-0.5">{item.num}</span>
+                      <span className="font-mono text-xs font-bold text-amber-600 dark:text-amber-400 mt-0.5">
+                        {item.num}
+                      </span>
                       <div>
-                        <p className="font-medium text-ink-primary">{item.title}</p>
-                        <p className="text-[11px] text-ink-tertiary font-light">{item.desc}</p>
+                        <p className="font-medium text-ink-primary dark:text-ink-dark-primary">{item.title}</p>
+                        <p className="text-[11px] text-ink-tertiary dark:text-ink-dark-tertiary font-light mt-0.5">{item.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-ink-border/60 flex items-center justify-between">
+              <div className="pt-3 border-t border-ink-border/60 dark:border-white/10 flex items-center justify-between">
                 <button
-                  onClick={() => setModalOpen(true)}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-900 text-white text-xs sm:text-sm font-medium hover:bg-neutral-800 transition-all shadow-glass-sm"
+                  onClick={() => {
+                    playClick();
+                    setModalOpen(true);
+                  }}
+                  data-cursor-text="READ"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-stone-200 text-white dark:text-neutral-900 text-xs sm:text-sm font-medium transition-all shadow-glass-sm"
                 >
-                  <BookOpen className="w-4 h-4 text-stone-300" />
-                  <span>Read the book</span>
+                  <BookOpen className="w-4 h-4 text-stone-300 dark:text-stone-700" />
+                  <span>Read Book & Chapters</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -107,7 +116,7 @@ export const EbookCard: React.FC = () => {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         title="The System Is Being Rewritten"
-        category="eBook / Published"
+        category="Publication / Published"
       >
         <TheSystemDetail isModal={true} onClose={() => setModalOpen(false)} />
       </ProjectDetailModal>
