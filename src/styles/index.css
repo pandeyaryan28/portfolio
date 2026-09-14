@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --canvas: #FAF9F5;
+    --canvas-soft: #F4F3ED;
+    --ink-primary: #121212;
+    --ink-secondary: #52525B;
+    --border-subtle: rgba(24, 24, 27, 0.07);
+  }
+
+  html {
+    background-color: #FAF9F5;
+    color: #121212;
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #FAF9F5;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+}
+
+/* Custom subtle noise texture overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.subtle-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(24, 24, 27, 0.08);
+}
+
+.glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(24, 24, 27, 0.1);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.glass-nav {
+  background: rgba(250, 249, 245, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(24, 24, 27, 0.07);
+}
+
+.subtle-border {
+  border: 1px solid rgba(24, 24, 27, 0.07);
+}
+
+.subtle-border-b {
+  border-bottom: 1px solid rgba(24, 24, 27, 0.07);
+}
+
+.subtle-border-t {
+  border-top: 1px solid rgba(24, 24, 27, 0.07);
+}
+
+/* Text balance and typography utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(24, 24, 27, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(24, 24, 27, 0.32);
+}
