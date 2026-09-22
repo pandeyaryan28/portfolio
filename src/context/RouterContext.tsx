@@ -96,7 +96,7 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       window.location.hash = target;
     }
     setCurrentPath(target);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   return (

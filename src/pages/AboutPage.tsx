@@ -45,7 +45,12 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
       {/* Header */}
-      <div className="space-y-4">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-4"
+      >
         <div className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider inline-flex items-center gap-2">
           <span>About</span>
         </div>
@@ -55,10 +60,13 @@ export const AboutPage: React.FC = () => {
         <p className="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal max-w-2xl">
           I operate as a high-leverage product operator and systems builder. I turn ambitious strategic objectives and complex operational friction into simple, scalable, working systems.
         </p>
-      </div>
+      </motion.div>
 
       {/* Main Narrative - Subconsciously relaying strategic operator leverage */}
       <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
         whileHover={{ y: -2 }}
         transition={{ duration: 0.25 }}
         className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed shadow-xs"
@@ -99,17 +107,26 @@ export const AboutPage: React.FC = () => {
       </motion.div>
 
       {/* What I Focus On */}
-      <div className="space-y-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.45 }}
+        className="space-y-4"
+      >
         <h2 className="text-2xl font-semibold text-gray-900">What I Do</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {areas.map((area) => {
+          {areas.map((area, idx) => {
             const Icon = area.icon;
             return (
               <motion.div
                 key={area.title}
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.2 }}
-                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs hover:border-gray-300"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.05 }}
+                whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs transition-colors cursor-default"
               >
                 <div className="flex items-center gap-2 text-gray-900">
                   <Icon className="w-4 h-4 text-gray-700" />
@@ -122,27 +139,40 @@ export const AboutPage: React.FC = () => {
             );
           })}
         </div>
-      </div>
+      </motion.div>
 
       {/* Core Competencies & Execution */}
-      <div className="space-y-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.45 }}
+        className="space-y-4"
+      >
         <h2 className="text-2xl font-semibold text-gray-900">Capabilities and Focus Areas</h2>
         <div className="flex flex-wrap gap-2">
-          {coreStrengths.map((strength) => (
+          {coreStrengths.map((strength, idx) => (
             <motion.span
               key={strength}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.15 }}
-              className="px-3 py-1.5 rounded-md border border-gray-200 bg-white text-xs font-mono text-gray-700 shadow-2xs cursor-default"
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.25, delay: idx * 0.03 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-3 py-1.5 rounded-md border border-gray-200 bg-white text-xs font-mono text-gray-700 shadow-2xs cursor-default transition-colors hover:border-gray-400"
             >
               {strength}
             </motion.span>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* CTA Box */}
       <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
         whileHover={{ y: -2 }}
         transition={{ duration: 0.25 }}
         className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs"
@@ -153,13 +183,15 @@ export const AboutPage: React.FC = () => {
             I am always open to discussing high impact products, operational challenges, and strategic partnerships.
           </p>
         </div>
-        <Link
-          to="/contact"
-          className="px-5 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-all shrink-0 inline-flex items-center gap-1.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
-        >
-          <span>Get in Touch</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Link
+            to="/contact"
+            className="px-5 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-colors shrink-0 inline-flex items-center gap-1.5 shadow-xs"
+          >
+            <span>Get in Touch</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </motion.div>
     </div>
   );

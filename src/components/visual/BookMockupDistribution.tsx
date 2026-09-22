@@ -1,13 +1,25 @@
 import React from 'react';
 import { BookOpen, Bookmark } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const BookMockupDistribution: React.FC = () => {
   return (
-    <div className="w-full flex items-center justify-center p-6 bg-gray-50 rounded-2xl border border-gray-200">
-      {/* Book Container */}
-      <div className="relative w-full max-w-[280px] aspect-[1/1.45] bg-neutral-900 text-white rounded-r-xl rounded-l-sm p-6 sm:p-8 shadow-lg border-l-4 border-l-neutral-800 flex flex-col justify-between">
+    <div className="w-full flex items-center justify-center p-6 bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden [perspective:1000px]">
+      {/* Book Container with Interactive 3D Tilt */}
+      <motion.div
+        whileHover={{
+          rotateY: -8,
+          rotateX: 4,
+          y: -6,
+          scale: 1.02,
+          boxShadow: '0 20px 30px -10px rgba(0, 0, 0, 0.25), 0 10px 15px -5px rgba(0, 0, 0, 0.1)',
+        }}
+        transition={{ type: 'spring', stiffness: 280, damping: 20 }}
+        style={{ transformStyle: 'preserve-3d' }}
+        className="relative w-full max-w-[280px] aspect-[1/1.45] bg-neutral-900 text-white rounded-r-xl rounded-l-sm p-6 sm:p-8 shadow-md border-l-4 border-l-neutral-800 flex flex-col justify-between cursor-default"
+      >
         {/* Ribbon */}
-        <div className="absolute top-0 right-6 w-4 h-10 bg-amber-600 rounded-b flex items-end justify-center pb-1">
+        <div className="absolute top-0 right-6 w-4 h-10 bg-amber-600 rounded-b flex items-end justify-center pb-1 shadow-xs">
           <Bookmark className="w-2.5 h-2.5 text-white" />
         </div>
 
@@ -38,7 +50,7 @@ export const BookMockupDistribution: React.FC = () => {
             DRAFTING
           </span>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

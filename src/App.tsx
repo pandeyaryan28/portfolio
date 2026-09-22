@@ -14,7 +14,7 @@ import { BuildingDistributionDetail } from './pages/BuildingDistributionDetail';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import { pageVariants } from './components/ui/motionVariants';
 
 const MainContent: React.FC = () => {
@@ -79,11 +79,13 @@ const MainContent: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <ToastProvider>
-      <RouterProvider>
-        <MainContent />
-      </RouterProvider>
-    </ToastProvider>
+    <MotionConfig reducedMotion="user">
+      <ToastProvider>
+        <RouterProvider>
+          <MainContent />
+        </RouterProvider>
+      </ToastProvider>
+    </MotionConfig>
   );
 };
 

@@ -1,10 +1,22 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const BookMockupTheSystem: React.FC = () => {
   return (
-    <div className="w-full flex items-center justify-center p-6 bg-gray-50 rounded-2xl border border-gray-200">
-      {/* Book Cover */}
-      <div className="relative w-full max-w-[280px] aspect-[1/1.45] bg-white text-gray-900 rounded-r-xl rounded-l-sm p-6 sm:p-8 shadow-lg border-l-4 border-l-gray-300 border-y border-r border-gray-200 flex flex-col justify-between">
+    <div className="w-full flex items-center justify-center p-6 bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden [perspective:1000px]">
+      {/* Book Cover with Interactive 3D Tilt */}
+      <motion.div
+        whileHover={{
+          rotateY: -8,
+          rotateX: 4,
+          y: -6,
+          scale: 1.02,
+          boxShadow: '0 20px 30px -10px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.05)',
+        }}
+        transition={{ type: 'spring', stiffness: 280, damping: 20 }}
+        style={{ transformStyle: 'preserve-3d' }}
+        className="relative w-full max-w-[280px] aspect-[1/1.45] bg-white text-gray-900 rounded-r-xl rounded-l-sm p-6 sm:p-8 shadow-md border-l-4 border-l-gray-300 border-y border-r border-gray-200 flex flex-col justify-between cursor-default"
+      >
         {/* Header Tag */}
         <div>
           <div className="flex items-center justify-between text-[10px] font-mono tracking-widest uppercase text-gray-500">
@@ -33,7 +45,7 @@ export const BookMockupTheSystem: React.FC = () => {
             PUBLISHED
           </span>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

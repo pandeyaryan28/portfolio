@@ -8,27 +8,39 @@ import { SITE_LINKS } from '../data/links';
 
 export const WritingPage: React.FC = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-12">
-      {/* Page Header */}
-      <div className="space-y-4">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 space-y-12">
+      {/* Page Header with Entrance Animation */}
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-4"
+      >
         <div className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider">
           Writing
         </div>
-        <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
+        <h1 className="text-4xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
           Books & Writing
         </h1>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
           In depth research on computing infrastructure, energy constraints, and product distribution.
         </p>
-      </div>
+      </motion.div>
 
       {/* Publications Grid */}
       <div className="space-y-12">
         {/* Book 1: The System Is Being Rewritten */}
         <motion.article
-          whileHover={{ y: -3 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs hover:border-gray-400 hover:shadow-md transition-all"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{
+            y: -4,
+            borderColor: '#9CA3AF',
+            boxShadow: '0 12px 30px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+          }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
         >
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-4 text-xs font-mono text-gray-500">
             <div className="flex items-center gap-2">
@@ -42,7 +54,7 @@ export const WritingPage: React.FC = () => {
               className="text-gray-900 hover:text-black font-medium inline-flex items-center gap-1 group"
             >
               <span>Read Excerpts</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
@@ -62,30 +74,40 @@ export const WritingPage: React.FC = () => {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono text-gray-600">
-                <span className="px-2.5 py-1 rounded bg-gray-100">6 Chapters</span>
-                <span className="px-2.5 py-1 rounded bg-gray-100">Compute Scaling</span>
-                <span className="px-2.5 py-1 rounded bg-gray-100">Energy Realism</span>
-                <span className="px-2.5 py-1 rounded bg-gray-100">Physical Reality</span>
+                {['6 Chapters', 'Compute Scaling', 'Energy Realism', 'Physical Reality'].map((tag) => (
+                  <motion.span
+                    key={tag}
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    transition={{ duration: 0.15 }}
+                    className="px-2.5 py-1 rounded bg-gray-100 cursor-default"
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
               </div>
 
               <div className="pt-3 flex flex-wrap items-center gap-3">
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href={SITE_LINKS.writing.theSystem.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-1.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-1.5 shadow-xs"
                 >
                   <span>Amazon Kindle Edition</span>
                   <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-                </a>
+                </motion.a>
 
-                <Link
-                  to="/writing/the-system"
-                  className="px-4 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-800 text-xs font-medium transition-all inline-flex items-center gap-1.5 hover:scale-[1.01] active:scale-[0.99]"
-                >
-                  <span>Explore Outline & Chapters</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Link
+                    to="/writing/the-system"
+                    className="px-4 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-800 text-xs font-medium transition-all inline-flex items-center gap-1.5"
+                  >
+                    <span>Explore Outline & Chapters</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -93,9 +115,16 @@ export const WritingPage: React.FC = () => {
 
         {/* Book 2: Building Distribution */}
         <motion.article
-          whileHover={{ y: -3 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs hover:border-gray-400 hover:shadow-md transition-all"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{
+            y: -4,
+            borderColor: '#9CA3AF',
+            boxShadow: '0 12px 30px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+          }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
         >
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-4 text-xs font-mono text-gray-500">
             <div className="flex items-center gap-2">
@@ -109,7 +138,7 @@ export const WritingPage: React.FC = () => {
               className="text-gray-900 hover:text-black font-medium inline-flex items-center gap-1 group"
             >
               <span>View Structure</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
@@ -129,19 +158,28 @@ export const WritingPage: React.FC = () => {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono text-gray-600">
-                <span className="px-2.5 py-1 rounded bg-gray-100">Audience vs Distribution</span>
-                <span className="px-2.5 py-1 rounded bg-gray-100">Inherent Virality</span>
-                <span className="px-2.5 py-1 rounded bg-gray-100">Compounding Pipes</span>
+                {['Audience vs Distribution', 'Inherent Virality', 'Compounding Pipes'].map((tag) => (
+                  <motion.span
+                    key={tag}
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    transition={{ duration: 0.15 }}
+                    className="px-2.5 py-1 rounded bg-gray-100 cursor-default"
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
               </div>
 
               <div className="pt-3">
-                <Link
-                  to="/writing/building-distribution"
-                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-1.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
-                >
-                  <span>Read Working Outline</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
+                  <Link
+                    to="/writing/building-distribution"
+                    className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-1.5 shadow-xs"
+                  >
+                    <span>Read Working Outline</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </div>

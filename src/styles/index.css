@@ -19,6 +19,12 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     background-color: var(--canvas);
     color: var(--ink-primary);

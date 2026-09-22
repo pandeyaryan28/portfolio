@@ -31,10 +31,10 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         {toast && (
           <div className="fixed bottom-6 right-6 z-50 pointer-events-none">
             <motion.div
-              initial={{ opacity: 0, y: 12, scale: 0.96 }}
+              initial={{ opacity: 0, y: 16, scale: 0.94 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.96 }}
-              transition={{ duration: 0.2 }}
+              transition={{ type: 'spring', stiffness: 420, damping: 28 }}
               className="px-4 py-2.5 rounded-lg bg-neutral-900 text-white shadow-lg border border-neutral-800 flex items-center gap-2.5 text-xs"
             >
               {toast.type === 'success' ? (

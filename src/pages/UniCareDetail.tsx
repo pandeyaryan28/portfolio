@@ -1,22 +1,34 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { ArrowLeft, Clock, DollarSign, ShieldCheck, Globe, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 
 export const UniCareDetail: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-16">
       {/* Back Navigation */}
-      <Link
-        to="/work"
-        className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors group"
+      <motion.div
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        <span>BACK TO PROJECTS</span>
-      </Link>
+        <Link
+          to="/work"
+          className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <span>BACK TO PROJECTS</span>
+        </Link>
+      </motion.div>
 
-      {/* Case Study Header */}
-      <header className="space-y-6 border-b border-neutral-200 pb-10">
+      {/* Case Study Header with Staggered Entrance */}
+      <motion.header
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6 border-b border-neutral-200 pb-10"
+      >
         <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-neutral-500 uppercase tracking-wider">
           <span>Healthcare Operations Infrastructure</span>
           <span className="text-neutral-300">·</span>
@@ -35,16 +47,18 @@ export const UniCareDetail: React.FC = () => {
 
         {/* Primary Call to Action */}
         <div className="flex flex-wrap items-center gap-4 pt-2">
-          <a
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href={SITE_LINKS.projects.unicare.url}
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-3.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+            className="px-6 py-3.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2.5 shadow-xs"
           >
             <Globe className="w-4 h-4 text-neutral-300" />
             <span>Visit UniCare</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-          </a>
+          </motion.a>
         </div>
 
         {/* Executive Meta Specs */}
@@ -66,10 +80,16 @@ export const UniCareDetail: React.FC = () => {
             <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Zero Waste, High-Velocity Intake</span>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Case Study Section 1: Executive Context & Problem Space */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           1. Context & The Outpatient Operational Crisis
         </h2>
@@ -84,50 +104,78 @@ export const UniCareDetail: React.FC = () => {
             Existing hospital enterprise resource planning (ERP) suites are bloated, prohibitively expensive, and require weeks of staff training. Small-to-mid clinics abandon them because they slow down consultations rather than accelerating them. UniCare was built from first principles to solve this operational breakdown through lean, low-latency workflow automation.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 2: Root Bottlenecks */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           2. Root Cause Analysis: Four Systemic Failures
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 01</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Manual Front-Desk Intake Congestion</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Manual clipboard sign-ins and identity re-verification take 10 to 15 minutes per patient. Clerical handwriting errors result in duplicate patient IDs, misplaced allergy notes, and crowded waiting lobbies that distress patients before consultations begin.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 02</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Clinical Context Fragmentation</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Doctors lack quick visibility into past visit history, chronic diagnostics, and allergy flags. When past charts are filed away in paper folders or incompatible portals, doctors waste valuable minutes re-asking basic history or ordering redundant tests.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 03</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Prescription Cost Inflation & Non-Adherence</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Physicians naturally recall heavily marketed brand names when writing prescriptions. Without real-time formulary visibility, patients receive scripts for branded drugs costing up to 10x more than bioequivalent generics, causing prescription abandonment at the pharmacy counter.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 04</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Dispensary Expiration & Margin Erosion</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Without automated batch rotation, dispensary staff stock new deliveries on front shelves while older batches sit in the back. Clinics write off 4% to 8% of pharmacy stock annually due to expired medicines, eroding pharmacy operating margins.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 3: Architecture & Engineering Workflow */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           3. System Architecture & The Unified Operational Flow
         </h2>
@@ -138,7 +186,11 @@ export const UniCareDetail: React.FC = () => {
         </div>
 
         <div className="space-y-4">
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 01
@@ -150,9 +202,13 @@ export const UniCareDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               Returning patients scan a personal digital QR pass upon arrival at the clinic. The system immediately retrieves their encrypted profile, generates a sequential consultation token, alerts the nursing desk, and dispatches their position to lobby display screens. Front-desk intake time drops from 12+ minutes to under 10 seconds.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 02
@@ -164,9 +220,13 @@ export const UniCareDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               When a doctor calls the next token, the patient's vitals, past diagnoses, chronic conditions, and previous prescriptions load instantaneously on a low-latency consultation desk. Physicians capture observations in structured notes designed to minimize keystrokes, ensuring medical context is preserved without disrupting patient dialogue.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 03
@@ -178,9 +238,13 @@ export const UniCareDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               As a physician types a medication name, the prescribing engine parses the active molecule and interrogates current in-stock dispensary inventory. It displays verified generic bioequivalents alongside their wholesale and retail prices. Clinicians can substitute costly brand-name drugs with high-quality generic equivalents in a single click, saving patients up to 90% on their bill.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 04
@@ -192,9 +256,13 @@ export const UniCareDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               Prescriptions stream directly to the pharmacy dispensary screen the moment the doctor confirms them. The inventory system algorithmically selects the exact batch number with the nearest valid expiry date (FEFO). Pharmacists simply scan the pre-assigned batch barcode to dispense, eliminating expired stock write-offs and safeguarding clinic margins.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 05
@@ -206,48 +274,76 @@ export const UniCareDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               A dedicated lightweight display route runs on lobby TV monitors. Tokens transition automatically between 'Waiting', 'In Consultation', and 'Pharmacy Ready', providing ambient visibility that calms patient anxiety and eliminates repetitive staff announcements.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 4: Measurable Operational Impact */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           4. Measurable Operational Outcomes
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <Clock className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">Under 10s Intake</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Replaces 12-minute clipboard intake queues with instant QR token scan, completely eliminating morning lobby bottlenecks.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <DollarSign className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">Up to 90% Drug Savings</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Real-time generic drug matching allows doctors to prescribe bioequivalent alternatives, dramatically improving patient treatment adherence.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <ShieldCheck className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">Zero Expiration Loss</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Automated First-Expired, First-Out batch allocation clears older pharmacy stock automatically before expiration dates.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 5: Operator Reflections & Lessons */}
-      <section className="space-y-6 border-t border-neutral-200 pt-10">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6 border-t border-neutral-200 pt-10"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           5. Operator Reflections: Engineering for Real Clinical Reality
         </h2>
-        <div className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
+        <motion.div
+          whileHover={{ y: -2 }}
+          transition={{ duration: 0.2 }}
+          className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal shadow-2xs"
+        >
           <p className="text-xl sm:text-2xl font-semibold text-neutral-950 leading-snug">
             "Clinical software does not fail on technical capability; it fails on cognitive friction."
           </p>
@@ -257,18 +353,20 @@ export const UniCareDetail: React.FC = () => {
           <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
             The success of UniCare stems from ruthless workflow compression. By treating clinic operations as an integrated physical-digital system — intake, consult, dispense — we removed clerical friction at each juncture. The result is a platform that healthcare workers actually want to use, proving that modern software can drive clinical efficiency while directly lowering healthcare costs for patients.
           </p>
-        </div>
+        </motion.div>
 
         <div className="pt-4 flex items-center justify-between">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 text-base font-medium text-neutral-600 hover:text-neutral-950 transition-colors"
+            className="inline-flex items-center gap-2 text-base font-medium text-neutral-600 hover:text-neutral-950 transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to all projects</span>
           </Link>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href={SITE_LINKS.projects.unicare.url}
             target="_blank"
             rel="noreferrer"
@@ -277,9 +375,9 @@ export const UniCareDetail: React.FC = () => {
             <Globe className="w-4 h-4 text-neutral-300" />
             <span>Visit UniCare</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-          </a>
+          </motion.a>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

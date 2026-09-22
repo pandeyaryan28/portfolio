@@ -2,22 +2,34 @@ import React from 'react';
 import { Link } from '../context/RouterContext';
 import { HardwareRenderNullWave } from '../components/visual/HardwareRenderNullWave';
 import { ArrowLeft, Globe, ExternalLink, Lock, Compass, Smile } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 
 export const NullWaveDetail: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-16">
       {/* Back Navigation */}
-      <Link
-        to="/work"
-        className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors group"
+      <motion.div
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        <span>BACK TO PROJECTS</span>
-      </Link>
+        <Link
+          to="/work"
+          className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <span>BACK TO PROJECTS</span>
+        </Link>
+      </motion.div>
 
-      {/* Case Study Header */}
-      <header className="space-y-6 border-b border-neutral-200 pb-10">
+      {/* Case Study Header with Staggered Entrance */}
+      <motion.header
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6 border-b border-neutral-200 pb-10"
+      >
         <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-neutral-500 uppercase tracking-wider">
           <span>Acoustic Wearable Hardware</span>
           <span className="text-neutral-300">·</span>
@@ -36,16 +48,18 @@ export const NullWaveDetail: React.FC = () => {
 
         {/* Primary Call to Action */}
         <div className="flex flex-wrap items-center gap-4 pt-2">
-          <a
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href={SITE_LINKS.projects.nullwave.url}
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-3.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+            className="px-6 py-3.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2.5 shadow-xs"
           >
             <Globe className="w-4 h-4 text-neutral-300" />
             <span>Visit NullWave</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-          </a>
+          </motion.a>
         </div>
 
         {/* Executive Meta Specs */}
@@ -67,15 +81,27 @@ export const NullWaveDetail: React.FC = () => {
             <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">40+ dB Acoustic Attenuation</span>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Primary Hardware Visual Showcase */}
-      <section className="space-y-3">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-3"
+      >
         <HardwareRenderNullWave />
-      </section>
+      </motion.section>
 
       {/* Case Study Section 1: The Privacy Paradox */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           1. Context: The Mobile Voice Privacy Paradox
         </h2>
@@ -90,50 +116,78 @@ export const NullWaveDetail: React.FC = () => {
             Commercial noise-cancelling headphones only protect incoming audio for the listener's own ears; they do nothing to prevent nearby bystanders from hearing every word the user utters. Null Wave was engineered to solve this physical limitation directly at the source — attenuating speech vibrations before sound waves radiate into the environment.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 2: Technical & Physical Bottlenecks */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           2. Physical Challenges: Four Fundamental Engineering Constraints
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 01</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Acoustic Containment vs. Facial Articulation</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               When humans speak, the lower jaw drops and flexes dynamically. Rigid enclosures break perimeter seal during natural speech, causing catastrophic acoustic leakage. The interface must articulate seamlessly with jaw movement while maintaining airtight sound dampening.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 02</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Thermal Comfort & Airflow Aerodynamics</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Sealing a wearable around the oral cavity traps warm exhaled moisture and carbon dioxide within seconds. If air holes are introduced, sound escapes. The acoustic pathway must allow smooth, silent air exchange without allowing sound waves to leak or creating wind noise on internal mics.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 03</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Resonant Cavity Distortion on Voice Pick-Up</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Speaking inside an enclosed chamber creates boomy acoustic resonances that render microphone audio muffled and unintelligible to call recipients or AI transcription. Internal acoustic chambers must absorb resonant frequencies while keeping vocal fidelity crisp.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 04</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Mass, Ergonomics & Travel Durability</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Heavy headgear causes cervical neck strain within minutes. The structure must withstand everyday travel shocks and laptop bag compression while staying under a 300g target weight profile with hypoallergenic skin contact surfaces.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 3: Architecture & System Engineering */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           3. System Architecture & Hardware Engineering Solutions
         </h2>
@@ -144,7 +198,11 @@ export const NullWaveDetail: React.FC = () => {
         </div>
 
         <div className="space-y-4">
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 01
@@ -156,9 +214,13 @@ export const NullWaveDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               The internal core features calibrated labyrinth acoustic baffles engineered to trap and dissipate human vocal frequencies between 200 Hz and 4,000 Hz. Sound energy undergoes multiple phase-cancelling reflections before reaching the perimeter, reducing spoken output by more than 40 decibels.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 02
@@ -170,9 +232,13 @@ export const NullWaveDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               Continuous fresh air exchange is driven through passive micro-channel venturi ducts around the mask perimeter. The channels guide airflow along an acoustic dampening path that prevents humid air stagnation without allowing vocal frequencies to escape into the room.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 03
@@ -184,9 +250,13 @@ export const NullWaveDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               A precision-milled Grade 5 titanium outer frame delivers structural rigidity and scratch resistance while weighing mere ounces. Paired with a medical-grade hypoallergenic silicone contact gasket, the perimeter seal flexes dynamically with jaw speech motions without breaking acoustic isolation.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 04
@@ -198,48 +268,76 @@ export const NullWaveDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               A custom directional dual-microphone array captures voice signals directly inside the acoustic cavity. Because the chamber blocks external environment noise, AI voice agents and phone call participants hear clean, studio-grade speech completely free of airport echoes or coffee grinder noise.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 4: Measurable Performance Outcomes */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           4. Measurable Hardware Performance
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <Lock className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">40+ dB Sound Isolation</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Attenuates speech to an inaudible murmur, so passengers seated right beside you in transit cannot understand your conversation.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <Compass className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">Zero-Booth Mobility</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Take sensitive investor or confidential client calls instantly from airport gates, cafes, or hotel lobbies without seeking private booths.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <Smile className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">Natural Respiration</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Continuous silent venturi airflow prevents humidity and heat buildup, enabling multi-hour wearing comfort during transits.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 5: Operator Reflections */}
-      <section className="space-y-6 border-t border-neutral-200 pt-10">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6 border-t border-neutral-200 pt-10"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           5. Operator Reflections: Bridging Physical Atoms & User Behavior
         </h2>
-        <div className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
+        <motion.div
+          whileHover={{ y: -2 }}
+          transition={{ duration: 0.2 }}
+          className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal shadow-2xs"
+        >
           <p className="text-xl sm:text-2xl font-semibold text-neutral-950 leading-snug">
             "Software allows infinite fast iterations; hardware forces you to confront physics on day one."
           </p>
@@ -249,18 +347,20 @@ export const NullWaveDetail: React.FC = () => {
           <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
             By designing Grade 5 titanium structural ribbing and combining 3D acoustic baffle modeling with rapid silicone casting iterations, we proved that privacy in public does not require bulky industrial apparatus. High-ambiguity hardware engineering requires ruthless discipline: identifying the fundamental physical constraint, designing around natural human anatomy, and building until the prototype works seamlessly in the field.
           </p>
-        </div>
+        </motion.div>
 
         <div className="pt-4 flex items-center justify-between">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 text-base font-medium text-neutral-600 hover:text-neutral-950 transition-colors"
+            className="inline-flex items-center gap-2 text-base font-medium text-neutral-600 hover:text-neutral-950 transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to all projects</span>
           </Link>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href={SITE_LINKS.projects.nullwave.url}
             target="_blank"
             rel="noreferrer"
@@ -269,9 +369,9 @@ export const NullWaveDetail: React.FC = () => {
             <Globe className="w-4 h-4 text-neutral-300" />
             <span>Visit NullWave</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-          </a>
+          </motion.a>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

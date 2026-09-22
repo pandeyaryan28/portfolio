@@ -98,6 +98,13 @@ export const HeroBackgroundCanvas: React.FC = () => {
     ring2.rotation.y = Math.PI / 3;
     rootGroup.add(ring2);
 
+    // Reduced Motion & Visibility Detection
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let prefersReducedMotion = mediaQuery.matches;
+    let isVisible = true;
+    let animationFrameId: number | null = null;
+    const clock = new THREE.Clock();
+
     // Mouse tracking for subtle organic tilt
     let mouseX = 0;
     let mouseY = 0;
@@ -105,12 +112,62 @@ export const HeroBackgroundCanvas: React.FC = () => {
     let targetY = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (prefersReducedMotion) return;
       const { innerWidth, innerHeight } = window;
       mouseX = (e.clientX / innerWidth - 0.5) * 0.7;
       mouseY = (e.clientY / innerHeight - 0.5) * 0.7;
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    const renderStaticFrame = () => {
+      rootGroup.rotation.y = 0.45;
+      rootGroup.rotation.x = 0.18;
+      rootGroup.scale.set(1, 1, 1);
+      renderer.render(scene, camera);
+    };
+
+    const animate = () => {
+      if (prefersReducedMotion || !isVisible || document.hidden) {
+        animationFrameId = null;
+        return;
+      }
+
+      const elapsedTime = clock.getElapsedTime();
+
+      // Smooth mouse lerp with organic response
+      targetX += (mouseX - targetX) * 0.06;
+      targetY += (mouseY - targetY) * 0.06;
+
+      // Gentle continuous rotation + mouse parallax
+      rootGroup.rotation.y = elapsedTime * 0.11 + targetX;
+      rootGroup.rotation.x = Math.sin(elapsedTime * 0.08) * 0.1 + targetY;
+
+      // Subtle breathing scale
+      const pulse = 1 + Math.sin(elapsedTime * 0.55) * 0.02;
+      rootGroup.scale.set(pulse, pulse, pulse);
+
+      ring1.rotation.z = elapsedTime * 0.08;
+      ring2.rotation.x = elapsedTime * 0.06;
+      innerLines.rotation.y = -elapsedTime * 0.16;
+      coreLines.rotation.z = elapsedTime * 0.14;
+
+      renderer.render(scene, camera);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const startLoop = () => {
+      if (!animationFrameId && isVisible && !prefersReducedMotion && !document.hidden) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopLoop = () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    };
 
     // Resize Handler
     const handleResize = () => {
@@ -121,39 +178,64 @@ export const HeroBackgroundCanvas: React.FC = () => {
       updatePosition();
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
+      if (prefersReducedMotion) {
+        renderStaticFrame();
+      }
     };
 
     window.addEventListener('resize', handleResize);
 
-    // Animation Loop
-    let animationFrameId: number;
-    const clock = new THREE.Clock();
+    // Pause WebGL rendering when hero is scrolled out of view to preserve GPU & battery
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          if (prefersReducedMotion) {
+            renderStaticFrame();
+          } else {
+            startLoop();
+          }
+        } else {
+          stopLoop();
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
 
-    const animate = () => {
-      const elapsedTime = clock.getElapsedTime();
-
-      // Smooth mouse lerp
-      targetX += (mouseX - targetX) * 0.05;
-      targetY += (mouseY - targetY) * 0.05;
-
-      // Gentle continuous rotation + mouse parallax
-      rootGroup.rotation.y = elapsedTime * 0.1 + targetX;
-      rootGroup.rotation.x = Math.sin(elapsedTime * 0.08) * 0.1 + targetY;
-
-      ring1.rotation.z = elapsedTime * 0.07;
-      ring2.rotation.x = elapsedTime * 0.05;
-      innerLines.rotation.y = -elapsedTime * 0.15;
-      coreLines.rotation.z = elapsedTime * 0.12;
-
-      renderer.render(scene, camera);
-      animationFrameId = requestAnimationFrame(animate);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopLoop();
+      } else if (isVisible && !prefersReducedMotion) {
+        startLoop();
+      }
     };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    animate();
+    const handleMotionPreference = (e: MediaQueryListEvent) => {
+      prefersReducedMotion = e.matches;
+      if (prefersReducedMotion) {
+        stopLoop();
+        renderStaticFrame();
+      } else {
+        startLoop();
+      }
+    };
+    mediaQuery.addEventListener('change', handleMotionPreference);
+
+    // Initial render
+    if (prefersReducedMotion) {
+      renderStaticFrame();
+    } else {
+      startLoop();
+    }
 
     // Clean up
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      stopLoop();
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      mediaQuery.removeEventListener('change', handleMotionPreference);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       renderer.dispose();

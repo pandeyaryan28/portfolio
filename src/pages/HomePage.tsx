@@ -50,27 +50,37 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
             className="pt-2 flex flex-wrap items-center gap-4"
           >
-            <Link
-              to="/work"
-              className="px-5 py-3 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-all inline-flex items-center gap-2 shadow-xs hover:shadow-sm hover:scale-[1.01] active:scale-[0.99]"
-            >
-              <span>View Projects</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <motion.div whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/work"
+                className="px-5 py-3 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-all inline-flex items-center gap-2 shadow-xs hover:shadow-sm"
+              >
+                <span>View Projects</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
 
-            <Link
-              to="/about"
-              className="px-5 py-3 rounded-lg bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 text-sm font-medium transition-all shadow-xs hover:shadow-sm hover:scale-[1.01] active:scale-[0.99]"
-            >
-              About Me
-            </Link>
+            <motion.div whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/about"
+                className="px-5 py-3 rounded-lg bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 text-sm font-medium transition-all shadow-xs hover:shadow-sm"
+              >
+                About Me
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Featured Projects - Single project revealed one at a time with downward slide on scroll */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-gray-200 pb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-gray-200 pb-4"
+        >
           <div>
             <h2 className="text-2xl font-semibold text-gray-900">Featured Projects</h2>
             <p className="text-sm text-gray-500 mt-1">
@@ -82,19 +92,24 @@ export const HomePage: React.FC = () => {
             className="text-sm font-medium text-gray-600 hover:text-gray-950 inline-flex items-center gap-1 self-start sm:self-auto group transition-colors"
           >
             <span>All projects</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </motion.div>
 
         {/* Vertical Stack: One project revealed at a time as you scroll */}
         <div className="space-y-16">
           {/* Project 1: UniCare */}
           <motion.div
-            initial={{ opacity: 0, y: -48 }}
+            initial={{ opacity: 0, y: -24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
+            viewport={{ once: true, amount: 0.15 }}
+            whileHover={{
+              y: -4,
+              borderColor: '#9CA3AF',
+              boxShadow: '0 12px 30px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+            }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2">
@@ -115,27 +130,41 @@ export const HomePage: React.FC = () => {
                 A unified clinical operating system connecting patient intake, doctor consultations, and pharmacy inventory. Built to eliminate 45-minute lobby queues, prevent expensive medicine expiration write-offs with First-Expired, First-Out routing, and reduce prescription costs by up to 90% via real-time generic substitution.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Intake Protocol</span>
                   <span className="text-sm font-semibold text-neutral-900 block">Under 10 Seconds</span>
                   <p className="text-xs text-neutral-600 font-normal">Contactless QR token check-in replaces paper logs</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                </motion.div>
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Prescription Cost</span>
                   <span className="text-sm font-semibold text-neutral-900 block">Up to 90% Savings</span>
                   <p className="text-xs text-neutral-600 font-normal">Direct bioequivalent generic substitution</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                </motion.div>
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Dispensary Waste</span>
                   <span className="text-sm font-semibold text-neutral-900 block">Zero Expired Losses</span>
                   <p className="text-xs text-neutral-600 font-normal">Automated FEFO inventory batch allocation</p>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
               <div className="flex items-center gap-2">
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href={SITE_LINKS.projects.unicare.url}
                   target="_blank"
                   rel="noreferrer"
@@ -144,26 +173,33 @@ export const HomePage: React.FC = () => {
                   <Globe className="w-3.5 h-3.5 text-neutral-600" />
                   <span>Visit UniCare</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
-                </a>
+                </motion.a>
               </div>
 
-              <Link
-                to="/work/unicare"
-                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
-              >
-                <span>Read Full Case Study</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/work/unicare"
+                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <span>Read Full Case Study</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
 
           {/* Project 2: Guild Orbit */}
           <motion.div
-            initial={{ opacity: 0, y: -48 }}
+            initial={{ opacity: 0, y: -24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
+            viewport={{ once: true, amount: 0.15 }}
+            whileHover={{
+              y: -4,
+              borderColor: '#9CA3AF',
+              boxShadow: '0 12px 30px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+            }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2">
@@ -184,27 +220,41 @@ export const HomePage: React.FC = () => {
                 An integrated team execution platform uniting sprint deliverables, contextual discussion threads, and formal approval gates into one clear system. Designed to stop decisions from vanishing in chat streams, eliminate recurring status update meetings, and ensure transparent governance before launch.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Context Retention</span>
                   <span className="text-sm font-semibold text-neutral-900 block">Deliverable-Tied Threads</span>
                   <p className="text-xs text-neutral-600 font-normal">Discussions remain anchored to work items permanently</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                </motion.div>
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Meeting Reduction</span>
                   <span className="text-sm font-semibold text-neutral-900 block">50% Fewer Sync Calls</span>
                   <p className="text-xs text-neutral-600 font-normal">Live board telemetry replaces manual check-in pings</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                </motion.div>
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Release Governance</span>
                   <span className="text-sm font-semibold text-neutral-900 block">Multi-Stage Sign-Offs</span>
                   <p className="text-xs text-neutral-600 font-normal">Mandatory stakeholder review gates before deployment</p>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
               <div className="flex items-center gap-2">
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href={SITE_LINKS.projects.guildOrbit.url}
                   target="_blank"
                   rel="noreferrer"
@@ -213,26 +263,33 @@ export const HomePage: React.FC = () => {
                   <Globe className="w-3.5 h-3.5 text-neutral-600" />
                   <span>Visit Guild Orbit</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
-                </a>
+                </motion.a>
               </div>
 
-              <Link
-                to="/work/guild-orbit"
-                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
-              >
-                <span>Read Full Case Study</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/work/guild-orbit"
+                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <span>Read Full Case Study</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
 
           {/* Project 3: Null Wave */}
           <motion.div
-            initial={{ opacity: 0, y: -48 }}
+            initial={{ opacity: 0, y: -24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
+            viewport={{ once: true, amount: 0.15 }}
+            whileHover={{
+              y: -4,
+              borderColor: '#9CA3AF',
+              boxShadow: '0 12px 30px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+            }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2">
@@ -253,27 +310,41 @@ export const HomePage: React.FC = () => {
                 An ergonomic acoustic wearable engineered to contain voice audio at the mouth for confidential business calls and voice computing in public environments. Traps speech acoustic waves to drop vocal volume by over 40 decibels while silent perimeter micro-channels maintain continuous fresh air circulation.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Acoustic Shield</span>
                   <span className="text-sm font-semibold text-neutral-900 block">40+ dB Reduction</span>
                   <p className="text-xs text-neutral-600 font-normal">Converts conversational speech to an inaudible murmur</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                </motion.div>
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Micro-Airflow</span>
                   <span className="text-sm font-semibold text-neutral-900 block">Silent Circulation</span>
                   <p className="text-xs text-neutral-600 font-normal">Zero heat or humidity buildup without mic noise</p>
-                </div>
-                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                </motion.div>
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                >
                   <span className="text-xs font-mono text-neutral-500 uppercase block">Materials</span>
                   <span className="text-sm font-semibold text-neutral-900 block">Titanium & Silicone</span>
                   <p className="text-xs text-neutral-600 font-normal">Articulating jaw seal under 300g travel weight</p>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
               <div className="flex items-center gap-2">
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href={SITE_LINKS.projects.nullwave.url}
                   target="_blank"
                   rel="noreferrer"
@@ -282,16 +353,18 @@ export const HomePage: React.FC = () => {
                   <Globe className="w-3.5 h-3.5 text-neutral-600" />
                   <span>Visit NullWave</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
-                </a>
+                </motion.a>
               </div>
 
-              <Link
-                to="/work/nullwave"
-                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
-              >
-                <span>Read Full Case Study</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/work/nullwave"
+                  className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <span>Read Full Case Study</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -299,7 +372,13 @@ export const HomePage: React.FC = () => {
 
       {/* Writing & Books - Single book revealed one at a time with downward slide on scroll */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-gray-200 pb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-gray-200 pb-4"
+        >
           <div>
             <h2 className="text-2xl font-semibold text-gray-900">Writing and Books</h2>
             <p className="text-sm text-gray-500 mt-1">
@@ -311,19 +390,24 @@ export const HomePage: React.FC = () => {
             className="text-sm font-medium text-gray-600 hover:text-gray-950 inline-flex items-center gap-1 self-start sm:self-auto group transition-colors"
           >
             <span>All writing</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </motion.div>
 
         {/* Vertical Stack: One book revealed at a time as you scroll */}
         <div className="space-y-16">
           {/* Book 1: The System Is Being Rewritten */}
           <motion.div
-            initial={{ opacity: 0, y: -48 }}
+            initial={{ opacity: 0, y: -24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
+            viewport={{ once: true, amount: 0.15 }}
+            whileHover={{
+              y: -4,
+              borderColor: '#9CA3AF',
+              boxShadow: '0 12px 30px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+            }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
@@ -352,17 +436,23 @@ export const HomePage: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2">
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2 transition-colors"
+                >
                   <span className="text-xs font-mono font-medium text-neutral-600 uppercase tracking-wider block">
                     Core Idea Behind the Book
                   </span>
                   <p className="text-base text-gray-700 leading-relaxed font-normal">
                     Modern technology was built on the silent premise of infinite cheap energy, predictable semiconductor scaling, and frictionless supply chains. As physical power limits, thermal bottlenecks, and geopolitical realignments collide, those assumptions are breaking down. This book provides a strategic blueprint for how computing infrastructure, power availability, and architectural decisions will reshape technology over the next decade.
                   </p>
-                </div>
+                </motion.div>
 
                 <div className="pt-2 flex flex-wrap items-center gap-3 text-xs">
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     href={SITE_LINKS.writing.theSystem.url}
                     target="_blank"
                     rel="noreferrer"
@@ -370,15 +460,17 @@ export const HomePage: React.FC = () => {
                   >
                     <span>Amazon Kindle Edition</span>
                     <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-                  </a>
+                  </motion.a>
 
-                  <Link
-                    to="/writing/the-system"
-                    className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
-                  >
-                    <span>Read Full Outline</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Link
+                      to="/writing/the-system"
+                      className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                    >
+                      <span>Read Full Outline</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -386,11 +478,16 @@ export const HomePage: React.FC = () => {
 
           {/* Book 2: Building Distribution */}
           <motion.div
-            initial={{ opacity: 0, y: -48 }}
+            initial={{ opacity: 0, y: -24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
+            viewport={{ once: true, amount: 0.15 }}
+            whileHover={{
+              y: -4,
+              borderColor: '#9CA3AF',
+              boxShadow: '0 12px 30px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+            }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 space-y-6 shadow-xs"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
@@ -419,25 +516,31 @@ export const HomePage: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2">
+                <motion.div
+                  whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                  transition={{ duration: 0.15 }}
+                  className="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2 transition-colors"
+                >
                   <span className="text-xs font-mono font-medium text-neutral-600 uppercase tracking-wider block">
                     Core Idea Behind the Book
                   </span>
                   <p className="text-base text-gray-700 leading-relaxed font-normal">
                     Having an audience is not the same as owning distribution. Relying on social media algorithms means renting attention from platforms that can slash reach overnight. This work outlines how durable products build organic distribution directly into product mechanics, user workflows, and structural referral loops that compound sustainably without continuous ad spend.
                   </p>
-                </div>
+                </motion.div>
 
                 <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs">
                   <span className="text-gray-500 font-mono text-xs">Research in progress</span>
 
-                  <Link
-                    to="/writing/building-distribution"
-                    className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
-                  >
-                    <span>Read Working Structure</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Link
+                      to="/writing/building-distribution"
+                      className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                    >
+                      <span>Read Working Structure</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -448,8 +551,11 @@ export const HomePage: React.FC = () => {
       {/* Strategic Execution Statement */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
-          whileHover={{ y: -2 }}
-          transition={{ duration: 0.25 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ y: -3 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-2xl border border-gray-200 bg-white p-8 sm:p-10 space-y-6 shadow-xs"
         >
           <div className="max-w-2xl space-y-3">
@@ -462,18 +568,22 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="pt-2 flex flex-wrap items-center gap-4">
-            <Link
-              to="/about"
-              className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-all shadow-xs hover:scale-[1.01] active:scale-[0.99]"
-            >
-              More about me
-            </Link>
-            <Link
-              to="/contact"
-              className="px-4 py-2.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium transition-all hover:scale-[1.01] active:scale-[0.99]"
-            >
-              Get in touch
-            </Link>
+            <motion.div whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/about"
+                className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-all shadow-xs inline-block"
+              >
+                More about me
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/contact"
+                className="px-4 py-2.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium transition-all inline-block"
+              >
+                Get in touch
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
       </section>

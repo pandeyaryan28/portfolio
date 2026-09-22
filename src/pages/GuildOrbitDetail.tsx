@@ -1,22 +1,34 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { ArrowLeft, Clock, ShieldCheck, Globe, ExternalLink, MessageSquare } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 
 export const GuildOrbitDetail: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-16">
       {/* Back Navigation */}
-      <Link
-        to="/work"
-        className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors group"
+      <motion.div
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        <span>BACK TO PROJECTS</span>
-      </Link>
+        <Link
+          to="/work"
+          className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <span>BACK TO PROJECTS</span>
+        </Link>
+      </motion.div>
 
-      {/* Case Study Header */}
-      <header className="space-y-6 border-b border-neutral-200 pb-10">
+      {/* Case Study Header with Staggered Entrance */}
+      <motion.header
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6 border-b border-neutral-200 pb-10"
+      >
         <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-neutral-500 uppercase tracking-wider">
           <span>Team Execution Platform</span>
           <span className="text-neutral-300">·</span>
@@ -35,16 +47,18 @@ export const GuildOrbitDetail: React.FC = () => {
 
         {/* Primary Call to Action */}
         <div className="flex flex-wrap items-center gap-4 pt-2">
-          <a
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href={SITE_LINKS.projects.guildOrbit.url}
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-3.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+            className="px-6 py-3.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2.5 shadow-xs"
           >
             <Globe className="w-4 h-4 text-neutral-300" />
             <span>Visit Guild Orbit</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-          </a>
+          </motion.a>
         </div>
 
         {/* Executive Meta Specs */}
@@ -66,10 +80,16 @@ export const GuildOrbitDetail: React.FC = () => {
             <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Context Retention & Meeting Reduction</span>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Case Study Section 1: Executive Context & Industry Background */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           1. Context & The Fragmented Toolchain Trap
         </h2>
@@ -84,50 +104,78 @@ export const GuildOrbitDetail: React.FC = () => {
             Guild Orbit was conceived to eliminate this friction by bridging the divide between conversation and execution. Instead of treating communication as a separate stream that happens outside the work, Guild Orbit embeds discussions directly inside deliverable items, establishing total operational visibility.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 2: Root Cause Analysis */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           2. Root Cause Analysis: Four Structural Points of Failure
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 01</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">The Ephemeral Chat Trap</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Crucial architectural trade-offs and product scope decisions occur in continuous chat channels. Within hours, these agreements get buried under hundreds of unrelated messages. Weeks later, engineers build against obsolete requirements because nobody can locate the original discussion.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 02</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Decontextualized Task Trackers</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Standard Kanban and sprint boards isolate tasks into dry, transactional cards. Without immediate access to the conversation, customer feedback, and user research that shaped the task, builders lack intuitive empathy for what they are shipping.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 03</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Ambiguous Review & Sign-Off Ownership</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               When deliverables require cross-functional sign-off (design fidelity, security review, legal clearance), requests sent via direct message stall in recipient inboxes. Work either ships prematurely without proper vetting or gets blocked indefinitely while waiting for unassigned approvals.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', backgroundColor: '#FFFFFF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm"
+          >
             <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 04</span>
             <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">The Status Meeting Tax</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Because leadership cannot clearly see real-time milestone health across fragmented tools, they institute recurring daily standups and weekly status meetings. Engineering and design leads spend up to a quarter of their working week explaining what is already done.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 3: Architecture & System Design */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           3. System Architecture: The Unified Execution Model
         </h2>
@@ -138,7 +186,11 @@ export const GuildOrbitDetail: React.FC = () => {
         </div>
 
         <div className="space-y-4">
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 01
@@ -150,9 +202,13 @@ export const GuildOrbitDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               Every deliverable, milestone, and pull request contains its own dedicated discussion container. Context is permanently pinned to the work item itself. When a new contributor joins a project or a reviewer audits a completed sprint, the entire history of decisions and rationale is right there.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 02
@@ -164,9 +220,13 @@ export const GuildOrbitDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               A high-density sprint execution board tracks work progress across engineering, design, and product tracks in real-time. Team members explicitly flag dependency blockers, immediately notifying upstream owners without requiring ad-hoc messaging.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 03
@@ -178,9 +238,13 @@ export const GuildOrbitDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               Milestones cannot transition to 'Complete' until designated reviewers explicitly approve their respective gates (Design Quality, Test Verification, Executive Authorization). Approval states are transparent to the entire organization, eliminating unreviewed deployments.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+          <motion.div
+            whileHover={{ y: -3, borderColor: '#9CA3AF' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs"
+          >
             <div className="flex items-center gap-3.5">
               <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
                 04
@@ -192,48 +256,76 @@ export const GuildOrbitDetail: React.FC = () => {
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
               Progress telemetry is computed automatically from actual state changes and sign-off completion rather than subjective manual status entries. Leadership receives accurate delivery pace visibility at a glance, removing the need for interruptive progress check-in calls.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 4: Measurable Operational Impact */}
-      <section className="space-y-6">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           4. Measurable Operational Outcomes
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <Clock className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">50% Fewer Status Meetings</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Ambient milestone telemetry and visible blocker tracking give leadership total visibility, eliminating repetitive sync meetings.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <MessageSquare className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">100% Decision Auditability</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Anchor threads directly to deliverables, guaranteeing past architectural and scope decisions are never lost or forgotten.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+          <motion.div
+            whileHover={{ y: -4, borderColor: '#9CA3AF', boxShadow: '0 12px 25px -5px rgba(0,0,0,0.06)' }}
+            transition={{ duration: 0.2 }}
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs"
+          >
             <ShieldCheck className="w-7 h-7 text-neutral-700" />
             <h3 className="text-2xl font-semibold text-neutral-900">Zero Unreviewed Releases</h3>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
               Formal sign-off gates enforce peer, security, and design approvals prior to launch, preventing unvetted code regressions.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Case Study Section 5: Operator Reflections & Lessons */}
-      <section className="space-y-6 border-t border-neutral-200 pt-10">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="space-y-6 border-t border-neutral-200 pt-10"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
           5. Operator Reflections: Context Density Over Communication Volume
         </h2>
-        <div className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
+        <motion.div
+          whileHover={{ y: -2 }}
+          transition={{ duration: 0.2 }}
+          className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal shadow-2xs"
+        >
           <p className="text-xl sm:text-2xl font-semibold text-neutral-950 leading-snug">
             "Execution velocity is not about sending more messages. It is about maximizing context density per interaction."
           </p>
@@ -243,18 +335,20 @@ export const GuildOrbitDetail: React.FC = () => {
           <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
             Building Guild Orbit taught us that when you structure information architecture around deliverables rather than open chat channels, you drastically reduce cognitive load. Autonomy increases because every builder has immediate, unambiguous clarity on what needs to be delivered, why it matters, and who owns the sign-off.
           </p>
-        </div>
+        </motion.div>
 
         <div className="pt-4 flex items-center justify-between">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 text-base font-medium text-neutral-600 hover:text-neutral-950 transition-colors"
+            className="inline-flex items-center gap-2 text-base font-medium text-neutral-600 hover:text-neutral-950 transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to all projects</span>
           </Link>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href={SITE_LINKS.projects.guildOrbit.url}
             target="_blank"
             rel="noreferrer"
@@ -263,9 +357,9 @@ export const GuildOrbitDetail: React.FC = () => {
             <Globe className="w-4 h-4 text-neutral-300" />
             <span>Visit Guild Orbit</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-          </a>
+          </motion.a>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
