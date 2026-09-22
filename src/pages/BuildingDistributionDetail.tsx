@@ -26,7 +26,7 @@ export const BuildingDistributionDetail: React.FC = () => {
     {
       part: 'Part II',
       title: 'Mechanisms of Transfer',
-      desc: 'How information, trust, and adoption actually move between peer networks and decision-makers.',
+      desc: 'How information, trust, and adoption actually move between peer networks and decision makers.',
     },
     {
       part: 'Part III',
@@ -76,7 +76,7 @@ export const BuildingDistributionDetail: React.FC = () => {
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Format</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Essays & Long-form Book</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Essays and Book</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Status</span>

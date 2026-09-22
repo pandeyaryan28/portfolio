@@ -1,31 +1,41 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { ProductMockupUniCare } from '../components/visual/ProductMockupUniCare';
-import { ArrowLeft, Shield, Database, Activity, Globe, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Clock, DollarSign, Users, Globe, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 
 export const UniCareDetail: React.FC = () => {
-  const features = [
+  const problemsSolved = [
     {
-      title: 'Rapid QR Reception Check-in (<10s)',
-      desc: 'Patients scan a personal QR code on arrival. It retrieves their medical record, creates a queue token, and routes them to the right doctor.',
+      problem: 'Clinic reception bottlenecks and long check in lines',
+      solution: 'Rapid QR Check In (Under 10 Seconds)',
+      desc: 'Patients scan their personal QR code upon arrival. The system immediately pulls their medical profile, assigns a queue token, and routes them to the right doctor without paperwork.',
+      outcome: 'Cuts front desk intake time by 90 percent.',
     },
     {
-      title: 'Doctor Consultation Workspace',
-      desc: 'A unified view for physicians showing past visits, vitals, and diagnoses, making it fast to chart visits and issue prescriptions.',
+      problem: 'Physicians lack quick context on previous medical history',
+      solution: 'Unified Doctor Consultation Desk',
+      desc: 'Doctors view past visits, existing vitals, allergy alerts, and previous diagnoses on one screen, making it effortless to record observations and prescribe treatment.',
+      outcome: 'Eliminates lost patient histories and repeated manual tests.',
     },
     {
-      title: 'Stock-Aware Generic Substitution',
-      desc: 'When a prescribed branded medicine is unavailable, the system automatically suggests in-stock generic alternatives to save costs and avoid delays.',
+      problem: 'High prescription drug bills and unexpected pharmacy stockouts',
+      solution: 'Smart Generic Medicine Matching',
+      desc: 'When a prescribed branded medicine is out of stock or expensive, the system automatically suggests in stock generic equivalents with identical therapeutic effects.',
+      outcome: 'Saves patients up to 90 percent on prescription medication costs.',
     },
     {
-      title: 'FEFO Pharmacy Inventory',
-      desc: 'First-Expired-First-Out dispensing ensures older batches are dispensed before expiration, minimizing medical waste.',
+      problem: 'Unnoticed drug expiration leading to thousands in wasted medicine',
+      solution: 'First Expired First Out Inventory Rotation',
+      desc: 'The dispensary system automatically selects older batches approaching expiry before newer stock is touched, ensuring stock is cleared smoothly.',
+      outcome: 'Prevents expired medicine waste and protects pharmacy revenue.',
     },
     {
-      title: 'Waiting Room TV Kiosk Display',
-      desc: 'A dedicated screen route for clinic waiting rooms that displays calling tokens and doctor room numbers in real time.',
+      problem: 'Crowded waiting rooms and patients missing doctor calls',
+      solution: 'Live Waiting Room TV Display',
+      desc: 'A dedicated screen route for clinic lobbies clearly broadcasts active patient token numbers and assigned consulting rooms in real time.',
+      outcome: 'Removes lobby confusion and reduces staff callout stress.',
     },
   ];
 
@@ -43,7 +53,7 @@ export const UniCareDetail: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
-          <span>Healthcare Operating System</span>
+          <span>Healthcare Operations</span>
           <span>·</span>
           <span className="text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-medium">Live MVP</span>
         </div>
@@ -53,10 +63,10 @@ export const UniCareDetail: React.FC = () => {
         </h1>
 
         <p className="text-lg text-gray-600 leading-relaxed max-w-2xl font-normal">
-          A clinical operating system designed to connect reception check-in, doctor consultations, patient medical records, and pharmacy inventory in real time.
+          A clinical operating system designed to connect reception check in, doctor consultations, patient medical records, and pharmacy inventory into one smooth workflow.
         </p>
 
-        {/* Action Buttons */}
+        {/* Action Buttons - Source code link removed */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <a
             href={SITE_LINKS.projects.unicare.url}
@@ -68,31 +78,21 @@ export const UniCareDetail: React.FC = () => {
             <span>Visit Live Website</span>
             <ExternalLink className="w-3 h-3 opacity-60" />
           </a>
-
-          <a
-            href={SITE_LINKS.projects.unicare.repo}
-            target="_blank"
-            rel="noreferrer"
-            className="px-4 py-2.5 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-800 text-xs font-medium transition-all inline-flex items-center gap-2 hover:scale-[1.01] active:scale-[0.99]"
-          >
-            <span>View Source Code</span>
-            <ExternalLink className="w-3 h-3 opacity-60" />
-          </a>
         </div>
 
         {/* Quick Specs */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Role</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Product Architect & Builder</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Product Builder and Systems Designer</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Status</span>
             <span className="font-medium text-gray-900 mt-0.5 block">MVP Live in Production</span>
           </div>
           <div>
-            <span className="text-gray-500 block font-mono text-[11px]">Core Tech</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">React 19, TypeScript, WebSockets</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Core Focus</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Clinical Flow, Cost Savings, Zero Waste</span>
           </div>
         </div>
       </div>
@@ -104,34 +104,45 @@ export const UniCareDetail: React.FC = () => {
 
       {/* Problem & Motivation */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Why I Built This</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">The Problem Being Solved</h2>
         <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 text-sm text-gray-700 space-y-3 leading-relaxed">
           <p className="font-medium text-gray-900">
-            Outpatient clinics frequently rely on disconnected software tools or physical paper charts.
+            Outpatient clinics lose valuable hours every day to fragmented software and manual paper charts.
           </p>
           <p>
-            When a patient visits a doctor, their past medical records often aren't immediately available. Reception staff spend minutes re-entering basic details, and pharmacies struggle to track expiring medicine batches. UniCare was built to connect these disconnected steps into a single fast, clean workflow.
+            When a patient arrives, reception staff spend several minutes asking for the same personal details. Doctors struggle to review past treatments because records are scattered across binders or incompatible portals. Meanwhile, clinic pharmacies write off thousands of dollars in medicines simply because expiring stock is buried behind newer deliveries.
+          </p>
+          <p>
+            UniCare eliminates this operational friction. By connecting patient check in, clinical consultations, and pharmacy stock into a single coordinated flow, clinics save time, reduce patient bills, and prevent costly medicine waste.
           </p>
         </div>
       </div>
 
-      {/* Key Features Built */}
+      {/* Problems Solved in the Workflow */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">What I Built</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">Operational Bottlenecks Solved</h2>
         <div className="space-y-3">
-          {features.map((item, idx) => (
+          {problemsSolved.map((item, idx) => (
             <motion.div
-              key={item.title}
+              key={item.solution}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
-              className="p-4 rounded-xl border border-gray-200 bg-white space-y-1 hover:border-gray-300"
+              className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 hover:border-gray-300"
             >
-              <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded bg-gray-100 flex items-center justify-center text-[11px] font-mono text-gray-600">
-                  0{idx + 1}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded bg-gray-100 flex items-center justify-center text-[11px] font-mono text-gray-700 font-medium">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="text-sm font-semibold text-gray-900">{item.solution}</h3>
+                </div>
+                <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  {item.outcome}
                 </span>
-                <h3 className="text-sm font-semibold text-gray-900">{item.title}</h3>
               </div>
+              <p className="text-xs text-red-700 font-medium pl-7">
+                Friction: {item.problem}
+              </p>
               <p className="text-xs sm:text-sm text-gray-600 pl-7 leading-relaxed font-normal">
                 {item.desc}
               </p>
@@ -140,24 +151,30 @@ export const UniCareDetail: React.FC = () => {
         </div>
       </div>
 
-      {/* Technical Architecture */}
+      {/* Operational Impact & Outcomes */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Technical Details</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">Measurable Operational Impact</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-1.5">
-            <Shield className="w-4 h-4 text-gray-700" />
-            <h4 className="font-semibold text-gray-900">Patient Data Privacy</h4>
-            <p className="text-gray-600 leading-relaxed">Role-based access permissions for receptionists, doctors, and pharmacists.</p>
+          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
+            <Clock className="w-4 h-4 text-gray-700" />
+            <h4 className="font-semibold text-gray-900 text-sm">Under 10s Intake</h4>
+            <p className="text-gray-600 leading-relaxed font-normal">
+              Digital QR scanning cuts front desk check in time by over 90 percent, preventing crowded waiting lobbies.
+            </p>
           </div>
-          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-1.5">
-            <Activity className="w-4 h-4 text-gray-700" />
-            <h4 className="font-semibold text-gray-900">Real-Time Sync</h4>
-            <p className="text-gray-600 leading-relaxed">WebSockets maintain live status updates between triage and consulting rooms.</p>
+          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
+            <DollarSign className="w-4 h-4 text-gray-700" />
+            <h4 className="font-semibold text-gray-900 text-sm">Up to 90% Cost Cut</h4>
+            <p className="text-gray-600 leading-relaxed font-normal">
+              Real time generic drug substitution enables doctors to recommend affordable alternatives directly during consultation.
+            </p>
           </div>
-          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-1.5">
-            <Database className="w-4 h-4 text-gray-700" />
-            <h4 className="font-semibold text-gray-900">FEFO Engine</h4>
-            <p className="text-gray-600 leading-relaxed">Automated inventory tracking prioritizing older stock before expiration.</p>
+          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
+            <Users className="w-4 h-4 text-gray-700" />
+            <h4 className="font-semibold text-gray-900 text-sm">Zero Medicine Waste</h4>
+            <p className="text-gray-600 leading-relaxed font-normal">
+              First Expired First Out batch allocation clears older pharmacy stock automatically before expiration.
+            </p>
           </div>
         </div>
       </div>

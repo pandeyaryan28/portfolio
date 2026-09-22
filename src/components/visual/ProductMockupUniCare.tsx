@@ -5,7 +5,7 @@ export const ProductMockupUniCare: React.FC = () => {
   const [activeWorkflow, setActiveWorkflow] = useState<'reception' | 'triage' | 'doctor' | 'pharmacy' | 'kiosk'>('doctor');
 
   const workflows: Array<{ id: 'reception' | 'triage' | 'doctor' | 'pharmacy' | 'kiosk'; label: string }> = [
-    { id: 'reception', label: '1. QR Check-In' },
+    { id: 'reception', label: '1. QR Check In' },
     { id: 'triage', label: '2. Vitals' },
     { id: 'doctor', label: '3. Doctor EMR' },
     { id: 'pharmacy', label: '4. Pharmacy' },
@@ -44,11 +44,11 @@ export const ProductMockupUniCare: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div>
-                <h4 className="text-sm font-semibold text-gray-900">Rapid Patient Check-In</h4>
+                <h4 className="text-sm font-semibold text-gray-900">Rapid Patient Check In</h4>
                 <p className="text-xs text-gray-500">Scan digital QR pass to retrieve medical record and assign OPD token</p>
               </div>
               <span className="text-xs font-mono text-gray-600 bg-gray-100 px-2.5 py-1 rounded">
-                Token #A-14
+                Token #A14
               </span>
             </div>
 
@@ -59,7 +59,7 @@ export const ProductMockupUniCare: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[11px] font-mono text-gray-500">Patient Identifier</span>
-                  <p className="font-mono text-sm font-semibold text-gray-900">UC-8942-019X</p>
+                  <p className="font-mono text-sm font-semibold text-gray-900">UC8942 019X</p>
                   <span className="text-xs text-emerald-700 flex items-center gap-1 mt-0.5">
                     <Check className="w-3 h-3" /> Record Verified
                   </span>
@@ -124,7 +124,7 @@ export const ProductMockupUniCare: React.FC = () => {
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div>
                 <h4 className="text-sm font-semibold text-gray-900">Doctor Consultation & Prescriptions</h4>
-                <p className="text-xs text-gray-500">Live inventory check suggests in-stock generic alternatives</p>
+                <p className="text-xs text-gray-500">Live inventory check suggests available generic alternatives</p>
               </div>
               <span className="text-xs font-mono text-gray-600 bg-gray-100 px-2.5 py-1 rounded">
                 Active Visit
@@ -161,7 +161,7 @@ export const ProductMockupUniCare: React.FC = () => {
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div>
                 <h4 className="text-sm font-semibold text-gray-900">FEFO Inventory Management</h4>
-                <p className="text-xs text-gray-500">First-Expired-First-Out dispensing ensures near-expiry medicines are cleared first</p>
+                <p className="text-xs text-gray-500">First Expired First Out dispensing ensures medicines closest to expiry are cleared first</p>
               </div>
               <span className="text-xs font-mono text-gray-600 bg-gray-100 px-2.5 py-1 rounded">
                 Dispense Queue
@@ -171,17 +171,17 @@ export const ProductMockupUniCare: React.FC = () => {
             <div className="space-y-2">
               <div className="p-3 rounded-xl border border-gray-200 bg-gray-50/50 flex items-center justify-between text-xs">
                 <div>
-                  <p className="font-medium text-gray-900">Batch #ATV-2026-08 (Exp: Oct 2026)</p>
+                  <p className="font-medium text-gray-900">Batch #ATV 2026 08 (Exp: Oct 2026)</p>
                   <p className="text-[11px] text-gray-500">Selected automatically for current prescription</p>
                 </div>
                 <span className="text-emerald-700 font-mono text-[11px] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                  Auto-Allocated
+                  Auto Allocated
                 </span>
               </div>
 
               <div className="p-3 rounded-xl border border-gray-200 bg-white flex items-center justify-between text-xs opacity-60">
                 <div>
-                  <p className="font-medium text-gray-900">Batch #ATV-2027-02 (Exp: Feb 2027)</p>
+                  <p className="font-medium text-gray-900">Batch #ATV 2027 02 (Exp: Feb 2027)</p>
                   <p className="text-[11px] text-gray-500">Secondary stock in reserve</p>
                 </div>
                 <span className="text-gray-500 font-mono text-[11px]">
@@ -210,10 +210,10 @@ export const ProductMockupUniCare: React.FC = () => {
                 Now Calling
               </span>
               <div className="text-3xl font-bold font-mono text-amber-400">
-                TOKEN #A-14
+                TOKEN #A14
               </div>
               <p className="text-xs text-gray-300">
-                Please proceed to Room 204 — Dr. Sarah Mehta (Cardiology)
+                Please proceed to Room 204: Dr. Sarah Mehta (Cardiology)
               </p>
             </div>
           </div>
@@ -222,8 +222,8 @@ export const ProductMockupUniCare: React.FC = () => {
 
       {/* Feature Footnote */}
       <div className="px-4 py-3 border-t border-gray-200 bg-gray-50/50 flex flex-wrap items-center justify-between text-xs text-gray-600">
-        <span>End-to-end clinical workflow connecting intake, consultation, and pharmacy.</span>
-        <span className="font-mono text-[11px] text-gray-500">Production Ready Architecture</span>
+        <span>Complete clinical workflow connecting intake, consultation, and pharmacy.</span>
+        <span className="font-mono text-[11px] text-gray-500">Production Ready System</span>
       </div>
     </div>
   );

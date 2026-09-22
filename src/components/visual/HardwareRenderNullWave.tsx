@@ -15,7 +15,7 @@ export const HardwareRenderNullWave: React.FC = () => {
       {/* Header & View Tabs */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50/50">
         <span className="text-xs font-mono font-medium text-gray-700">
-          NullWave Hardware Prototype
+          Null Wave Hardware Prototype
         </span>
 
         <div className="flex items-center gap-1">
@@ -77,15 +77,15 @@ export const HardwareRenderNullWave: React.FC = () => {
       <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-gray-200 border-t border-gray-200 bg-gray-50/50 text-xs">
         <div className="p-3">
           <span className="text-gray-500 font-mono text-[11px] block">Acoustic Containment</span>
-          <span className="font-medium text-gray-900 mt-0.5 block">-42 dB Sound Isolation</span>
+          <span className="font-medium text-gray-900 mt-0.5 block">Over 40 dB Sound Isolation</span>
         </div>
         <div className="p-3">
           <span className="text-gray-500 font-mono text-[11px] block">Chassis Materials</span>
-          <span className="font-medium text-gray-900 mt-0.5 block">Grade-5 Matte Titanium</span>
+          <span className="font-medium text-gray-900 mt-0.5 block">Grade 5 Matte Titanium</span>
         </div>
         <div className="p-3">
           <span className="text-gray-500 font-mono text-[11px] block">Air Circulation</span>
-          <span className="font-medium text-gray-900 mt-0.5 block">Silent Micro-Ducting</span>
+          <span className="font-medium text-gray-900 mt-0.5 block">Silent Micro Ducting</span>
         </div>
         <div className="p-3">
           <span className="text-gray-500 font-mono text-[11px] block">Voice Capture</span>

@@ -1,43 +1,44 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
-import { ArrowRight, Sparkles, Cpu, BookOpen, Layers, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Compass, Cpu, BookOpen, Layers, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 
 export const AboutPage: React.FC = () => {
   const areas = [
     {
-      title: 'Digital Systems & Product Architecture',
-      icon: Sparkles,
-      desc: 'Architecting complete products and real-time platforms with high operational velocity, clean ergonomics, and resilient infrastructure.',
+      title: 'Strategic Systems and Product Architecture',
+      icon: Compass,
+      desc: 'Designing complete software platforms that eliminate operational bottlenecks, speed up team execution, and deliver clear business results.',
     },
     {
-      title: 'Physical Systems & Hardware Prototyping',
-      icon: Cpu,
-      desc: 'Engineering physical wearables and acoustic prototypes using 3D CAD modeling, sound isolation chambers, and titanium fabrication.',
-    },
-    {
-      title: 'Operational Workflows & Systems Design',
+      title: 'Operational Workflows and Systems Design',
       icon: Layers,
-      desc: 'Designing end-to-end operational pipelines—from hospital FEFO medication queues to multi-tier enterprise approval systems.',
+      desc: 'Building clear pipelines, from hospital check in queues and pharmacy inventory management to multi stage project approval gates.',
     },
     {
-      title: 'First-Principles Research & Writing',
+      title: 'Physical Systems and Hardware Prototyping',
+      icon: Cpu,
+      desc: 'Engineering physical wearables and acoustic prototypes using 3D modeling, sound isolation chambers, and titanium fabrication.',
+    },
+    {
+      title: 'First Principles Research and Writing',
       icon: BookOpen,
-      desc: 'Author of "The System Is Being Rewritten" (100+ pages), investigating compute scaling, physical energy limits, and distribution mechanics.',
+      desc: 'Author of The System Is Being Rewritten (over 100 pages), exploring computing scaling, physical energy limits, and product distribution mechanics.',
     },
   ];
 
   const coreStrengths = [
+    'Founder Office Mindset',
     'Product Strategy',
+    'Operational Velocity',
     'Systems Architecture',
+    'Zero to One Execution',
     'Physical Prototyping',
-    'CAD & Acoustics',
-    'Rapid 0-to-1 Execution',
-    'Real-Time Platforms',
-    'React 19 & TypeScript',
-    'Hardware Ergonomics',
+    'Workflow Optimization',
+    'Acoustic Containment',
     'Distribution Mechanics',
+    'Cross Functional Leadership',
   ];
 
   return (
@@ -45,28 +46,27 @@ export const AboutPage: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider inline-flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>About</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
           Hi, I'm Aryan Pandey.
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal max-w-2xl">
-          I'm an innovator and builder. I turn ambitious ideas and complex problems into operating reality.
+          I work with a founder's office mindset. I turn ambitious ideas and complex operational friction into simple, working systems.
         </p>
       </div>
 
-      {/* Main Narrative - Focused on Innovator & Builder */}
+      {/* Main Narrative - Focused on Founder's Office Mindset */}
       <motion.div
         whileHover={{ y: -2 }}
         transition={{ duration: 0.25 }}
         className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white space-y-4 text-base text-gray-700 leading-relaxed shadow-xs"
       >
         <p>
-          I focus on building products that solve real problems from first principles. Rather than staying confined within conventional developer or engineering silos, I operate across the complete product lifecycle—from product vision, architectural design, and system workflows to physical hardware prototyping.
+          I focus on solving real operational problems from first principles. Instead of staying confined inside narrow technical silos, I take ownership across the complete lifecycle, identifying the root bottleneck, designing the product flow, and building the working system end to end.
         </p>
         <p>
-          Whether that means cutting hospital triage and check-in times to under 10 seconds in{' '}
+          Whether that means cutting hospital intake and check in times to under 10 seconds in{' '}
           <a
             href={SITE_LINKS.projects.unicare.url}
             target="_blank"
@@ -75,7 +75,7 @@ export const AboutPage: React.FC = () => {
           >
             UniCare <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
           </a>
-          , unifying team discussions and execution gates in{' '}
+          , aligning team discussions with deliverables in{' '}
           <a
             href={SITE_LINKS.projects.guildOrbit.url}
             target="_blank"
@@ -91,9 +91,9 @@ export const AboutPage: React.FC = () => {
             rel="noreferrer"
             className="font-semibold text-gray-950 underline decoration-gray-300 hover:decoration-black inline-flex items-center gap-0.5"
           >
-            Nullware (NullWave) <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
+            Null Wave <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
           </a>
-          , my mission is always to build clean, durable systems that work in the real world.
+          , my priority is always to build clean, durable solutions that deliver measurable real world value.
         </p>
       </motion.div>
 
@@ -125,7 +125,7 @@ export const AboutPage: React.FC = () => {
 
       {/* Core Competencies & Execution */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Capabilities & Focus Areas</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">Capabilities and Focus Areas</h2>
         <div className="flex flex-wrap gap-2">
           {coreStrengths.map((strength) => (
             <motion.span
@@ -148,8 +148,8 @@ export const AboutPage: React.FC = () => {
       >
         <div className="space-y-1">
           <h3 className="text-lg font-semibold text-gray-900">Have an ambitious venture or product?</h3>
-          <p className="text-sm text-gray-600">
-            I'm always open to discussing high-impact products, physical computing, and technical partnerships.
+          <p className="text-sm text-gray-600 font-normal">
+            I am always open to discussing high impact products, operational challenges, and strategic partnerships.
           </p>
         </div>
         <Link

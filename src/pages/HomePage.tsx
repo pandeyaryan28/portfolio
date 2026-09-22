@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { HeroBackgroundCanvas } from '../components/visual/HeroBackgroundCanvas';
-import { ArrowRight, ArrowUpRight, Globe, ExternalLink, BookOpen } from 'lucide-react';
+import { ArrowRight, Globe, ExternalLink, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 
@@ -21,8 +21,7 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider inline-flex items-center gap-2"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Aryan Pandey · Innovator & Builder</span>
+            <span>Aryan Pandey · Founder's Office and Product Builder</span>
           </motion.div>
 
           <motion.h1
@@ -40,7 +39,7 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg sm:text-xl text-gray-600 font-normal leading-relaxed max-w-2xl"
           >
-            I conceive, design, and build end-to-end systems and physical-digital products—from clinical hospital operating software to wearable acoustic hardware.
+            I operate with a founder's office mindset. I find broken workflows, design simple solutions, and build working products from the ground up, from clinical healthcare operations to private voice hardware.
           </motion.p>
 
           <motion.div
@@ -67,13 +66,13 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
+      {/* Featured Projects - Single project revealed one at a time with downward slide on scroll */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-gray-200 pb-4">
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900">Featured Ventures & Projects</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Featured Projects</h2>
             <p className="text-sm text-gray-500 mt-1">
-              Working systems, operating platforms, and hardware built from scratch.
+              Working systems, operating platforms, and physical products built from the ground up.
             </p>
           </div>
           <Link
@@ -85,142 +84,206 @@ export const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Vertical Stack: One project revealed at a time as you scroll */}
+        <div className="space-y-16">
           {/* Project 1: UniCare */}
           <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 hover:border-gray-400 hover:shadow-md transition-all flex flex-col justify-between"
+            initial={{ opacity: 0, y: -48 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
           >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-gray-500 uppercase">Healthcare OS</span>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono text-gray-500 uppercase">Healthcare Operations</span>
+                <span className="text-gray-300">·</span>
                 <span className="text-xs font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
                   Live MVP
                 </span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 group-hover:text-black">
-                UniCare
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Connects patient check-in, doctor charting, and pharmacy stock into one instant system with QR codes.
-              </p>
+              <span className="text-xs font-mono text-gray-400">01 of 03</span>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between text-xs">
-              <a
-                href={SITE_LINKS.projects.unicare.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-emerald-700 hover:text-emerald-900 font-medium inline-flex items-center gap-1 transition-colors"
-              >
-                <Globe className="w-3.5 h-3.5" />
-                <span>unicare.space</span>
-                <ExternalLink className="w-3 h-3 opacity-60" />
-              </a>
+            <div className="space-y-3">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-950 group-hover:text-black">
+                UniCare
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-red-700 uppercase block">The Problem</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    Outpatient clinics suffer from chaotic paper registrations, 45 minute waiting times, lost medical histories, and heavy financial losses from expired pharmacy medicines.
+                  </p>
+                </div>
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-emerald-800 uppercase block">The Solution and Impact</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    Connects patient intake, doctor notes, and pharmacy stock into one live screen. Patients check in within 10 seconds via QR code, while generic medicine matching cuts drug bills by up to 90 percent.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
+              <div className="flex items-center gap-2">
+                <a
+                  href={SITE_LINKS.projects.unicare.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-3.5 py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-medium inline-flex items-center gap-1.5 transition-colors border border-emerald-200"
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>Visit unicare.space</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              </div>
 
               <Link
                 to="/work/unicare"
-                className="font-medium text-gray-900 hover:text-black group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1"
+                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
               >
-                Details <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Read Full Case Study</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </motion.div>
 
           {/* Project 2: Guild Orbit */}
           <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 hover:border-gray-400 hover:shadow-md transition-all flex flex-col justify-between"
+            initial={{ opacity: 0, y: -48 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
           >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-gray-500 uppercase">Team Workspace</span>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono text-gray-500 uppercase">Team Execution Workspace</span>
+                <span className="text-gray-300">·</span>
                 <span className="text-xs font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
                   Live MVP
                 </span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 group-hover:text-black">
-                Guild Orbit
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                A workspace bringing team chat, sprint Kanban boards, and multi-tier approval gates together.
-              </p>
+              <span className="text-xs font-mono text-gray-400">02 of 03</span>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between text-xs">
-              <a
-                href={SITE_LINKS.projects.guildOrbit.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-blue-700 hover:text-blue-900 font-medium inline-flex items-center gap-1 transition-colors"
-              >
-                <Globe className="w-3.5 h-3.5" />
-                <span>guildorbit.com</span>
-                <ExternalLink className="w-3 h-3 opacity-60" />
-              </a>
+            <div className="space-y-3">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-950 group-hover:text-black">
+                Guild Orbit
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-red-700 uppercase block">The Problem</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    Growing teams lose momentum when project conversations happen in chat apps, tasks live in ticket trackers, and approval decisions get buried across long email threads.
+                  </p>
+                </div>
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-emerald-800 uppercase block">The Solution and Impact</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    Combines team conversations, sprint task boards, and formal approval gates into a single workspace. Every chat thread is tied directly to a deliverable, ending pointless status check meetings.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
+              <div className="flex items-center gap-2">
+                <a
+                  href={SITE_LINKS.projects.guildOrbit.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-3.5 py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-800 font-medium inline-flex items-center gap-1.5 transition-colors border border-blue-200"
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>Visit guildorbit.com</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              </div>
 
               <Link
                 to="/work/guild-orbit"
-                className="font-medium text-gray-900 hover:text-black group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1"
+                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
               >
-                Details <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Read Full Case Study</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </motion.div>
 
-          {/* Project 3: Nullware / NullWave */}
+          {/* Project 3: Null Wave */}
           <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 hover:border-gray-400 hover:shadow-md transition-all flex flex-col justify-between"
+            initial={{ opacity: 0, y: -48 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
           >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-gray-500 uppercase">Hardware Prototype</span>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono text-gray-500 uppercase">Acoustic Wearable Hardware</span>
+                <span className="text-gray-300">·</span>
                 <span className="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded">
-                  Prototype
+                  Prototype Testing
                 </span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 group-hover:text-black">
-                Nullware (NullWave)
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                An acoustic wearable mask made of titanium and silicone that lets you speak privately in public spaces.
-              </p>
+              <span className="text-xs font-mono text-gray-400">03 of 03</span>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between text-xs">
-              <a
-                href={SITE_LINKS.projects.nullwave.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-amber-700 hover:text-amber-900 font-medium inline-flex items-center gap-1 transition-colors"
-              >
-                <Globe className="w-3.5 h-3.5" />
-                <span>nullwave.in</span>
-                <ExternalLink className="w-3 h-3 opacity-60" />
-              </a>
+            <div className="space-y-3">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gray-950 group-hover:text-black">
+                Null Wave
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-red-700 uppercase block">The Problem</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    Taking confidential calls or dictating thoughts to AI in public places like airports, cafes, or trains is awkward and leaks sensitive company data to strangers standing nearby.
+                  </p>
+                </div>
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-emerald-800 uppercase block">The Solution and Impact</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    An ergonomic wearable mask made of titanium and soft silicone that captures and contains sound at the mouth. It drops speech volume by over 40 decibels, while silent airflow keeps breathing completely natural.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
+              <div className="flex items-center gap-2">
+                <a
+                  href={SITE_LINKS.projects.nullwave.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-3.5 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-medium inline-flex items-center gap-1.5 transition-colors border border-amber-200"
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>Visit nullwave.in</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+              </div>
 
               <Link
                 to="/work/nullwave"
-                className="font-medium text-gray-900 hover:text-black group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1"
+                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
               >
-                Details <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Read Full Case Study</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Writing Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
+      {/* Writing & Books - Single book revealed one at a time with downward slide on scroll */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-gray-200 pb-4">
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900">Writing & Books</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Writing and Books</h2>
             <p className="text-sm text-gray-500 mt-1">
-              Deep dives into computing, energy realism, and distribution.
+              Deep research into computing limits, energy reality, and product distribution.
             </p>
           </div>
           <Link
@@ -232,80 +295,113 @@ export const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Book 1 */}
+        {/* Vertical Stack: One book revealed at a time as you scroll */}
+        <div className="space-y-16">
+          {/* Book 1: The System Is Being Rewritten */}
           <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 hover:border-gray-400 hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+            initial={{ opacity: 0, y: -48 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
           >
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono text-gray-500">
-                <span className="flex items-center gap-1.5">
-                  <BookOpen className="w-3.5 h-3.5 text-gray-600" />
-                  <span>Book · 100+ Pages</span>
-                </span>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
+              <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
+                <BookOpen className="w-3.5 h-3.5 text-gray-600" />
+                <span>Book · Over 100 Pages</span>
+                <span className="text-gray-300">·</span>
                 <span className="font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">Published</span>
               </div>
-              <h3 className="text-xl font-serif text-gray-900 group-hover:text-black">
-                The System Is Being Rewritten
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                How energy limits, computing infrastructure, and economic systems are changing the next decade of technology.
-              </p>
+              <span className="text-xs font-mono text-gray-400">01 of 02</span>
             </div>
 
-            <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
+            <div className="space-y-3">
+              <h3 className="text-2xl sm:text-3xl font-serif text-gray-900 group-hover:text-black">
+                The System Is Being Rewritten
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Core Problem</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    Modern tech businesses were built assuming endless cheap electrical power, predictable microchip scaling, and unbroken supply chains. Those assumptions are reaching their physical limits.
+                  </p>
+                </div>
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Practical Takeaway</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    A clear strategic guide for builders and founders on how computing infrastructure, physical power constraints, and economic incentives will shape technology over the next decade.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
               <a
                 href={SITE_LINKS.writing.theSystem.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-amber-800 hover:text-amber-950 font-medium inline-flex items-center gap-1 transition-colors"
+                className="px-3.5 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 font-medium inline-flex items-center gap-1.5 transition-colors border border-amber-200"
               >
                 <span>Amazon Ebook</span>
-                <ExternalLink className="w-3 h-3 opacity-60" />
+                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
               </a>
 
               <Link
                 to="/writing/the-system"
-                className="font-medium text-gray-900 hover:text-black group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1"
+                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
               >
-                <span>Read outline</span>
+                <span>Read Full Outline</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </motion.div>
 
-          {/* Book 2 */}
+          {/* Book 2: Building Distribution */}
           <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="group rounded-2xl border border-gray-200 bg-white p-6 hover:border-gray-400 hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+            initial={{ opacity: 0, y: -48 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 hover:border-gray-400 hover:shadow-md transition-all space-y-6"
           >
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono text-gray-500">
-                <span className="flex items-center gap-1.5">
-                  <BookOpen className="w-3.5 h-3.5 text-gray-600" />
-                  <span>Essay Collection</span>
-                </span>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
+              <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
+                <BookOpen className="w-3.5 h-3.5 text-gray-600" />
+                <span>Essay Collection and Book</span>
+                <span className="text-gray-300">·</span>
                 <span className="font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded">In Progress</span>
               </div>
-              <h3 className="text-xl font-serif text-gray-900 group-hover:text-black">
-                Building Distribution
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Why having an audience is not the same as having distribution. How products build real, lasting channels.
-              </p>
+              <span className="text-xs font-mono text-gray-400">02 of 02</span>
             </div>
 
-            <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
-              <span className="text-gray-400 font-mono text-[11px]">Writing in Progress</span>
+            <div className="space-y-3">
+              <h3 className="text-2xl sm:text-3xl font-serif text-gray-900 group-hover:text-black">
+                Building Distribution
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Core Problem</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    Most new companies fail because founders confuse having an online audience with owning distribution. Renting attention from social media algorithms leaves products vulnerable to sudden traffic collapses.
+                  </p>
+                </div>
+                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Practical Takeaway</span>
+                  <p className="text-gray-600 leading-relaxed font-normal">
+                    How to engineer distribution loops directly into product usage, customer referral mechanics, and lasting direct channels that compound automatically over time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
+              <span className="text-gray-500 font-mono text-xs">Writing in progress</span>
 
               <Link
                 to="/writing/building-distribution"
-                className="font-medium text-gray-900 hover:text-black group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1"
+                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
               >
-                <span>Read structure</span>
+                <span>Read Working Structure</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -313,8 +409,8 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Innovator Statement */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6">
+      {/* Founder's Office Mindset Statement */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           whileHover={{ y: -2 }}
           transition={{ duration: 0.25 }}
@@ -324,8 +420,8 @@ export const HomePage: React.FC = () => {
             <h2 className="text-2xl font-semibold text-gray-900">
               Building from first principles.
             </h2>
-            <p className="text-base text-gray-600 leading-relaxed">
-              I believe real innovation happens when product architecture, intuitive design, and physical engineering converge. I build systems that work reliably in the real world.
+            <p className="text-base text-gray-600 leading-relaxed font-normal">
+              I believe real value is created when clear problem definition, intuitive design, and practical engineering come together. I focus on creating systems that work reliably and drive measurable results.
             </p>
           </div>
 

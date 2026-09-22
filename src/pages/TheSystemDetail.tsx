@@ -18,7 +18,7 @@ export const TheSystemDetail: React.FC = () => {
       title: 'Institutional Drift and Trust',
       chapter: 'Chapter 5 · Trust & Verification',
       content:
-        'Institutions breakdown not because their original goals were flawed, but because the daily cost of upholding standards exceeds the short-term incentives of participants. Algorithmic verification simply shrinks the surface where blind trust is required.',
+        'Institutions breakdown not because their original goals were flawed, but because the daily cost of upholding standards exceeds the short term incentives of participants. Algorithmic verification simply shrinks the surface where blind trust is required.',
     },
     {
       title: 'The Physical Limits of Computing',
@@ -29,12 +29,12 @@ export const TheSystemDetail: React.FC = () => {
   ];
 
   const chapters = [
-    { num: '01', title: 'The Inertia of Modern Institutions', pages: 'pp. 12–34' },
-    { num: '02', title: 'Layered Abstractions & Hidden Fragility', pages: 'pp. 35–62' },
-    { num: '03', title: 'The Economics of Continuous Bandwidth', pages: 'pp. 63–88' },
-    { num: '04', title: 'Data Gravity and Global Infrastructure', pages: 'pp. 89–114' },
-    { num: '05', title: 'Trust Substrates & Verification', pages: 'pp. 115–142' },
-    { num: '06', title: 'Energy, Compute, and Physical Realism', pages: 'pp. 143–178' },
+    { num: '01', title: 'The Inertia of Modern Institutions', pages: 'Pages 12 to 34' },
+    { num: '02', title: 'Layered Abstractions and Hidden Fragility', pages: 'Pages 35 to 62' },
+    { num: '03', title: 'The Economics of Continuous Bandwidth', pages: 'Pages 63 to 88' },
+    { num: '04', title: 'Data Gravity and Global Infrastructure', pages: 'Pages 89 to 114' },
+    { num: '05', title: 'Trust Substrates and Verification', pages: 'Pages 115 to 142' },
+    { num: '06', title: 'Energy, Compute, and Physical Realism', pages: 'Pages 143 to 178' },
   ];
 
   return (
@@ -54,7 +54,7 @@ export const TheSystemDetail: React.FC = () => {
           <BookOpen className="w-3.5 h-3.5 text-gray-700" />
           <span>Published Book</span>
           <span>·</span>
-          <span>100+ Pages</span>
+          <span>Over 100 Pages</span>
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-serif text-gray-950 tracking-tight leading-[1.15]">
@@ -86,7 +86,7 @@ export const TheSystemDetail: React.FC = () => {
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Length</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">100+ Pages</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Over 100 Pages</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Status</span>
@@ -112,7 +112,7 @@ export const TheSystemDetail: React.FC = () => {
             For decades, digital technology evolved under assumptions of endless energy, predictable chip scaling, and uninterrupted supply chains. Today, those foundational assumptions are being tested simultaneously.
           </p>
           <p>
-            This book breaks down what these structural shifts mean for developers, engineers, and founders building next-generation technology.
+            This book breaks down what these structural shifts mean for developers, engineers, and founders building next generation technology.
           </p>
         </div>
       </div>

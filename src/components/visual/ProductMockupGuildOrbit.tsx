@@ -16,17 +16,17 @@ export const ProductMockupGuildOrbit: React.FC = () => {
     },
     approvals: {
       src: '/assets/guild/approvals.png',
-      caption: 'Multi-tier approval gates for design, code, and operational sign-offs.',
+      caption: 'Multi tier approval gates for design, code, and operational sign offs.',
       tag: 'Approvals',
     },
     tracking: {
       src: '/assets/guild/work_tracking.png',
-      caption: 'Kanban boards and sprint tracking with real-time status synchronization.',
+      caption: 'Kanban boards and sprint tracking with live status synchronization.',
       tag: 'Kanban',
     },
     admin: {
       src: '/assets/guild/admin_console.png',
-      caption: 'Organization settings, role-based access control, and workspace security.',
+      caption: 'Organization settings, role based access control, and workspace security.',
       tag: 'Admin Console',
     },
   };

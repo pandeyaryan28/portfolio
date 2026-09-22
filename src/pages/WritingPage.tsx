@@ -18,7 +18,7 @@ export const WritingPage: React.FC = () => {
           Books & Writing
         </h1>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
-          In-depth research on computing infrastructure, energy constraints, and product distribution.
+          In depth research on computing infrastructure, energy constraints, and product distribution.
         </p>
       </div>
 
@@ -33,7 +33,7 @@ export const WritingPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-4 text-xs font-mono text-gray-500">
             <div className="flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-gray-700" />
-              <span>BOOK · 100+ PAGES</span>
+              <span>BOOK · OVER 100 PAGES</span>
               <span>·</span>
               <span className="text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-medium">PUBLISHED</span>
             </div>

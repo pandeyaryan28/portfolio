@@ -41,11 +41,11 @@ export const ContactPage: React.FC = () => {
 
       if (result.usedFallback) {
         setSubmissionStatus('fallback');
-        showToast('Opening email client with pre-filled message...');
+        showToast('Opening email client with prepared message...');
         openMailtoFallback(formData);
       } else {
         setSubmissionStatus('success');
-        showToast('Message sent! I will respond within 24–48 hours.');
+        showToast('Message sent! I will respond within 24 to 48 hours.');
       }
     } catch (err) {
       console.error('Submission error:', err);
@@ -66,7 +66,6 @@ export const ContactPage: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider inline-flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>Contact</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
@@ -172,8 +171,8 @@ export const ContactPage: React.FC = () => {
           >
             <div className="space-y-1">
               <h2 className="text-xl font-semibold text-gray-900">Send a direct message</h2>
-              <p className="text-xs text-gray-500">
-                Leave a message and your contact details, and I'll respond within 24–48 hours.
+              <p className="text-xs text-gray-500 font-normal">
+                Leave a message and your contact details, and I will respond within 24 to 48 hours.
               </p>
             </div>
 
@@ -202,7 +201,7 @@ export const ContactPage: React.FC = () => {
                   <span>Email Client Ready</span>
                 </div>
                 <p className="text-xs text-blue-700 leading-relaxed">
-                  Your message has been pre-formatted for direct email. If your email app did not open automatically, click the button below to send:
+                  Your message has been prepared for direct email. If your email app did not open automatically, click the button below to send:
                 </p>
                 <div className="pt-1 flex items-center gap-3">
                   <button

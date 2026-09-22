@@ -20,7 +20,7 @@ export const SITE_LINKS = {
       repo: 'https://github.com/pandeyaryan28/guild',
     },
     nullwave: {
-      title: 'Nullware (NullWave)',
+      title: 'Null Wave',
       categoryLabel: 'Acoustic Wearable',
       url: 'https://nullwave.in',
       urlMirror: 'https://nullwave-amber.vercel.app',

@@ -1,50 +1,58 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { HardwareRenderNullWave } from '../components/visual/HardwareRenderNullWave';
-import { ArrowLeft, MicOff, Wind, Volume2, Shield, Globe, ExternalLink } from 'lucide-react';
+import { ArrowLeft, MicOff, Wind, Volume2, Shield, Globe, ExternalLink, Lock, Compass, Smile } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 
 export const NullWaveDetail: React.FC = () => {
-  const corePillars = [
+  const problemsSolved = [
     {
-      title: 'Acoustic Voice Containment',
+      problem: 'Confidential business calls are easily overheard in public spaces',
+      solution: 'Acoustic Voice Containment',
       icon: MicOff,
-      desc: 'An internal sound chamber absorbs speech audio waves, allowing users to speak at normal volume without being overheard by people nearby.',
+      desc: 'An internal acoustic dampening chamber traps sound waves as you speak, reducing vocal output by over 40 decibels. You can talk at normal volume in an airport or train without anyone overhearing.',
+      outcome: 'Full vocal privacy in crowded environments.',
     },
     {
-      title: 'Silent Micro-Airflow',
+      problem: 'Wearable face masks quickly become hot, humid, and stuffy',
+      solution: 'Silent Micro Airflow',
       icon: Wind,
-      desc: 'A quiet micro-ducting channel circulates fresh air continuously for comfort without creating wind noise in the microphone.',
+      desc: 'Whisper quiet perimeter micro channels keep fresh air circulating continuously, preventing humidity or heat buildup during long working calls.',
+      outcome: 'Comfortable for extended voice conversations.',
     },
     {
-      title: 'Crisp Voice Capture for AI & Calls',
+      problem: 'Loud background ambient noise distorts AI transcription and phone calls',
+      solution: 'Targeted Voice Capture',
       icon: Volume2,
-      desc: 'Dual MEMS microphone arrays isolate your voice from loud background noise for reliable transcription and clear phone calls.',
+      desc: 'Internal dual microphone arrays capture pure voice audio inside the chamber, eliminating airport announcements and cafe chatter from your calls.',
+      outcome: 'Crystal clear voice input for calls and AI prompts.',
     },
     {
-      title: 'Titanium & Silicone Ergonomics',
+      problem: 'Heavy or rigid wearable hardware causes facial fatigue during travel',
+      solution: 'Ergonomic Titanium and Silicone Fit',
       icon: Shield,
-      desc: 'A lightweight grade-5 titanium shell paired with hypoallergenic silicone creates an airtight yet comfortable facial seal.',
+      desc: 'A lightweight Grade 5 titanium structure paired with skin safe hypoallergenic silicone contours to jaw movement while maintaining an airtight acoustic barrier.',
+      outcome: 'Durable, lightweight comfort built for daily travel.',
     },
   ];
 
-  const designPhases = [
+  const practicalChallengesSolved = [
     {
-      phase: 'Phase 1: Ergonomics & Seal Geometry',
-      focus: 'Testing facial curves and jaw articulation to maintain an airtight acoustic seal while speaking naturally.',
+      challenge: 'Maintaining an airtight seal while speaking naturally',
+      solution: 'Dynamic jaw articulation geometry that flexes with normal speech without leaking sound.',
     },
     {
-      phase: 'Phase 2: Acoustic Chamber Modeling',
-      focus: 'Designing internal baffle geometry to dampen vocal frequencies by over 40 dB.',
+      challenge: 'Absorbing wide vocal frequencies within a compact form factor',
+      solution: 'Internal acoustic baffle chambers specifically calibrated to absorb human vocal range.',
     },
     {
-      phase: 'Phase 3: Silent Airflow & Thermal Comfort',
-      focus: 'Integrating whisper-quiet micro-ducting along the perimeter to circulate air and prevent heat buildup.',
+      challenge: 'Preventing heat buildup without creating microphone wind noise',
+      solution: 'Silent perimeter micro channels that exchange air without turbulent rushing sound.',
     },
     {
-      phase: 'Phase 4: CMF & Physical Mockups',
-      focus: 'Pairing bead-blasted matte titanium with skin-safe silicone for a clean, durable physical product.',
+      challenge: 'Everyday durability for frequent travelers',
+      solution: 'Matte titanium shell that resists scratches and slips easily into a laptop bag or coat pocket.',
     },
   ];
 
@@ -68,14 +76,14 @@ export const NullWaveDetail: React.FC = () => {
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
-          Nullware (NullWave)
+          Null Wave
         </h1>
 
         <p className="text-lg text-gray-600 leading-relaxed max-w-2xl font-normal">
           An ergonomic acoustic wearable mask engineered for private voice conversations and voice computing in public spaces.
         </p>
 
-        {/* Action Buttons */}
+        {/* Action Buttons - Source code link removed */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <a
             href={SITE_LINKS.projects.nullwave.url}
@@ -87,31 +95,21 @@ export const NullWaveDetail: React.FC = () => {
             <span>Visit nullwave.in</span>
             <ExternalLink className="w-3 h-3 opacity-60" />
           </a>
-
-          <a
-            href={SITE_LINKS.projects.nullwave.repo}
-            target="_blank"
-            rel="noreferrer"
-            className="px-4 py-2.5 rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-800 text-xs font-medium transition-all inline-flex items-center gap-2 hover:scale-[1.01] active:scale-[0.99]"
-          >
-            <span>View Source Code</span>
-            <ExternalLink className="w-3 h-3 opacity-60" />
-          </a>
         </div>
 
         {/* Quick Specs */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Role</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Inventor, Hardware & Acoustic Design</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Product Inventor and Hardware Designer</span>
           </div>
           <div>
             <span className="text-gray-500 block font-mono text-[11px]">Current Phase</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Prototype Testing & Waitlist</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Working Prototype and Waitlist</span>
           </div>
           <div>
-            <span className="text-gray-500 block font-mono text-[11px]">Materials</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Grade-5 Titanium, Silicone</span>
+            <span className="text-gray-500 block font-mono text-[11px]">Core Materials</span>
+            <span className="font-medium text-gray-900 mt-0.5 block">Grade 5 Titanium and Silicone</span>
           </div>
         </div>
       </div>
@@ -123,34 +121,45 @@ export const NullWaveDetail: React.FC = () => {
 
       {/* The Problem & Vision */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Why I Built This</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">The Problem Being Solved</h2>
         <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 text-sm text-gray-700 space-y-3 leading-relaxed">
           <p className="font-medium text-gray-900">
-            Voice is the fastest way to communicate with AI models and teams, but privacy in public is still an unsolved issue.
+            Voice is the fastest way to communicate with teams and AI, but privacy in public is still completely broken.
           </p>
           <p>
-            Whether on a train, in an airport lounge, or working in a busy cafe, speaking aloud to take an urgent call or dictating prompts creates noise and exposes confidential information. NullWave solves this at the physical level by containing speech directly at the mouth.
+            Whether you are on a high speed train, waiting in an airport lounge, or working in a busy coffee shop, speaking aloud to take an urgent call or dictate strategy leaks confidential company information to everyone within earshot.
+          </p>
+          <p>
+            Standard noise cancelling headphones only clean incoming sound for the caller. They do nothing to prevent the people sitting next to you from hearing every word you say. Null Wave solves this at the physical source by trapping speech vibrations directly at the mouth.
           </p>
         </div>
       </div>
 
-      {/* Subsystems */}
+      {/* Core Solutions */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Engineering & Subsystems</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">User Problems and Solutions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {corePillars.map((item) => {
+          {problemsSolved.map((item) => {
             const Icon = item.icon;
             return (
               <motion.div
-                key={item.title}
+                key={item.solution}
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2 }}
                 className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs hover:border-gray-300"
               >
-                <div className="flex items-center gap-2 text-gray-900">
-                  <Icon className="w-4 h-4 text-gray-700" />
-                  <h3 className="text-sm font-semibold">{item.title}</h3>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-gray-900">
+                    <Icon className="w-4 h-4 text-gray-700" />
+                    <h3 className="text-sm font-semibold">{item.solution}</h3>
+                  </div>
+                  <span className="text-[11px] font-mono text-amber-900 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                    {item.outcome}
+                  </span>
                 </div>
+                <p className="text-xs text-red-700 font-medium">
+                  Problem: {item.problem}
+                </p>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
                   {item.desc}
                 </p>
@@ -160,19 +169,47 @@ export const NullWaveDetail: React.FC = () => {
         </div>
       </div>
 
-      {/* Development Phases */}
+      {/* Solving Practical Real World Constraints */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Prototyping & Iteration</h2>
+        <h2 className="text-2xl font-semibold text-gray-900">Solving Real World Usability Constraints</h2>
         <div className="space-y-2.5">
-          {designPhases.map((phase) => (
+          {practicalChallengesSolved.map((item) => (
             <div
-              key={phase.phase}
+              key={item.challenge}
               className="p-4 rounded-xl border border-gray-200 bg-white space-y-1 text-xs sm:text-sm"
             >
-              <h3 className="font-semibold text-gray-900">{phase.phase}</h3>
-              <p className="text-gray-600 leading-relaxed font-normal">{phase.focus}</p>
+              <h3 className="font-semibold text-gray-900">Challenge: {item.challenge}</h3>
+              <p className="text-gray-600 leading-relaxed font-normal">Solution: {item.solution}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Tangible Benefits */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-900">Practical User Impact</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
+            <Lock className="w-4 h-4 text-gray-700" />
+            <h4 className="font-semibold text-gray-900 text-sm">40 dB Sound Isolation</h4>
+            <p className="text-gray-600 leading-relaxed font-normal">
+              Reduces spoken audio volume so people sitting right next to you hear only faint whispers.
+            </p>
+          </div>
+          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
+            <Compass className="w-4 h-4 text-gray-700" />
+            <h4 className="font-semibold text-gray-900 text-sm">Anywhere Productivity</h4>
+            <p className="text-gray-600 leading-relaxed font-normal">
+              Take sensitive investor or client calls immediately without searching for a private conference booth.
+            </p>
+          </div>
+          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
+            <Smile className="w-4 h-4 text-gray-700" />
+            <h4 className="font-semibold text-gray-900 text-sm">Natural Breathing</h4>
+            <p className="text-gray-600 leading-relaxed font-normal">
+              Micro circulation prevents fogging and moisture buildup, allowing hours of uninterrupted voice use.
+            </p>
+          </div>
         </div>
       </div>
     </div>
