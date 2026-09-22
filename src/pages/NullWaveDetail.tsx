@@ -1,217 +1,277 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { HardwareRenderNullWave } from '../components/visual/HardwareRenderNullWave';
-import { ArrowLeft, MicOff, Wind, Volume2, Shield, Globe, ExternalLink, Lock, Compass, Smile } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowLeft, Globe, ExternalLink, Lock, Compass, Smile } from 'lucide-react';
 import { SITE_LINKS } from '../data/links';
 
 export const NullWaveDetail: React.FC = () => {
-  const problemsSolved = [
-    {
-      problem: 'Confidential business calls are easily overheard in public spaces',
-      solution: 'Acoustic Voice Containment',
-      icon: MicOff,
-      desc: 'An internal acoustic dampening chamber traps sound waves as you speak, reducing vocal output by over 40 decibels. You can talk at normal volume in an airport or train without anyone overhearing.',
-      outcome: 'Full vocal privacy in crowded environments.',
-    },
-    {
-      problem: 'Wearable face masks quickly become hot, humid, and stuffy',
-      solution: 'Silent Micro Airflow',
-      icon: Wind,
-      desc: 'Whisper quiet perimeter micro channels keep fresh air circulating continuously, preventing humidity or heat buildup during long working calls.',
-      outcome: 'Comfortable for extended voice conversations.',
-    },
-    {
-      problem: 'Loud background ambient noise distorts AI transcription and phone calls',
-      solution: 'Targeted Voice Capture',
-      icon: Volume2,
-      desc: 'Internal dual microphone arrays capture pure voice audio inside the chamber, eliminating airport announcements and cafe chatter from your calls.',
-      outcome: 'Crystal clear voice input for calls and AI prompts.',
-    },
-    {
-      problem: 'Heavy or rigid wearable hardware causes facial fatigue during travel',
-      solution: 'Ergonomic Titanium and Silicone Fit',
-      icon: Shield,
-      desc: 'A lightweight Grade 5 titanium structure paired with skin safe hypoallergenic silicone contours to jaw movement while maintaining an airtight acoustic barrier.',
-      outcome: 'Durable, lightweight comfort built for daily travel.',
-    },
-  ];
-
-  const practicalChallengesSolved = [
-    {
-      challenge: 'Maintaining an airtight seal while speaking naturally',
-      solution: 'Dynamic jaw articulation geometry that flexes with normal speech without leaking sound.',
-    },
-    {
-      challenge: 'Absorbing wide vocal frequencies within a compact form factor',
-      solution: 'Internal acoustic baffle chambers specifically calibrated to absorb human vocal range.',
-    },
-    {
-      challenge: 'Preventing heat buildup without creating microphone wind noise',
-      solution: 'Silent perimeter micro channels that exchange air without turbulent rushing sound.',
-    },
-    {
-      challenge: 'Everyday durability for frequent travelers',
-      solution: 'Matte titanium shell that resists scratches and slips easily into a laptop bag or coat pocket.',
-    },
-  ];
-
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-10">
-      {/* Back Button */}
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-16">
+      {/* Back Navigation */}
       <Link
         to="/work"
-        className="inline-flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-gray-900 transition-colors group"
+        className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors group"
       >
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
         <span>BACK TO PROJECTS</span>
       </Link>
 
-      {/* Header */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
+      {/* Case Study Header */}
+      <header className="space-y-6 border-b border-neutral-200 pb-10">
+        <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-neutral-500 uppercase tracking-wider">
           <span>Acoustic Wearable Hardware</span>
-          <span>·</span>
-          <span className="text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-medium">Functional Prototype</span>
+          <span className="text-neutral-300">·</span>
+          <span className="text-neutral-800 bg-neutral-100 px-3 py-1 rounded border border-neutral-200 font-medium text-xs sm:text-sm">
+            Engineering Case Study
+          </span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-sans font-semibold text-gray-950 tracking-tight">
-          Null Wave
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold text-neutral-950 tracking-tight leading-[1.12]">
+          Null Wave: Engineering Physical Speech Privacy
         </h1>
 
-        <p className="text-lg text-gray-600 leading-relaxed max-w-2xl font-normal">
-          An ergonomic acoustic wearable mask engineered for private voice conversations and voice computing in public spaces.
+        <p className="text-xl sm:text-2xl text-neutral-600 leading-relaxed font-normal max-w-3xl">
+          An engineering case study on designing an ergonomic acoustic wearable mask that attenuates spoken voice audio by over 40 decibels at the mouth, enabling confidential communication and voice computing anywhere in public.
         </p>
 
-        {/* Action Buttons - Source code link removed */}
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+        {/* Primary Call to Action */}
+        <div className="flex flex-wrap items-center gap-4 pt-2">
           <a
             href={SITE_LINKS.projects.nullwave.url}
             target="_blank"
             rel="noreferrer"
-            className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-2 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
+            className="px-6 py-3.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2.5 shadow-xs hover:scale-[1.01] active:scale-[0.99]"
           >
-            <Globe className="w-3.5 h-3.5" />
-            <span>Visit nullwave.in</span>
-            <ExternalLink className="w-3 h-3 opacity-60" />
+            <Globe className="w-4 h-4 text-neutral-300" />
+            <span>Visit NullWave</span>
+            <ExternalLink className="w-3.5 h-3.5 opacity-60" />
           </a>
         </div>
 
-        {/* Quick Specs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-y border-gray-200 py-3 text-xs">
+        {/* Executive Meta Specs */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-neutral-100 text-sm sm:text-base">
           <div>
-            <span className="text-gray-500 block font-mono text-[11px]">Role</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Product Inventor and Hardware Designer</span>
+            <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Role</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Product Inventor & Hardware Architect</span>
           </div>
           <div>
-            <span className="text-gray-500 block font-mono text-[11px]">Current Phase</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Working Prototype and Waitlist</span>
+            <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Current Phase</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Functional Working Prototype</span>
           </div>
           <div>
-            <span className="text-gray-500 block font-mono text-[11px]">Core Materials</span>
-            <span className="font-medium text-gray-900 mt-0.5 block">Grade 5 Titanium and Silicone</span>
+            <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Primary Materials</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Grade 5 Titanium & Silicone</span>
+          </div>
+          <div>
+            <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Core Metric</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">40+ dB Acoustic Attenuation</span>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Primary Hardware Showcase */}
-      <div className="py-2">
+      {/* Primary Hardware Visual Showcase */}
+      <section className="space-y-3">
         <HardwareRenderNullWave />
-      </div>
+      </section>
 
-      {/* The Problem & Vision */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">The Problem Being Solved</h2>
-        <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 text-sm text-gray-700 space-y-3 leading-relaxed">
-          <p className="font-medium text-gray-900">
-            Voice is the fastest way to communicate with teams and AI, but privacy in public is still completely broken.
+      {/* Case Study Section 1: The Privacy Paradox */}
+      <section className="space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
+          1. Context: The Mobile Voice Privacy Paradox
+        </h2>
+        <div className="space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
+          <p>
+            Spoken language is the highest-bandwidth human input mechanism, transmitting thoughts at 150 words per minute compared to roughly 40 words per minute on a phone keyboard. As generative AI models, voice assistants, and remote executive calls become primary work tools, speaking aloud is replacing typing.
           </p>
           <p>
-            Whether you are on a high speed train, waiting in an airport lounge, or working in a busy coffee shop, speaking aloud to take an urgent call or dictate strategy leaks confidential company information to everyone within earshot.
+            However, voice has a fatal vulnerability: zero privacy in public. When traveling on high-speed trains, waiting in airline lounges, or sitting in open coworking cafes, speaking aloud exposes confidential corporate strategy, financial metrics, and customer information to strangers standing two feet away.
           </p>
           <p>
-            Standard noise cancelling headphones only clean incoming sound for the caller. They do nothing to prevent the people sitting next to you from hearing every word you say. Null Wave solves this at the physical source by trapping speech vibrations directly at the mouth.
+            Commercial noise-cancelling headphones only protect incoming audio for the listener's own ears; they do nothing to prevent nearby bystanders from hearing every word the user utters. Null Wave was engineered to solve this physical limitation directly at the source — attenuating speech vibrations before sound waves radiate into the environment.
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* Core Solutions */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">User Problems and Solutions</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {problemsSolved.map((item) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.solution}
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.2 }}
-                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs hover:border-gray-300"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-gray-900">
-                    <Icon className="w-4 h-4 text-gray-700" />
-                    <h3 className="text-sm font-semibold">{item.solution}</h3>
-                  </div>
-                  <span className="text-[11px] font-mono text-amber-900 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                    {item.outcome}
-                  </span>
-                </div>
-                <p className="text-xs text-red-700 font-medium">
-                  Problem: {item.problem}
-                </p>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-              </motion.div>
-            );
-          })}
+      {/* Case Study Section 2: Technical & Physical Bottlenecks */}
+      <section className="space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
+          2. Physical Challenges: Four Fundamental Engineering Constraints
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+            <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 01</span>
+            <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Acoustic Containment vs. Facial Articulation</h3>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+              When humans speak, the lower jaw drops and flexes dynamically. Rigid enclosures break perimeter seal during natural speech, causing catastrophic acoustic leakage. The interface must articulate seamlessly with jaw movement while maintaining airtight sound dampening.
+            </p>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+            <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 02</span>
+            <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Thermal Comfort & Airflow Aerodynamics</h3>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+              Sealing a wearable around the oral cavity traps warm exhaled moisture and carbon dioxide within seconds. If air holes are introduced, sound escapes. The acoustic pathway must allow smooth, silent air exchange without allowing sound waves to leak or creating wind noise on internal mics.
+            </p>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+            <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 03</span>
+            <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Resonant Cavity Distortion on Voice Pick-Up</h3>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+              Speaking inside an enclosed chamber creates boomy acoustic resonances that render microphone audio muffled and unintelligible to call recipients or AI transcription. Internal acoustic chambers must absorb resonant frequencies while keeping vocal fidelity crisp.
+            </p>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3">
+            <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 04</span>
+            <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Mass, Ergonomics & Travel Durability</h3>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+              Heavy headgear causes cervical neck strain within minutes. The structure must withstand everyday travel shocks and laptop bag compression while staying under a 300g target weight profile with hypoallergenic skin contact surfaces.
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Solving Practical Real World Constraints */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Solving Real World Usability Constraints</h2>
-        <div className="space-y-2.5">
-          {practicalChallengesSolved.map((item) => (
-            <div
-              key={item.challenge}
-              className="p-4 rounded-xl border border-gray-200 bg-white space-y-1 text-xs sm:text-sm"
-            >
-              <h3 className="font-semibold text-gray-900">Challenge: {item.challenge}</h3>
-              <p className="text-gray-600 leading-relaxed font-normal">Solution: {item.solution}</p>
+      {/* Case Study Section 3: Architecture & System Engineering */}
+      <section className="space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
+          3. System Architecture & Hardware Engineering Solutions
+        </h2>
+        <div className="space-y-4 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
+          <p>
+            Null Wave resolves these trade-offs through an integrated mechanical and acoustic architecture:
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+            <div className="flex items-center gap-3.5">
+              <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
+                01
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
+                Multi-Chamber Acoustic Baffle Geometry
+              </h3>
             </div>
-          ))}
-        </div>
-      </div>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
+              The internal core features calibrated labyrinth acoustic baffles engineered to trap and dissipate human vocal frequencies between 200 Hz and 4,000 Hz. Sound energy undergoes multiple phase-cancelling reflections before reaching the perimeter, reducing spoken output by more than 40 decibels.
+            </p>
+          </div>
 
-      {/* Tangible Benefits */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-900">Practical User Impact</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
-            <Lock className="w-4 h-4 text-gray-700" />
-            <h4 className="font-semibold text-gray-900 text-sm">40 dB Sound Isolation</h4>
-            <p className="text-gray-600 leading-relaxed font-normal">
-              Reduces spoken audio volume so people sitting right next to you hear only faint whispers.
+          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+            <div className="flex items-center gap-3.5">
+              <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
+                02
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
+                Whisper-Quiet Perimeter Airflow Ducts
+              </h3>
+            </div>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
+              Continuous fresh air exchange is driven through passive micro-channel venturi ducts around the mask perimeter. The channels guide airflow along an acoustic dampening path that prevents humid air stagnation without allowing vocal frequencies to escape into the room.
             </p>
           </div>
-          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
-            <Compass className="w-4 h-4 text-gray-700" />
-            <h4 className="font-semibold text-gray-900 text-sm">Anywhere Productivity</h4>
-            <p className="text-gray-600 leading-relaxed font-normal">
-              Take sensitive investor or client calls immediately without searching for a private conference booth.
+
+          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+            <div className="flex items-center gap-3.5">
+              <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
+                03
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
+                Grade 5 Titanium Exoskeleton with Dynamic Silicone Gasket
+              </h3>
+            </div>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
+              A precision-milled Grade 5 titanium outer frame delivers structural rigidity and scratch resistance while weighing mere ounces. Paired with a medical-grade hypoallergenic silicone contact gasket, the perimeter seal flexes dynamically with jaw speech motions without breaking acoustic isolation.
             </p>
           </div>
-          <div className="p-4 rounded-xl border border-gray-200 bg-white space-y-2">
-            <Smile className="w-4 h-4 text-gray-700" />
-            <h4 className="font-semibold text-gray-900 text-sm">Natural Breathing</h4>
-            <p className="text-gray-600 leading-relaxed font-normal">
-              Micro circulation prevents fogging and moisture buildup, allowing hours of uninterrupted voice use.
+
+          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-2xs">
+            <div className="flex items-center gap-3.5">
+              <span className="w-9 h-9 rounded-lg bg-neutral-100 flex items-center justify-center font-mono text-sm font-semibold text-neutral-900 shrink-0">
+                04
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
+                Internal Dual-MEMS Vocal Capture Array
+              </h3>
+            </div>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
+              A custom directional dual-microphone array captures voice signals directly inside the acoustic cavity. Because the chamber blocks external environment noise, AI voice agents and phone call participants hear clean, studio-grade speech completely free of airport echoes or coffee grinder noise.
             </p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Case Study Section 4: Measurable Performance Outcomes */}
+      <section className="space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
+          4. Measurable Hardware Performance
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+            <Lock className="w-7 h-7 text-neutral-700" />
+            <h3 className="text-2xl font-semibold text-neutral-900">40+ dB Sound Isolation</h3>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+              Attenuates speech to an inaudible murmur, so passengers seated right beside you in transit cannot understand your conversation.
+            </p>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+            <Compass className="w-7 h-7 text-neutral-700" />
+            <h3 className="text-2xl font-semibold text-neutral-900">Zero-Booth Mobility</h3>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+              Take sensitive investor or confidential client calls instantly from airport gates, cafes, or hotel lobbies without seeking private booths.
+            </p>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3">
+            <Smile className="w-7 h-7 text-neutral-700" />
+            <h3 className="text-2xl font-semibold text-neutral-900">Natural Respiration</h3>
+            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+              Continuous silent venturi airflow prevents humidity and heat buildup, enabling multi-hour wearing comfort during transits.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study Section 5: Operator Reflections */}
+      <section className="space-y-6 border-t border-neutral-200 pt-10">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
+          5. Operator Reflections: Bridging Physical Atoms & User Behavior
+        </h2>
+        <div className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
+          <p className="text-xl sm:text-2xl font-semibold text-neutral-950 leading-snug">
+            "Software allows infinite fast iterations; hardware forces you to confront physics on day one."
+          </p>
+          <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+            Prototyping Null Wave demanded an obsessive balance between acoustic physics and ergonomic psychology. An acoustic mask that achieves 50 dB attenuation is useless if it looks absurd, feels claustrophobic, or is too heavy to slip into a travel briefcase.
+          </p>
+          <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
+            By designing Grade 5 titanium structural ribbing and combining 3D acoustic baffle modeling with rapid silicone casting iterations, we proved that privacy in public does not require bulky industrial apparatus. High-ambiguity hardware engineering requires ruthless discipline: identifying the fundamental physical constraint, designing around natural human anatomy, and building until the prototype works seamlessly in the field.
+          </p>
+        </div>
+
+        <div className="pt-4 flex items-center justify-between">
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 text-base font-medium text-neutral-600 hover:text-neutral-950 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to all projects</span>
+          </Link>
+
+          <a
+            href={SITE_LINKS.projects.nullwave.url}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-base font-medium transition-all inline-flex items-center gap-2 shadow-xs"
+          >
+            <Globe className="w-4 h-4 text-neutral-300" />
+            <span>Visit NullWave</span>
+            <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+          </a>
+        </div>
+      </section>
     </div>
   );
 };

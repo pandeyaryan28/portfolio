@@ -35,7 +35,7 @@ export const WritingPage: React.FC = () => {
               <BookOpen className="w-4 h-4 text-gray-700" />
               <span>BOOK · OVER 100 PAGES</span>
               <span>·</span>
-              <span className="text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-medium">PUBLISHED</span>
+              <span className="font-mono text-xs text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">PUBLISHED</span>
             </div>
             <Link
               to="/writing/the-system"
@@ -102,7 +102,7 @@ export const WritingPage: React.FC = () => {
               <BookOpen className="w-4 h-4 text-gray-700" />
               <span>ESSAY COLLECTION</span>
               <span>·</span>
-              <span className="text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-medium">IN PROGRESS</span>
+              <span className="font-mono text-xs text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">IN PROGRESS</span>
             </div>
             <Link
               to="/writing/building-distribution"

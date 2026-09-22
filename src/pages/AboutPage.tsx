@@ -29,16 +29,17 @@ export const AboutPage: React.FC = () => {
   ];
 
   const coreStrengths = [
-    'Founder Office Mindset',
+    'Strategic Operations',
+    'High-Leverage Execution',
     'Product Strategy',
     'Operational Velocity',
     'Systems Architecture',
-    'Zero to One Execution',
+    'Zero-to-One Ownership',
     'Physical Prototyping',
     'Workflow Optimization',
     'Acoustic Containment',
     'Distribution Mechanics',
-    'Cross Functional Leadership',
+    'Cross-Functional Alignment',
   ];
 
   return (
@@ -52,18 +53,18 @@ export const AboutPage: React.FC = () => {
           Hi, I'm Aryan Pandey.
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal max-w-2xl">
-          I work with a founder's office mindset. I turn ambitious ideas and complex operational friction into simple, working systems.
+          I operate as a high-leverage product operator and systems builder. I turn ambitious strategic objectives and complex operational friction into simple, scalable, working systems.
         </p>
       </div>
 
-      {/* Main Narrative - Focused on Founder's Office Mindset */}
+      {/* Main Narrative - Subconsciously relaying strategic operator leverage */}
       <motion.div
         whileHover={{ y: -2 }}
         transition={{ duration: 0.25 }}
-        className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white space-y-4 text-base text-gray-700 leading-relaxed shadow-xs"
+        className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed shadow-xs"
       >
         <p>
-          I focus on solving real operational problems from first principles. Instead of staying confined inside narrow technical silos, I take ownership across the complete lifecycle, identifying the root bottleneck, designing the product flow, and building the working system end to end.
+          I focus on solving real operational problems from first principles. Instead of staying confined inside narrow technical silos, I take ownership across the complete lifecycle — diagnosing the core operational friction, aligning priorities across business and technical domains, and building working systems end to end.
         </p>
         <p>
           Whether that means cutting hospital intake and check in times to under 10 seconds in{' '}

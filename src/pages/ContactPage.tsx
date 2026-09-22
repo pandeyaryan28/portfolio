@@ -110,7 +110,7 @@ export const ContactPage: React.FC = () => {
               >
                 <span className="truncate mr-2">{emailAddress}</span>
                 {copied ? (
-                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-neutral-900 shrink-0" />
                 ) : (
                   <Copy className="w-3.5 h-3.5 text-gray-400 shrink-0" />
                 )}
@@ -177,19 +177,19 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {submissionStatus === 'success' ? (
-              <div className="p-6 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-3">
+              <div className="p-6 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-900 space-y-3">
                 <div className="flex items-center gap-2 font-semibold text-sm">
-                  <Check className="w-4 h-4 text-emerald-600" />
+                  <Check className="w-4 h-4 text-neutral-900" />
                   <span>Message Sent Successfully</span>
                 </div>
-                <p className="text-xs text-emerald-700 leading-relaxed">
+                <p className="text-xs text-neutral-600 leading-relaxed">
                   Thank you for reaching out, {formData.name}. Your message has been routed to Aryan at{' '}
-                  <span className="font-mono font-medium">{emailAddress}</span>.
+                  <span className="font-mono font-medium text-neutral-900">{emailAddress}</span>.
                 </p>
                 <button
                   type="button"
                   onClick={handleResetForm}
-                  className="mt-2 text-xs font-medium text-emerald-800 underline hover:text-emerald-950"
+                  className="mt-2 text-xs font-medium text-neutral-900 underline hover:text-black"
                 >
                   Send another message
                 </button>
@@ -225,7 +225,7 @@ export const ContactPage: React.FC = () => {
               <form onSubmit={handleFormSubmit} className="space-y-4 text-xs sm:text-sm">
                 <div className="space-y-1.5">
                   <label htmlFor="name" className="font-medium text-gray-700 block">
-                    Your Name <span className="text-red-500">*</span>
+                    Your Name <span className="text-neutral-400">*</span>
                   </label>
                   <input
                     id="name"
@@ -241,7 +241,7 @@ export const ContactPage: React.FC = () => {
 
                 <div className="space-y-1.5">
                   <label htmlFor="email" className="font-medium text-gray-700 block">
-                    Your Email <span className="text-red-500">*</span>
+                    Your Email <span className="text-neutral-400">*</span>
                   </label>
                   <input
                     id="email"
@@ -272,7 +272,7 @@ export const ContactPage: React.FC = () => {
 
                 <div className="space-y-1.5">
                   <label htmlFor="message" className="font-medium text-gray-700 block">
-                    Message <span className="text-red-500">*</span>
+                    Message <span className="text-neutral-400">*</span>
                   </label>
                   <textarea
                     id="message"

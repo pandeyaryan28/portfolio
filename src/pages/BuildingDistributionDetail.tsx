@@ -55,9 +55,7 @@ export const BuildingDistributionDetail: React.FC = () => {
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
           <BookOpen className="w-3.5 h-3.5 text-gray-700" />
-          <span>Essay Collection</span>
-          <span>·</span>
-          <span className="text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-medium">In Progress</span>
+          <span className="font-mono text-xs text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">In Progress</span>
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-serif text-gray-950 tracking-tight leading-[1.15]">
@@ -135,8 +133,8 @@ export const BuildingDistributionDetail: React.FC = () => {
         </div>
 
         {subscribed ? (
-          <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
-            <Check className="w-4 h-4 text-emerald-600" />
+          <div className="p-3 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-900 text-xs flex items-center gap-2">
+            <Check className="w-4 h-4 text-neutral-700" />
             <span>You're subscribed! Draft chapters will be sent to your inbox.</span>
           </div>
         ) : (

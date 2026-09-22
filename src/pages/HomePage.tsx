@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { HeroBackgroundCanvas } from '../components/visual/HeroBackgroundCanvas';
+import { BookMockupTheSystem } from '../components/visual/BookMockupTheSystem';
+import { BookMockupDistribution } from '../components/visual/BookMockupDistribution';
 import { ArrowRight, Globe, ExternalLink, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
@@ -21,7 +23,7 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider inline-flex items-center gap-2"
           >
-            <span>Aryan Pandey · Founder's Office and Product Builder</span>
+            <span>Aryan Pandey · Product Operator & Systems Builder</span>
           </motion.div>
 
           <motion.h1
@@ -39,7 +41,7 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg sm:text-xl text-gray-600 font-normal leading-relaxed max-w-2xl"
           >
-            I operate with a founder's office mindset. I find broken workflows, design simple solutions, and build working products from the ground up, from clinical healthcare operations to private voice hardware.
+            I operate at the intersection of product strategy, operational architecture, and rapid execution. I step into high-ambiguity environments to diagnose broken workflows, build lean systems, and ship working zero-to-one products — from clinical healthcare infrastructure to custom voice hardware.
           </motion.p>
 
           <motion.div
@@ -98,29 +100,35 @@ export const HomePage: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-gray-500 uppercase">Healthcare Operations</span>
                 <span className="text-gray-300">·</span>
-                <span className="text-xs font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
-                  Live MVP
+                <span className="text-xs font-mono text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">
+                  Live Production
                 </span>
               </div>
               <span className="text-xs font-mono text-gray-400">01 of 03</span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               <h3 className="text-2xl sm:text-3xl font-semibold text-gray-950 group-hover:text-black">
                 UniCare
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-red-700 uppercase block">The Problem</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    Outpatient clinics suffer from chaotic paper registrations, 45 minute waiting times, lost medical histories, and heavy financial losses from expired pharmacy medicines.
-                  </p>
+              <p className="text-base text-gray-600 leading-relaxed font-normal">
+                A unified clinical operating system connecting patient intake, doctor consultations, and pharmacy inventory. Built to eliminate 45-minute lobby queues, prevent expensive medicine expiration write-offs with First-Expired, First-Out routing, and reduce prescription costs by up to 90% via real-time generic substitution.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Intake Protocol</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">Under 10 Seconds</span>
+                  <p className="text-xs text-neutral-600 font-normal">Contactless QR token check-in replaces paper logs</p>
                 </div>
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-emerald-800 uppercase block">The Solution and Impact</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    Connects patient intake, doctor notes, and pharmacy stock into one live screen. Patients check in within 10 seconds via QR code, while generic medicine matching cuts drug bills by up to 90 percent.
-                  </p>
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Prescription Cost</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">Up to 90% Savings</span>
+                  <p className="text-xs text-neutral-600 font-normal">Direct bioequivalent generic substitution</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Dispensary Waste</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">Zero Expired Losses</span>
+                  <p className="text-xs text-neutral-600 font-normal">Automated FEFO inventory batch allocation</p>
                 </div>
               </div>
             </div>
@@ -131,10 +139,10 @@ export const HomePage: React.FC = () => {
                   href={SITE_LINKS.projects.unicare.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-3.5 py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-medium inline-flex items-center gap-1.5 transition-colors border border-emerald-200"
+                  className="px-3.5 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-medium inline-flex items-center gap-1.5 transition-colors border border-neutral-200"
                 >
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>Visit unicare.space</span>
+                  <Globe className="w-3.5 h-3.5 text-neutral-600" />
+                  <span>Visit UniCare</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
                 </a>
               </div>
@@ -161,29 +169,35 @@ export const HomePage: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-gray-500 uppercase">Team Execution Workspace</span>
                 <span className="text-gray-300">·</span>
-                <span className="text-xs font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
-                  Live MVP
+                <span className="text-xs font-mono text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">
+                  Live Production
                 </span>
               </div>
               <span className="text-xs font-mono text-gray-400">02 of 03</span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               <h3 className="text-2xl sm:text-3xl font-semibold text-gray-950 group-hover:text-black">
                 Guild Orbit
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-red-700 uppercase block">The Problem</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    Growing teams lose momentum when project conversations happen in chat apps, tasks live in ticket trackers, and approval decisions get buried across long email threads.
-                  </p>
+              <p className="text-base text-gray-600 leading-relaxed font-normal">
+                An integrated team execution platform uniting sprint deliverables, contextual discussion threads, and formal approval gates into one clear system. Designed to stop decisions from vanishing in chat streams, eliminate recurring status update meetings, and ensure transparent governance before launch.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Context Retention</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">Deliverable-Tied Threads</span>
+                  <p className="text-xs text-neutral-600 font-normal">Discussions remain anchored to work items permanently</p>
                 </div>
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-emerald-800 uppercase block">The Solution and Impact</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    Combines team conversations, sprint task boards, and formal approval gates into a single workspace. Every chat thread is tied directly to a deliverable, ending pointless status check meetings.
-                  </p>
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Meeting Reduction</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">50% Fewer Sync Calls</span>
+                  <p className="text-xs text-neutral-600 font-normal">Live board telemetry replaces manual check-in pings</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Release Governance</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">Multi-Stage Sign-Offs</span>
+                  <p className="text-xs text-neutral-600 font-normal">Mandatory stakeholder review gates before deployment</p>
                 </div>
               </div>
             </div>
@@ -194,10 +208,10 @@ export const HomePage: React.FC = () => {
                   href={SITE_LINKS.projects.guildOrbit.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-3.5 py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-800 font-medium inline-flex items-center gap-1.5 transition-colors border border-blue-200"
+                  className="px-3.5 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-medium inline-flex items-center gap-1.5 transition-colors border border-neutral-200"
                 >
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>Visit guildorbit.com</span>
+                  <Globe className="w-3.5 h-3.5 text-neutral-600" />
+                  <span>Visit Guild Orbit</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
                 </a>
               </div>
@@ -224,29 +238,35 @@ export const HomePage: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-gray-500 uppercase">Acoustic Wearable Hardware</span>
                 <span className="text-gray-300">·</span>
-                <span className="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded">
-                  Prototype Testing
+                <span className="text-xs font-mono text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">
+                  Functional Prototype
                 </span>
               </div>
               <span className="text-xs font-mono text-gray-400">03 of 03</span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               <h3 className="text-2xl sm:text-3xl font-semibold text-gray-950 group-hover:text-black">
                 Null Wave
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-red-700 uppercase block">The Problem</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    Taking confidential calls or dictating thoughts to AI in public places like airports, cafes, or trains is awkward and leaks sensitive company data to strangers standing nearby.
-                  </p>
+              <p className="text-base text-gray-600 leading-relaxed font-normal">
+                An ergonomic acoustic wearable engineered to contain voice audio at the mouth for confidential business calls and voice computing in public environments. Traps speech acoustic waves to drop vocal volume by over 40 decibels while silent perimeter micro-channels maintain continuous fresh air circulation.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Acoustic Shield</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">40+ dB Reduction</span>
+                  <p className="text-xs text-neutral-600 font-normal">Converts conversational speech to an inaudible murmur</p>
                 </div>
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-emerald-800 uppercase block">The Solution and Impact</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    An ergonomic wearable mask made of titanium and soft silicone that captures and contains sound at the mouth. It drops speech volume by over 40 decibels, while silent airflow keeps breathing completely natural.
-                  </p>
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Micro-Airflow</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">Silent Circulation</span>
+                  <p className="text-xs text-neutral-600 font-normal">Zero heat or humidity buildup without mic noise</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+                  <span className="text-xs font-mono text-neutral-500 uppercase block">Materials</span>
+                  <span className="text-sm font-semibold text-neutral-900 block">Titanium & Silicone</span>
+                  <p className="text-xs text-neutral-600 font-normal">Articulating jaw seal under 300g travel weight</p>
                 </div>
               </div>
             </div>
@@ -257,10 +277,10 @@ export const HomePage: React.FC = () => {
                   href={SITE_LINKS.projects.nullwave.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-3.5 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-medium inline-flex items-center gap-1.5 transition-colors border border-amber-200"
+                  className="px-3.5 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-medium inline-flex items-center gap-1.5 transition-colors border border-neutral-200"
                 >
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>Visit nullwave.in</span>
+                  <Globe className="w-3.5 h-3.5 text-neutral-600" />
+                  <span>Visit NullWave</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
                 </a>
               </div>
@@ -310,49 +330,57 @@ export const HomePage: React.FC = () => {
                 <BookOpen className="w-3.5 h-3.5 text-gray-600" />
                 <span>Book · Over 100 Pages</span>
                 <span className="text-gray-300">·</span>
-                <span className="font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">Published</span>
+                <span className="font-mono text-xs text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">Published</span>
               </div>
               <span className="text-xs font-mono text-gray-400">01 of 02</span>
             </div>
 
-            <div className="space-y-3">
-              <h3 className="text-2xl sm:text-3xl font-serif text-gray-900 group-hover:text-black">
-                The System Is Being Rewritten
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Core Problem</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    Modern tech businesses were built assuming endless cheap electrical power, predictable microchip scaling, and unbroken supply chains. Those assumptions are reaching their physical limits.
-                  </p>
-                </div>
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Practical Takeaway</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    A clear strategic guide for builders and founders on how computing infrastructure, physical power constraints, and economic incentives will shape technology over the next decade.
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-5 flex justify-center">
+                <div className="w-full max-w-[260px]">
+                  <BookMockupTheSystem />
                 </div>
               </div>
-            </div>
 
-            <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
-              <a
-                href={SITE_LINKS.writing.theSystem.url}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 font-medium inline-flex items-center gap-1.5 transition-colors border border-amber-200"
-              >
-                <span>Amazon Ebook</span>
-                <ExternalLink className="w-3.5 h-3.5 opacity-60" />
-              </a>
+              <div className="md:col-span-7 space-y-4">
+                <div>
+                  <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block mb-1">
+                    Focus: Computing Physics & Energy Constraints
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-serif text-gray-900 group-hover:text-black">
+                    The System Is Being Rewritten
+                  </h3>
+                </div>
 
-              <Link
-                to="/writing/the-system"
-                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
-              >
-                <span>Read Full Outline</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2">
+                  <span className="text-xs font-mono font-medium text-neutral-600 uppercase tracking-wider block">
+                    Core Idea Behind the Book
+                  </span>
+                  <p className="text-base text-gray-700 leading-relaxed font-normal">
+                    Modern technology was built on the silent premise of infinite cheap energy, predictable semiconductor scaling, and frictionless supply chains. As physical power limits, thermal bottlenecks, and geopolitical realignments collide, those assumptions are breaking down. This book provides a strategic blueprint for how computing infrastructure, power availability, and architectural decisions will reshape technology over the next decade.
+                  </p>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3 text-xs">
+                  <a
+                    href={SITE_LINKS.writing.theSystem.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3.5 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-medium inline-flex items-center gap-1.5 transition-colors border border-neutral-200"
+                  >
+                    <span>Amazon Kindle Edition</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                  </a>
+
+                  <Link
+                    to="/writing/the-system"
+                    className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                  >
+                    <span>Read Full Outline</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </motion.div>
 
@@ -367,49 +395,57 @@ export const HomePage: React.FC = () => {
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
                 <BookOpen className="w-3.5 h-3.5 text-gray-600" />
-                <span>Essay Collection and Book</span>
+                <span>Essay Collection & Framework</span>
                 <span className="text-gray-300">·</span>
-                <span className="font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded">In Progress</span>
+                <span className="font-mono text-xs text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">Drafting</span>
               </div>
               <span className="text-xs font-mono text-gray-400">02 of 02</span>
             </div>
 
-            <div className="space-y-3">
-              <h3 className="text-2xl sm:text-3xl font-serif text-gray-900 group-hover:text-black">
-                Building Distribution
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1 text-sm">
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Core Problem</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    Most new companies fail because founders confuse having an online audience with owning distribution. Renting attention from social media algorithms leaves products vulnerable to sudden traffic collapses.
-                  </p>
-                </div>
-                <div className="space-y-1.5 p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <span className="text-xs font-mono font-medium text-gray-700 uppercase block">The Practical Takeaway</span>
-                  <p className="text-gray-600 leading-relaxed font-normal">
-                    How to engineer distribution loops directly into product usage, customer referral mechanics, and lasting direct channels that compound automatically over time.
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-5 flex justify-center">
+                <div className="w-full max-w-[260px]">
+                  <BookMockupDistribution />
                 </div>
               </div>
-            </div>
 
-            <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs">
-              <span className="text-gray-500 font-mono text-xs">Writing in progress</span>
+              <div className="md:col-span-7 space-y-4">
+                <div>
+                  <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block mb-1">
+                    Focus: Organic Distribution & Compounding Product Loops
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-serif text-gray-900 group-hover:text-black">
+                    Building Distribution
+                  </h3>
+                </div>
 
-              <Link
-                to="/writing/building-distribution"
-                className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
-              >
-                <span>Read Working Structure</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2">
+                  <span className="text-xs font-mono font-medium text-neutral-600 uppercase tracking-wider block">
+                    Core Idea Behind the Book
+                  </span>
+                  <p className="text-base text-gray-700 leading-relaxed font-normal">
+                    Having an audience is not the same as owning distribution. Relying on social media algorithms means renting attention from platforms that can slash reach overnight. This work outlines how durable products build organic distribution directly into product mechanics, user workflows, and structural referral loops that compound sustainably without continuous ad spend.
+                  </p>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <span className="text-gray-500 font-mono text-xs">Research in progress</span>
+
+                  <Link
+                    to="/writing/building-distribution"
+                    className="px-4 py-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white font-medium inline-flex items-center gap-1.5 shadow-xs transition-colors"
+                  >
+                    <span>Read Working Structure</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Founder's Office Mindset Statement */}
+      {/* Strategic Execution Statement */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           whileHover={{ y: -2 }}
@@ -421,7 +457,7 @@ export const HomePage: React.FC = () => {
               Building from first principles.
             </h2>
             <p className="text-base text-gray-600 leading-relaxed font-normal">
-              I believe real value is created when clear problem definition, intuitive design, and practical engineering come together. I focus on creating systems that work reliably and drive measurable results.
+              Durable value is created when clear problem diagnosis, rigorous systems architecture, and rapid execution unite. From navigating operational chaos on the ground to shipping resilient software and hardware, I focus on building systems that solve root problems and scale with clarity.
             </p>
           </div>
 
@@ -444,3 +480,4 @@ export const HomePage: React.FC = () => {
     </div>
   );
 };
+

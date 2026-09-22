@@ -29,7 +29,7 @@ export const BookMockupTheSystem: React.FC = () => {
             <span className="text-[10px] uppercase text-gray-400">Author</span>
             <p className="font-semibold text-gray-900">Aryan Pandey</p>
           </div>
-          <span className="text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+          <span className="text-[10px] font-mono text-neutral-700 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200">
             PUBLISHED
           </span>
         </div>
