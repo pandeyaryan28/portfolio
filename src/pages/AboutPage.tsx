@@ -125,6 +125,7 @@ export const AboutPage: React.FC = () => {
                 direction={idx % 2 === 0 ? 'left' : 'right'}
                 distance={32}
                 duration={0.55}
+                className="h-full"
               >
                 <motion.div
                   whileHover={{

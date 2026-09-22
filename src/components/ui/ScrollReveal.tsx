@@ -21,8 +21,8 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   distance = 48,
   duration = 0.65,
   className = '',
-  viewportAmount = 0.2,
-  viewportMargin = '-40px 0px -40px 0px',
+  viewportAmount = 0.1,
+  viewportMargin = '0px 0px -40px 0px',
   once = true,
   blur = true,
 }) => {
@@ -61,9 +61,21 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
     switch (direction) {
       case 'scale':
-        return { opacity: 1, scale: 1, y: 0, filter: blurFilter };
+        return {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          filter: blurFilter,
+          transitionEnd: { filter: 'none' },
+        };
       default:
-        return { opacity: 1, x: 0, y: 0, filter: blurFilter };
+        return {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          filter: blurFilter,
+          transitionEnd: { filter: 'none' },
+        };
     }
   };
 
@@ -71,6 +83,11 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <motion.div
       initial={getInitialState()}
       whileInView={getTargetState()}
+      exit={
+        shouldReduceMotion
+          ? { opacity: 0 }
+          : { opacity: 0, scale: 0.96, transition: { duration: 0.2 } }
+      }
       viewport={{ once, amount: viewportAmount, margin: viewportMargin }}
       transition={{
         duration,
@@ -99,8 +116,8 @@ export const ScrollStagger: React.FC<ScrollStaggerProps> = ({
   staggerDelay = 0.08,
   delayChildren = 0.04,
   className = '',
-  viewportAmount = 0.15,
-  viewportMargin = '-30px 0px -30px 0px',
+  viewportAmount = 0.1,
+  viewportMargin = '0px 0px -30px 0px',
   once = true,
 }) => {
   const shouldReduceMotion = useReducedMotion();
@@ -181,6 +198,9 @@ export const ScrollItem: React.FC<ScrollItemProps> = ({
         duration,
         ease: [0.16, 1, 0.3, 1],
       },
+      transitionEnd: {
+        filter: 'none',
+      },
     },
   };
 
@@ -234,6 +254,7 @@ export const ScrollParallax: React.FC<ScrollParallaxProps> = ({
   return (
     <div ref={ref} className={className}>
       <motion.div
+        className={className.includes('h-full') ? 'h-full' : undefined}
         style={{
           y,
           ...(rotateEffect ? { rotate } : {}),

@@ -18,18 +18,31 @@ export const CaseStudyReadingRail: React.FC<CaseStudyReadingRailProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 160;
+      // Threshold below navbar and sticky reading rail
+      const threshold = 180;
+      let currentActive = sections[0]?.id || '';
 
-      for (let i = sections.length - 1; i >= 0; i--) {
+      for (let i = 0; i < sections.length; i++) {
         const section = document.getElementById(sections[i].id);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveId(sections[i].id);
-          return;
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= threshold) {
+            currentActive = sections[i].id;
+          } else {
+            break;
+          }
         }
       }
-      if (sections.length > 0) {
-        setActiveId(sections[0].id);
+
+      // If scrolled close to the bottom of the page, activate the last section
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60
+      ) {
+        currentActive = sections[sections.length - 1]?.id || currentActive;
       }
+
+      setActiveId(currentActive);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -40,17 +53,17 @@ export const CaseStudyReadingRail: React.FC<CaseStudyReadingRailProps> = ({
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
-    const yOffset = -85;
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    const yOffset = -140;
+    const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
   };
 
   return (
     <nav
       aria-label="Case study section progress"
-      className="hidden lg:block sticky top-24 z-20 w-full mb-8"
+      className="sticky top-20 z-30 w-full mb-8"
     >
-      <div className="p-2 rounded-xl bg-white/80 backdrop-blur-md border border-neutral-200/90 shadow-2xs">
+      <div className="p-1.5 sm:p-2 rounded-xl bg-white/85 dark:bg-neutral-900/85 backdrop-blur-md border border-neutral-200/90 dark:border-neutral-800/90 shadow-sm">
         <div className="flex items-center justify-between gap-1 overflow-x-auto">
           {sections.map((sec, idx) => {
             const isActive = activeId === sec.id;
@@ -58,10 +71,10 @@ export const CaseStudyReadingRail: React.FC<CaseStudyReadingRailProps> = ({
               <button
                 key={sec.id}
                 onClick={() => scrollToSection(sec.id)}
-                className={`relative px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 whitespace-nowrap ${
+                className={`relative px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                   isActive
-                    ? 'text-neutral-950 font-semibold bg-neutral-100 shadow-2xs'
-                    : 'text-neutral-500 hover:text-neutral-800 hover:bg-neutral-50'
+                    ? 'text-neutral-950 dark:text-white font-semibold bg-neutral-100 dark:bg-neutral-800 shadow-xs'
+                    : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800/50'
                 }`}
               >
                 <span className="text-[10px] opacity-60">0{idx + 1}</span>
@@ -69,7 +82,7 @@ export const CaseStudyReadingRail: React.FC<CaseStudyReadingRailProps> = ({
                 {isActive && (
                   <motion.div
                     layoutId="reading-rail-indicator"
-                    className="absolute inset-0 rounded-lg border border-neutral-300 pointer-events-none"
+                    className="absolute inset-0 rounded-lg border border-neutral-300 dark:border-neutral-700 pointer-events-none"
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}

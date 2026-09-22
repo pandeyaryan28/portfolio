@@ -39,11 +39,8 @@ export const BookMockupTheSystem: React.FC = () => {
               }),
         }}
         whileHover={{
-          rotateY: -8,
-          rotateX: 4,
-          y: -6,
-          scale: 1.02,
-          boxShadow: '0 20px 30px -10px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.05)',
+          scale: 1.03,
+          boxShadow: '0 25px 40px -12px rgba(0, 0, 0, 0.14), 0 10px 15px -5px rgba(0, 0, 0, 0.05)',
         }}
         transition={{ type: 'spring', stiffness: 280, damping: 20 }}
         className="relative w-full max-w-[280px] aspect-[1/1.45] bg-white text-gray-900 rounded-r-xl rounded-l-sm p-6 sm:p-8 shadow-md border-l-4 border-l-gray-300 border-y border-r border-gray-200 flex flex-col justify-between cursor-default"

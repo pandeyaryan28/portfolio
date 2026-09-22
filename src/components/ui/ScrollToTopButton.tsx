@@ -46,7 +46,7 @@ export const ScrollToTopButton: React.FC = () => {
             whileTap={{ scale: 0.96 }}
             onClick={scrollToTop}
             aria-label="Scroll to top of page"
-            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/90 backdrop-blur-md border border-neutral-300 text-neutral-800 hover:text-neutral-950 hover:bg-neutral-50 shadow-sm hover:shadow transition-all text-xs font-mono font-medium focus:outline-none focus:ring-2 focus:ring-neutral-400"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:text-neutral-950 dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800 shadow-sm hover:shadow transition-all text-xs font-mono font-medium focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600"
           >
             <ArrowUp className="w-3.5 h-3.5" />
             <span className="tabular-nums">{scrollPercentage}%</span>

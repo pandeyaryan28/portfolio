@@ -65,59 +65,63 @@ export const HardwareRenderNullWave: React.FC = () => {
 
       {/* Main Visual Display with Smooth Crossfade & Scroll Depth */}
       <div className="relative aspect-[16/10] max-h-[380px] bg-neutral-900 flex items-center justify-center overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeView}
-            style={
-              shouldReduceMotion
-                ? {}
-                : {
-                    y: displayY,
-                    scale: displayScale,
-                  }
-            }
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full h-full flex items-center justify-center"
-          >
-            {activeView === 'studio' && (
-              <img
-                src="/assets/nullwave/mask-studio.png"
-                alt="NullWave Studio Render"
-                className="w-full h-full object-contain p-4"
-              />
-            )}
+        <motion.div
+          style={
+            shouldReduceMotion
+              ? {}
+              : {
+                  y: displayY,
+                  scale: displayScale,
+                }
+          }
+          className="w-full h-full flex items-center justify-center"
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeView}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              {activeView === 'studio' && (
+                <img
+                  src="/assets/nullwave/mask-studio.png"
+                  alt="NullWave Studio Render"
+                  className="w-full h-full object-contain p-4"
+                />
+              )}
 
-            {activeView === 'lifestyle' && (
-              <img
-                src="/assets/nullwave/mask-lifestyle.png"
-                alt="NullWave Wearable Fit"
-                className="w-full h-full object-cover"
-              />
-            )}
+              {activeView === 'lifestyle' && (
+                <img
+                  src="/assets/nullwave/mask-lifestyle.png"
+                  alt="NullWave Wearable Fit"
+                  className="w-full h-full object-cover"
+                />
+              )}
 
-            {activeView === 'blueprint' && (
-              <img
-                src="/assets/nullwave/mask-blueprint.png"
-                alt="NullWave CAD Blueprint"
-                className="w-full h-full object-contain p-4"
-              />
-            )}
+              {activeView === 'blueprint' && (
+                <img
+                  src="/assets/nullwave/mask-blueprint.png"
+                  alt="NullWave CAD Blueprint"
+                  className="w-full h-full object-contain p-4"
+                />
+              )}
 
-            {activeView === 'video' && (
-              <video
-                src="/assets/nullwave/nullwave-video.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
+              {activeView === 'video' && (
+                <video
+                  src="/assets/nullwave/nullwave-video.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
       </div>
 
       {/* Technical Specifications Grid */}

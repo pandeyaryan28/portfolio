@@ -16,6 +16,9 @@ export const pageVariants: Variants = {
       ease: [0.16, 1, 0.3, 1],
       staggerChildren: 0.08,
     },
+    transitionEnd: {
+      filter: 'none',
+    },
   },
   exit: {
     opacity: 0,

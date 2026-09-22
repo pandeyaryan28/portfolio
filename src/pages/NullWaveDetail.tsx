@@ -298,8 +298,8 @@ export const NullWaveDetail: React.FC = () => {
         </ScrollReveal>
 
         <ScrollStagger staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <ScrollItem direction="scale" duration={0.5}>
-            <ScrollParallax offset={12} direction="up">
+          <ScrollItem direction="scale" duration={0.5} className="h-full">
+            <ScrollParallax offset={12} direction="up" className="h-full">
               <motion.div
                 whileHover={{ y: -5, borderColor: '#9CA3AF', boxShadow: '0 15px 30px -8px rgba(0,0,0,0.08)' }}
                 transition={{ duration: 0.2 }}
@@ -314,8 +314,8 @@ export const NullWaveDetail: React.FC = () => {
             </ScrollParallax>
           </ScrollItem>
 
-          <ScrollItem direction="scale" duration={0.5}>
-            <ScrollParallax offset={24} direction="up">
+          <ScrollItem direction="scale" duration={0.5} className="h-full">
+            <ScrollParallax offset={24} direction="up" className="h-full">
               <motion.div
                 whileHover={{ y: -5, borderColor: '#9CA3AF', boxShadow: '0 15px 30px -8px rgba(0,0,0,0.08)' }}
                 transition={{ duration: 0.2 }}
@@ -330,8 +330,8 @@ export const NullWaveDetail: React.FC = () => {
             </ScrollParallax>
           </ScrollItem>
 
-          <ScrollItem direction="scale" duration={0.5}>
-            <ScrollParallax offset={12} direction="up">
+          <ScrollItem direction="scale" duration={0.5} className="h-full">
+            <ScrollParallax offset={12} direction="up" className="h-full">
               <motion.div
                 whileHover={{ y: -5, borderColor: '#9CA3AF', boxShadow: '0 15px 30px -8px rgba(0,0,0,0.08)' }}
                 transition={{ duration: 0.2 }}
