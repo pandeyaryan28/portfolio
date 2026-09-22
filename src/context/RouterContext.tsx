@@ -71,7 +71,6 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
           ? normalizePath(window.location.hash)
           : normalizePath(window.location.pathname);
       setCurrentPath(path);
-      window.scrollTo(0, 0);
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -96,7 +95,6 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       window.location.hash = target;
     }
     setCurrentPath(target);
-    window.scrollTo(0, 0);
   };
 
   return (

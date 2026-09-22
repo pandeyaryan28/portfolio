@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
 import { springSmooth } from '../ui/motionVariants';
 
 export const HardwareRenderNullWave: React.FC = () => {
   const [activeView, setActiveView] = useState<'studio' | 'lifestyle' | 'blueprint' | 'video'>('studio');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 220,
+    damping: 26,
+    mass: 0.2,
+  });
+
+  const displayY = useTransform(smoothProgress, [0, 1], [14, -14]);
+  const displayScale = useTransform(smoothProgress, [0, 0.5, 1], [0.97, 1.02, 0.98]);
 
   const views: Array<{ id: 'studio' | 'lifestyle' | 'blueprint' | 'video'; label: string }> = [
     { id: 'studio', label: 'Studio Render' },
@@ -13,7 +29,7 @@ export const HardwareRenderNullWave: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+    <div ref={containerRef} className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
       {/* Header & View Tabs */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50/50">
         <span className="text-xs font-mono font-medium text-gray-700">
@@ -47,11 +63,19 @@ export const HardwareRenderNullWave: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Visual Display with Smooth Crossfade */}
+      {/* Main Visual Display with Smooth Crossfade & Scroll Depth */}
       <div className="relative aspect-[16/10] max-h-[380px] bg-neutral-900 flex items-center justify-center overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeView}
+            style={
+              shouldReduceMotion
+                ? {}
+                : {
+                    y: displayY,
+                    scale: displayScale,
+                  }
+            }
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}

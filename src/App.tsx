@@ -16,6 +16,8 @@ import { ContactPage } from './pages/ContactPage';
 
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import { pageVariants } from './components/ui/motionVariants';
+import { ScrollProgressBar } from './components/ui/ScrollProgressBar';
+import { ScrollToTopButton } from './components/ui/ScrollToTopButton';
 
 const MainContent: React.FC = () => {
   const { currentPath } = useRouter();
@@ -53,12 +55,21 @@ const MainContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-[#111827] font-sans antialiased selection:bg-neutral-900 selection:text-white">
+      {/* Universal Scroll & Reading Progress Indicator */}
+      <ScrollProgressBar />
+
+      {/* Floating Scroll-to-Top Indicator */}
+      <ScrollToTopButton />
+
       {/* Pristine Light Multi-page Navigation */}
       <Navbar />
 
       {/* Main Routed Content with Smooth Page Transitions */}
       <main className="flex-1 overflow-x-hidden">
-        <AnimatePresence mode="wait">
+        <AnimatePresence
+          mode="wait"
+          onExitComplete={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
+        >
           <motion.div
             key={currentPath}
             variants={pageVariants}

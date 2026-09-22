@@ -3,6 +3,7 @@ import { Link } from '../context/RouterContext';
 import { ArrowRight, Compass, Cpu, BookOpen, Layers, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
+import { ScrollReveal, ScrollStagger, ScrollItem } from '../components/ui/ScrollReveal';
 
 export const AboutPage: React.FC = () => {
   const areas = [
@@ -14,7 +15,7 @@ export const AboutPage: React.FC = () => {
     {
       title: 'Operational Workflows and Systems Design',
       icon: Layers,
-      desc: 'Building clear pipelines, from hospital check in queues and pharmacy inventory management to multi stage project approval gates.',
+      desc: 'Building clear pipelines, from hospital check-in queues and pharmacy inventory management to multi-stage project approval gates.',
     },
     {
       title: 'Physical Systems and Hardware Prototyping',
@@ -43,12 +44,12 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-16">
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="space-y-4"
       >
         <div className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider inline-flex items-center gap-2">
@@ -63,136 +64,139 @@ export const AboutPage: React.FC = () => {
       </motion.div>
 
       {/* Main Narrative - Subconsciously relaying strategic operator leverage */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        whileHover={{ y: -2 }}
-        transition={{ duration: 0.25 }}
-        className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed shadow-xs"
-      >
-        <p>
-          I focus on solving real operational problems from first principles. Instead of staying confined inside narrow technical silos, I take ownership across the complete lifecycle — diagnosing the core operational friction, aligning priorities across business and technical domains, and building working systems end to end.
-        </p>
-        <p>
-          Whether that means cutting hospital intake and check in times to under 10 seconds in{' '}
-          <a
-            href={SITE_LINKS.projects.unicare.url}
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-gray-950 underline decoration-gray-300 hover:decoration-black inline-flex items-center gap-0.5"
-          >
-            UniCare <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
-          </a>
-          , aligning team discussions with deliverables in{' '}
-          <a
-            href={SITE_LINKS.projects.guildOrbit.url}
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-gray-950 underline decoration-gray-300 hover:decoration-black inline-flex items-center gap-0.5"
-          >
-            Guild Orbit <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
-          </a>
-          , or engineering acoustic titanium wearables in{' '}
-          <a
-            href={SITE_LINKS.projects.nullwave.url}
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-gray-950 underline decoration-gray-300 hover:decoration-black inline-flex items-center gap-0.5"
-          >
-            Null Wave <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
-          </a>
-          , my priority is always to build clean, durable solutions that deliver measurable real world value.
-        </p>
-      </motion.div>
+      <ScrollReveal direction="scale" distance={36} duration={0.65}>
+        <motion.div
+          whileHover={{
+            y: -4,
+            borderColor: '#9CA3AF',
+            boxShadow: '0 20px 35px -10px rgba(0, 0, 0, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.03)',
+          }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed shadow-xs"
+        >
+          <p>
+            I focus on solving real operational problems from first principles. Instead of staying confined inside narrow technical silos, I take ownership across the complete lifecycle — diagnosing the core operational friction, aligning priorities across business and technical domains, and building working systems end-to-end.
+          </p>
+          <p>
+            Whether that means cutting hospital intake and check-in times to under 10 seconds in{' '}
+            <a
+              href={SITE_LINKS.projects.unicare.url}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-gray-950 underline decoration-gray-300 hover:decoration-black inline-flex items-center gap-0.5"
+            >
+              UniCare <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
+            </a>
+            , aligning team discussions with deliverables in{' '}
+            <a
+              href={SITE_LINKS.projects.guildOrbit.url}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-gray-950 underline decoration-gray-300 hover:decoration-black inline-flex items-center gap-0.5"
+            >
+              Guild Orbit <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
+            </a>
+            , or engineering acoustic titanium wearables in{' '}
+            <a
+              href={SITE_LINKS.projects.nullwave.url}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-gray-950 underline decoration-gray-300 hover:decoration-black inline-flex items-center gap-0.5"
+            >
+              Null Wave <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 inline" />
+            </a>
+            , my priority is always to build clean, durable solutions that deliver measurable real-world value.
+          </p>
+        </motion.div>
+      </ScrollReveal>
 
       {/* What I Focus On */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.45 }}
-        className="space-y-4"
-      >
-        <h2 className="text-2xl font-semibold text-gray-900">What I Do</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <section className="space-y-6">
+        <ScrollReveal direction="up" distance={32}>
+          <h2 className="text-2xl font-semibold text-gray-900">What I Do</h2>
+        </ScrollReveal>
+
+        <ScrollStagger staggerDelay={0.09} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {areas.map((area, idx) => {
             const Icon = area.icon;
             return (
-              <motion.div
+              <ScrollItem
                 key={area.title}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.05 }}
-                whileHover={{ y: -3, borderColor: '#9CA3AF' }}
-                className="p-5 rounded-xl border border-gray-200 bg-white space-y-2 shadow-xs transition-colors cursor-default"
+                direction={idx % 2 === 0 ? 'left' : 'right'}
+                distance={32}
+                duration={0.55}
               >
-                <div className="flex items-center gap-2 text-gray-900">
-                  <Icon className="w-4 h-4 text-gray-700" />
-                  <h3 className="text-sm font-semibold">{area.title}</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
-                  {area.desc}
-                </p>
-              </motion.div>
+                <motion.div
+                  whileHover={{
+                    y: -4,
+                    borderColor: '#9CA3AF',
+                    boxShadow: '0 12px 25px -8px rgba(0,0,0,0.08)',
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className="p-5 sm:p-6 rounded-xl border border-gray-200 bg-white space-y-2.5 shadow-xs transition-colors cursor-default h-full"
+                >
+                  <div className="flex items-center gap-2.5 text-gray-900">
+                    <Icon className="w-4 h-4 text-gray-700" />
+                    <h3 className="text-sm font-semibold">{area.title}</h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                    {area.desc}
+                  </p>
+                </motion.div>
+              </ScrollItem>
             );
           })}
-        </div>
-      </motion.div>
+        </ScrollStagger>
+      </section>
 
       {/* Core Competencies & Execution */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.45 }}
-        className="space-y-4"
-      >
-        <h2 className="text-2xl font-semibold text-gray-900">Capabilities and Focus Areas</h2>
-        <div className="flex flex-wrap gap-2">
-          {coreStrengths.map((strength, idx) => (
-            <motion.span
-              key={strength}
-              initial={{ opacity: 0, scale: 0.92 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.25, delay: idx * 0.03 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-3 py-1.5 rounded-md border border-gray-200 bg-white text-xs font-mono text-gray-700 shadow-2xs cursor-default transition-colors hover:border-gray-400"
-            >
-              {strength}
-            </motion.span>
+      <section className="space-y-6">
+        <ScrollReveal direction="up" distance={32}>
+          <h2 className="text-2xl font-semibold text-gray-900">Capabilities and Focus Areas</h2>
+        </ScrollReveal>
+
+        <ScrollStagger staggerDelay={0.035} className="flex flex-wrap gap-2">
+          {coreStrengths.map((strength) => (
+            <ScrollItem key={strength} direction="scale" duration={0.35}>
+              <motion.span
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-3 py-1.5 rounded-md border border-gray-200 bg-white text-xs font-mono text-gray-700 shadow-2xs cursor-default transition-colors hover:border-gray-400 inline-block"
+              >
+                {strength}
+              </motion.span>
+            </ScrollItem>
           ))}
-        </div>
-      </motion.div>
+        </ScrollStagger>
+      </section>
 
       {/* CTA Box */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        whileHover={{ y: -2 }}
-        transition={{ duration: 0.25 }}
-        className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs"
-      >
-        <div className="space-y-1">
-          <h3 className="text-lg font-semibold text-gray-900">Have an ambitious venture or product?</h3>
-          <p className="text-sm text-gray-600 font-normal">
-            I am always open to discussing high impact products, operational challenges, and strategic partnerships.
-          </p>
-        </div>
-        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-          <Link
-            to="/contact"
-            className="px-5 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-colors shrink-0 inline-flex items-center gap-1.5 shadow-xs"
-          >
-            <span>Get in Touch</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+      <ScrollReveal direction="up" distance={36} duration={0.6}>
+        <motion.div
+          whileHover={{
+            y: -4,
+            boxShadow: '0 20px 35px -10px rgba(0, 0, 0, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.03)',
+          }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs"
+        >
+          <div className="space-y-1">
+            <h3 className="text-lg font-semibold text-gray-900">Have an ambitious venture or product?</h3>
+            <p className="text-sm text-gray-600 font-normal">
+              I am always open to discussing high-impact products, operational challenges, and strategic partnerships.
+            </p>
+          </div>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              to="/contact"
+              className="px-5 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium transition-colors shrink-0 inline-flex items-center gap-1.5 shadow-xs"
+            >
+              <span>Get in Touch</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </ScrollReveal>
     </div>
   );
 };

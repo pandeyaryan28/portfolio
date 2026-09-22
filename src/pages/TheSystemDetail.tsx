@@ -4,6 +4,8 @@ import { BookMockupTheSystem } from '../components/visual/BookMockupTheSystem';
 import { ArrowLeft, BookOpen, Quote, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
+import { ScrollReveal, ScrollStagger, ScrollItem, ScrollParallax } from '../components/ui/ScrollReveal';
+import { CaseStudyReadingRail } from '../components/ui/CaseStudyReadingRail';
 
 export const TheSystemDetail: React.FC = () => {
   const [selectedExcerpt, setSelectedExcerpt] = useState<number>(0);
@@ -39,12 +41,12 @@ export const TheSystemDetail: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-10">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-14">
       {/* Back Button */}
       <motion.div
-        initial={{ opacity: 0, x: -8 }}
+        initial={{ opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
       >
         <Link
           to="/writing"
@@ -57,10 +59,10 @@ export const TheSystemDetail: React.FC = () => {
 
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="space-y-4"
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="space-y-6"
       >
         <div className="flex items-center gap-2 text-xs font-mono text-gray-500 uppercase">
           <BookOpen className="w-3.5 h-3.5 text-gray-700" />
@@ -80,12 +82,12 @@ export const TheSystemDetail: React.FC = () => {
         {/* Action Buttons */}
         <div className="pt-2">
           <motion.a
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
             href={SITE_LINKS.writing.theSystem.url}
             target="_blank"
             rel="noreferrer"
-            className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-2 shadow-xs"
+            className="px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium transition-all inline-flex items-center gap-2 shadow-xs hover:shadow-md"
           >
             <span>Get Amazon Kindle Edition</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-70" />
@@ -113,130 +115,126 @@ export const TheSystemDetail: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Book Mockup */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        className="py-4 max-w-xs mx-auto"
-      >
-        <BookMockupTheSystem />
-      </motion.div>
+      {/* Reading Navigation Rail */}
+      <CaseStudyReadingRail
+        title="The System"
+        sections={[
+          { id: 'overview', label: 'Overview' },
+          { id: 'excerpts', label: 'Selected Excerpts' },
+          { id: 'chapters', label: 'Table of Contents' },
+        ]}
+      />
+
+      {/* Book Mockup with Scroll Parallax */}
+      <ScrollReveal direction="scale" distance={36} duration={0.65}>
+        <div className="py-2 max-w-xs mx-auto">
+          <ScrollParallax offset={26} direction="up">
+            <BookMockupTheSystem />
+          </ScrollParallax>
+        </div>
+      </ScrollReveal>
 
       {/* Overview */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.4 }}
-        className="space-y-4"
-      >
-        <h2 className="text-2xl font-semibold text-gray-900">Overview</h2>
-        <div className="text-base text-gray-600 space-y-4 leading-relaxed font-normal">
-          <p>
-            For decades, digital technology evolved under assumptions of endless energy, predictable chip scaling, and uninterrupted supply chains. Today, those foundational assumptions are being tested simultaneously.
-          </p>
-          <p>
-            This book breaks down what these structural shifts mean for developers, engineers, and founders building next generation technology.
-          </p>
-        </div>
-      </motion.div>
+      <ScrollReveal direction="up" distance={32} duration={0.55}>
+        <section id="overview" className="space-y-4 scroll-mt-24">
+          <h2 className="text-2xl font-semibold text-gray-900">Overview</h2>
+          <div className="text-base text-gray-600 space-y-4 leading-relaxed font-normal">
+            <p>
+              For decades, digital technology evolved under assumptions of endless energy, predictable chip scaling, and uninterrupted supply chains. Today, those foundational assumptions are being tested simultaneously.
+            </p>
+            <p>
+              This book breaks down what these structural shifts mean for developers, engineers, and founders building next generation technology.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Excerpts Reader */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.45 }}
-        className="space-y-4"
-      >
-        <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-          <h2 className="text-2xl font-semibold text-gray-900">Selected Excerpts</h2>
-          <span className="text-xs font-mono text-gray-500">3 Passages</span>
-        </div>
+      <ScrollReveal direction="up" distance={36} duration={0.6}>
+        <section id="excerpts" className="space-y-4 scroll-mt-24">
+          <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+            <h2 className="text-2xl font-semibold text-gray-900">Selected Excerpts</h2>
+            <span className="text-xs font-mono text-gray-500">3 Passages</span>
+          </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-2">
-          {excerpts.map((excerpt, idx) => {
-            const isSelected = selectedExcerpt === idx;
-            return (
-              <button
-                key={excerpt.title}
-                onClick={() => setSelectedExcerpt(idx)}
-                className={`relative px-3 py-1.5 rounded-md text-xs font-mono transition-colors ${
-                  isSelected ? 'text-white' : 'text-gray-700 hover:text-gray-950 bg-gray-100 hover:bg-gray-200'
-                }`}
+          {/* Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {excerpts.map((excerpt, idx) => {
+              const isSelected = selectedExcerpt === idx;
+              return (
+                <button
+                  key={excerpt.title}
+                  onClick={() => setSelectedExcerpt(idx)}
+                  className={`relative px-3 py-1.5 rounded-md text-xs font-mono transition-colors ${
+                    isSelected ? 'text-white' : 'text-gray-700 hover:text-gray-950 bg-gray-100 hover:bg-gray-200'
+                  }`}
+                >
+                  {isSelected && (
+                    <motion.div
+                      layoutId="active-excerpt-tab"
+                      className="absolute inset-0 bg-neutral-900 rounded-md z-0"
+                      transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+                    />
+                  )}
+                  <span className="relative z-10">Excerpt 0{idx + 1}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Excerpt Card with crossfade */}
+          <div className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white shadow-xs min-h-[220px] flex flex-col justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedExcerpt}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                className="space-y-4"
               >
-                {isSelected && (
-                  <motion.div
-                    layoutId="active-excerpt-tab"
-                    className="absolute inset-0 bg-neutral-900 rounded-md z-0"
-                    transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                  />
-                )}
-                <span className="relative z-10">Excerpt 0{idx + 1}</span>
-              </button>
-            );
-          })}
-        </div>
+                <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
+                  <Quote className="w-4 h-4 text-gray-400" />
+                  <span>{excerpts[selectedExcerpt].chapter}</span>
+                </div>
 
-        {/* Excerpt Card with crossfade */}
-        <div className="p-6 sm:p-8 rounded-2xl border border-gray-200 bg-white shadow-xs min-h-[220px] flex flex-col justify-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedExcerpt}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="space-y-4"
-            >
-              <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
-                <Quote className="w-4 h-4 text-gray-400" />
-                <span>{excerpts[selectedExcerpt].chapter}</span>
-              </div>
+                <h3 className="text-lg font-serif text-gray-900 font-medium">
+                  {excerpts[selectedExcerpt].title}
+                </h3>
 
-              <h3 className="text-lg font-serif text-gray-900 font-medium">
-                {excerpts[selectedExcerpt].title}
-              </h3>
-
-              <p className="font-serif italic text-base sm:text-lg text-gray-700 leading-relaxed">
-                "{excerpts[selectedExcerpt].content}"
-              </p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </motion.div>
+                <p className="font-serif italic text-base sm:text-lg text-gray-700 leading-relaxed">
+                  "{excerpts[selectedExcerpt].content}"
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Table of Contents */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.45 }}
-        className="space-y-4"
-      >
-        <h2 className="text-2xl font-semibold text-gray-900">Table of Contents</h2>
-        <div className="space-y-2">
-          {chapters.map((chap, idx) => (
-            <motion.div
-              key={chap.num}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: idx * 0.04 }}
-              whileHover={{ x: 4, borderColor: '#9CA3AF' }}
-              className="flex items-center justify-between p-3.5 rounded-xl border border-gray-200 bg-white text-sm transition-colors cursor-default"
-            >
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs text-gray-400">{chap.num}</span>
-                <span className="font-medium text-gray-800">{chap.title}</span>
-              </div>
-              <span className="font-mono text-xs text-gray-400">{chap.pages}</span>
-            </motion.div>
+      <section id="chapters" className="space-y-6 scroll-mt-24">
+        <ScrollReveal direction="up" distance={32}>
+          <h2 className="text-2xl font-semibold text-gray-900">Table of Contents</h2>
+        </ScrollReveal>
+
+        <ScrollStagger staggerDelay={0.06} className="space-y-2.5">
+          {chapters.map((chap) => (
+            <ScrollItem key={chap.num} direction="up" distance={20} duration={0.4}>
+              <motion.div
+                whileHover={{ x: 5, borderColor: '#9CA3AF' }}
+                transition={{ duration: 0.15 }}
+                className="flex items-center justify-between p-4 rounded-xl border border-gray-200 bg-white text-sm transition-colors cursor-default shadow-2xs hover:shadow-xs"
+              >
+                <div className="flex items-center gap-3.5">
+                  <span className="font-mono text-xs font-semibold text-neutral-500">{chap.num}</span>
+                  <span className="font-medium text-gray-800">{chap.title}</span>
+                </div>
+                <span className="font-mono text-xs text-gray-400">{chap.pages}</span>
+              </motion.div>
+            </ScrollItem>
           ))}
-        </div>
-      </motion.div>
+        </ScrollStagger>
+      </section>
     </div>
   );
 };

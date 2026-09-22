@@ -120,6 +120,14 @@ export const HeroBackgroundCanvas: React.FC = () => {
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
+    // Scroll tracking for noticeable scroll-driven 3D parallax & rotation
+    let scrollY = window.scrollY;
+    let targetScrollY = window.scrollY;
+    const handleScroll = () => {
+      targetScrollY = window.scrollY;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     const renderStaticFrame = () => {
       rootGroup.rotation.y = 0.45;
       rootGroup.rotation.x = 0.18;
@@ -139,18 +147,26 @@ export const HeroBackgroundCanvas: React.FC = () => {
       targetX += (mouseX - targetX) * 0.06;
       targetY += (mouseY - targetY) * 0.06;
 
-      // Gentle continuous rotation + mouse parallax
-      rootGroup.rotation.y = elapsedTime * 0.11 + targetX;
-      rootGroup.rotation.x = Math.sin(elapsedTime * 0.08) * 0.1 + targetY;
+      // Smooth scroll lerp for noticeable depth on page scroll
+      scrollY += (targetScrollY - scrollY) * 0.08;
+      const scrollRot = scrollY * 0.0028;
+      const scrollOffsetY = Math.min(1.4, scrollY * 0.0014);
 
-      // Subtle breathing scale
+      // Continuous rotation + mouse tilt + scroll-driven 3D parallax
+      rootGroup.rotation.y = elapsedTime * 0.11 + targetX + scrollRot;
+      rootGroup.rotation.x = Math.sin(elapsedTime * 0.08) * 0.1 + targetY + scrollRot * 0.35;
+      rootGroup.position.y = scrollOffsetY;
+
+      // Subtle breathing scale + perspective depth recession on scroll
       const pulse = 1 + Math.sin(elapsedTime * 0.55) * 0.02;
-      rootGroup.scale.set(pulse, pulse, pulse);
+      const scrollScale = Math.max(0.72, 1 - scrollY * 0.0005);
+      const totalScale = pulse * scrollScale;
+      rootGroup.scale.set(totalScale, totalScale, totalScale);
 
-      ring1.rotation.z = elapsedTime * 0.08;
-      ring2.rotation.x = elapsedTime * 0.06;
-      innerLines.rotation.y = -elapsedTime * 0.16;
-      coreLines.rotation.z = elapsedTime * 0.14;
+      ring1.rotation.z = elapsedTime * 0.08 + scrollRot * 0.5;
+      ring2.rotation.x = elapsedTime * 0.06 + scrollRot * 0.4;
+      innerLines.rotation.y = -elapsedTime * 0.16 - scrollRot * 0.6;
+      coreLines.rotation.z = elapsedTime * 0.14 + scrollRot * 0.8;
 
       renderer.render(scene, camera);
       animationFrameId = requestAnimationFrame(animate);
@@ -237,6 +253,7 @@ export const HeroBackgroundCanvas: React.FC = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       mediaQuery.removeEventListener('change', handleMotionPreference);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
       outerGeo.dispose();
