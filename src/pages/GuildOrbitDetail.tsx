@@ -40,11 +40,11 @@ export const GuildOrbitDetail: React.FC = () => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold text-neutral-950 tracking-tight leading-[1.12]">
-          Guild Orbit: Solving Context Fragmentation in High-Velocity Teams
+          Guild Orbit: Fixing Team Momentum by Uniting Tasks, Chat, and Approvals
         </h1>
 
         <p className="text-xl sm:text-2xl text-neutral-600 leading-relaxed font-normal max-w-3xl">
-          An operational case study on unifying sprint deliverables, contextual discussion threads, and formal approval gates into a single workspace — cutting status meetings by 50% and eliminating lost decisions.
+          An operational case study on bringing sprint tasks, discussion threads, and sign-off gates into a single workspace, cutting status meetings by 50% and stopping lost decisions.
         </p>
 
         {/* Primary Call to Action */}
@@ -71,15 +71,15 @@ export const GuildOrbitDetail: React.FC = () => {
           </div>
           <div>
             <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Status</span>
-            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Live MVP in Production</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Live in Production</span>
           </div>
           <div>
             <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Scope</span>
-            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Cross-Functional Execution Engine</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Task Management & Team Communication</span>
           </div>
           <div>
             <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Core Objective</span>
-            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Context Retention & Meeting Reduction</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Clear Context & Fewer Meetings</span>
           </div>
         </div>
       </motion.header>
@@ -89,9 +89,9 @@ export const GuildOrbitDetail: React.FC = () => {
         title="Guild Orbit"
         sections={[
           { id: 'context', label: 'Context' },
-          { id: 'bottlenecks', label: 'Structural Failures' },
-          { id: 'architecture', label: 'Architecture' },
-          { id: 'outcomes', label: 'Outcomes' },
+          { id: 'bottlenecks', label: 'Key Bottlenecks' },
+          { id: 'architecture', label: 'What I Built' },
+          { id: 'outcomes', label: 'Results' },
         ]}
       />
 
@@ -99,17 +99,17 @@ export const GuildOrbitDetail: React.FC = () => {
       <ScrollReveal direction="up" distance={36} duration={0.6}>
         <section id="context" className="space-y-6 scroll-mt-24">
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            1. Context & The Fragmented Toolchain Trap
+            1. The Real Problem in Product Teams
           </h2>
           <div className="space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
             <p>
-              Modern product and engineering teams operate under intense pressure to ship rapidly. Yet as organizations scale, execution speed reliably deteriorates. The root cause is rarely engineering talent or poor motivation — it is the systemic fragmentation of the team's software stack.
+              When fast growing teams start to scale, communication breaks down in predictable ways. People talk about features in messy group chats, track deliverables in separate task boards, and ask for approvals over email or direct messages.
             </p>
             <p>
-              In typical organizations, strategy is debated in transient chat channels (Slack, Teams), tasks are logged in disconnected ticket trackers (Jira, Linear), designs live in Figma, and sign-offs are requested over fragmented email threads or direct messages. Context fractures at every transition. Team members spend hours hunting down past agreements, deciphering the rationale behind specifications, or asking colleagues for routine status updates.
+              Because conversations happen in one app and the work lives in another, context fractures constantly. Important design decisions and scope changes get buried under hundreds of unrelated chat messages. Team members waste hours asking each other where links are, what was decided, and who is currently blocked.
             </p>
             <p>
-              Guild Orbit was conceived to eliminate this friction by bridging the divide between conversation and execution. Instead of treating communication as a separate stream that happens outside the work, Guild Orbit embeds discussions directly inside deliverable items, establishing total operational visibility.
+              Guild Orbit was built to eliminate this chaos. Instead of treating communication as something that happens outside the work, Guild Orbit puts discussions directly inside the task cards so decisions, feedback, and approvals remain permanently attached to the deliverable.
             </p>
           </div>
         </section>
@@ -119,7 +119,7 @@ export const GuildOrbitDetail: React.FC = () => {
       <section id="bottlenecks" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            2. Root Cause Analysis: Four Structural Points of Failure
+            2. The Key Bottlenecks
           </h2>
         </ScrollReveal>
 
@@ -131,9 +131,9 @@ export const GuildOrbitDetail: React.FC = () => {
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 01</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">The Ephemeral Chat Trap</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Discussions Lost in Chat</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Crucial architectural trade-offs and product scope decisions occur in continuous chat channels. Within hours, these agreements get buried under hundreds of unrelated messages. Weeks later, engineers build against obsolete requirements because nobody can locate the original discussion.
+                Critical project choices occur in group chats where they get buried within hours. Weeks later, people build against outdated notes because nobody can find the original conversation.
               </p>
             </motion.div>
           </ScrollItem>
@@ -145,9 +145,9 @@ export const GuildOrbitDetail: React.FC = () => {
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 02</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Decontextualized Task Trackers</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Disconnected Task Boards</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Standard Kanban and sprint boards isolate tasks into dry, transactional cards. Without immediate access to the conversation, customer feedback, and user research that shaped the task, builders lack intuitive empathy for what they are shipping.
+                Standard task boards isolate deliverables into dry cards without the background context. Without quick access to the user feedback and conversations that shaped the task, builders lack clarity on what matters.
               </p>
             </motion.div>
           </ScrollItem>
@@ -159,9 +159,9 @@ export const GuildOrbitDetail: React.FC = () => {
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 03</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Ambiguous Review & Sign-Off Ownership</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Unclear Approvals</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                When deliverables require cross-functional sign-off (design fidelity, security review, legal clearance), requests sent via direct message stall in recipient inboxes. Work either ships prematurely without proper vetting or gets blocked indefinitely while waiting for unassigned approvals.
+                When a task needs review from design or testing leads, requests sent through chat get forgotten. Features either ship without proper checks or sit stalled waiting for approvals.
               </p>
             </motion.div>
           </ScrollItem>
@@ -175,22 +175,22 @@ export const GuildOrbitDetail: React.FC = () => {
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 04</span>
               <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">The Status Meeting Tax</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Because leadership cannot clearly see real-time milestone health across fragmented tools, they institute recurring daily standups and weekly status meetings. Engineering and design leads spend up to a quarter of their working week explaining what is already done.
+                Because leaders cannot see real progress across different apps, they set up daily standups and weekly check-in calls. Builders spend hours every week repeating what is already done.
               </p>
             </motion.div>
           </ScrollItem>
         </ScrollStagger>
       </section>
 
-      {/* Case Study Section 3: Architecture & System Design */}
+      {/* Case Study Section 3: What I Built */}
       <section id="architecture" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            3. System Architecture: The Unified Execution Model
+            3. What I Built: The Unified Workspace
           </h2>
           <div className="space-y-4 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal mt-2">
             <p>
-              Guild Orbit replaces the disconnected patchwork with an integrated execution architecture structured around four core components:
+              I designed and built Guild Orbit to unite communication, task tracking, and approvals into one focused workflow:
             </p>
           </div>
         </ScrollReveal>
@@ -207,11 +207,11 @@ export const GuildOrbitDetail: React.FC = () => {
                   01
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Deliverable-Anchored Discussion Streams
+                  Discussions Tied to Tasks
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                Every deliverable, milestone, and pull request contains its own dedicated discussion container. Context is permanently pinned to the work item itself. When a new contributor joins a project or a reviewer audits a completed sprint, the entire history of decisions and rationale is right there.
+                Every task card has its own dedicated comment stream. Instead of conversations vanishing in chat channels, all discussions and reasoning stay permanently attached to the work item itself.
               </p>
             </motion.div>
           </ScrollItem>
@@ -227,11 +227,11 @@ export const GuildOrbitDetail: React.FC = () => {
                   02
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Single-Pane Execution Kanban & Blocker Telemetry
+                  Clear Visual Progress Board
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                A high-density sprint execution board tracks work progress across engineering, design, and product tracks in real-time. Team members explicitly flag dependency blockers, immediately notifying upstream owners without requiring ad-hoc messaging.
+                A clean execution board displays what everyone is working on in real time. If someone is stuck or blocked, they flag it directly on the card, notifying teammates without needing an extra message.
               </p>
             </motion.div>
           </ScrollItem>
@@ -247,11 +247,11 @@ export const GuildOrbitDetail: React.FC = () => {
                   03
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Multi-Stage Governance & Structured Sign-Off Gates
+                  Built-In Sign-Off Checkpoints
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                Milestones cannot transition to 'Complete' until designated reviewers explicitly approve their respective gates (Design Quality, Test Verification, Executive Authorization). Approval states are transparent to the entire organization, eliminating unreviewed deployments.
+                Tasks cannot be marked as complete until designated leads (Design, Security, Testing) approve them. Everyone can see who has reviewed the work, preventing unverified changes from launching.
               </p>
             </motion.div>
           </ScrollItem>
@@ -267,11 +267,11 @@ export const GuildOrbitDetail: React.FC = () => {
                   04
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Automated Milestone Velocity & Delivery Analytics
+                  Automatic Delivery Tracking
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                Progress telemetry is computed automatically from actual state changes and sign-off completion rather than subjective manual status entries. Leadership receives accurate delivery pace visibility at a glance, removing the need for interruptive progress check-in calls.
+                Project pace is calculated automatically from actual card completions and approvals. Leaders get honest visibility into timelines at a glance, removing the need for daily progress check-in calls.
               </p>
             </motion.div>
           </ScrollItem>
@@ -282,7 +282,7 @@ export const GuildOrbitDetail: React.FC = () => {
       <section id="outcomes" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            4. Measurable Operational Outcomes
+            4. The Measurable Results
           </h2>
         </ScrollReveal>
 
@@ -297,7 +297,7 @@ export const GuildOrbitDetail: React.FC = () => {
                 <Clock className="w-7 h-7 text-neutral-700" />
                 <h3 className="text-2xl font-semibold text-neutral-900">50% Fewer Status Meetings</h3>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                  Ambient milestone telemetry and visible blocker tracking give leadership total visibility, eliminating repetitive sync meetings.
+                  Live visual boards and automatic milestone tracking cut recurring update meetings in half.
                 </p>
               </motion.div>
             </ScrollParallax>
@@ -311,9 +311,9 @@ export const GuildOrbitDetail: React.FC = () => {
                 className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs h-full"
               >
                 <MessageSquare className="w-7 h-7 text-neutral-700" />
-                <h3 className="text-2xl font-semibold text-neutral-900">100% Decision Auditability</h3>
+                <h3 className="text-2xl font-semibold text-neutral-900">100% Decision History</h3>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                  Anchor threads directly to deliverables, guaranteeing past architectural and scope decisions are never lost or forgotten.
+                  All discussions stay attached to the deliverables so past decisions are never lost or forgotten.
                 </p>
               </motion.div>
             </ScrollParallax>
@@ -329,7 +329,7 @@ export const GuildOrbitDetail: React.FC = () => {
                 <ShieldCheck className="w-7 h-7 text-neutral-700" />
                 <h3 className="text-2xl font-semibold text-neutral-900">Zero Unreviewed Releases</h3>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                  Formal sign-off gates enforce peer, security, and design approvals prior to launch, preventing unvetted code regressions.
+                  Mandatory sign-offs from lead reviewers ensure every release is verified before going live.
                 </p>
               </motion.div>
             </ScrollParallax>
@@ -337,11 +337,11 @@ export const GuildOrbitDetail: React.FC = () => {
         </ScrollStagger>
       </section>
 
-      {/* Case Study Section 5: Operator Reflections & Lessons */}
+      {/* Case Study Section 5: Key Lessons */}
       <ScrollReveal direction="scale" distance={36} duration={0.65}>
         <section className="space-y-6 border-t border-neutral-200 pt-10">
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            5. Operator Reflections: Context Density Over Communication Volume
+            5. Key Takeaways
           </h2>
           <motion.div
             whileHover={{ y: -2 }}
@@ -349,13 +349,13 @@ export const GuildOrbitDetail: React.FC = () => {
             className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal shadow-2xs"
           >
             <p className="text-xl sm:text-2xl font-semibold text-neutral-950 leading-snug">
-              "Execution velocity is not about sending more messages. It is about maximizing context density per interaction."
+              "Execution speed is not about sending more messages. It is about keeping the conversation right next to the work."
             </p>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-              When teams adopt modern chat apps, they confuse message volume with productivity. High channel chatter often masks severe operational confusion. Team members spend half their energy asking basic questions: Where is the design link? Who approved this copy? Is this blocked by backend?
+              When teams rely on endless chat channels, message volume explodes while real clarity shrinks. People spend half their energy asking basic questions about where links are and who approved what.
             </p>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-              Building Guild Orbit taught us that when you structure information architecture around deliverables rather than open chat channels, you drastically reduce cognitive load. Autonomy increases because every builder has immediate, unambiguous clarity on what needs to be delivered, why it matters, and who owns the sign-off.
+              Guild Orbit proves that anchoring discussions directly to task deliverables removes constant interruptions. Builders have the freedom to focus on shipping, while leaders maintain honest, effortless visibility.
             </p>
           </motion.div>
 

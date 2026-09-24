@@ -32,7 +32,7 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-xs font-mono font-medium text-gray-500 uppercase tracking-wider inline-flex items-center gap-2"
           >
-            <span>Aryan Pandey · Product Operator & Systems Builder</span>
+            <span>Aryan Pandey · Builder & Generalist Operator</span>
           </motion.div>
 
           <motion.h1
@@ -50,7 +50,7 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg sm:text-xl text-gray-600 font-normal leading-relaxed max-w-2xl"
           >
-            I operate at the intersection of product strategy, operational architecture, and rapid execution. I step into high-ambiguity environments to diagnose broken workflows, build lean systems, and ship working zero-to-one products — from clinical healthcare infrastructure to custom voice hardware.
+            I am someone who loves figuring things out and making them work. My greatest strength is high ownership and fast learning when stakes are high. When faced with an open ended problem, I get to the root cause quickly, organize the chaos, and build the answer by hand. I care about useful simplicity, honest work ethic, and finishing what I start, from web platforms to hardware devices.
           </motion.p>
 
           <motion.div
@@ -130,20 +130,29 @@ export const HomePage: React.FC = () => {
                   UniCare
                 </h3>
                 <p className="text-base text-gray-600 leading-relaxed font-normal">
-                  A unified clinical operating system connecting patient intake, doctor consultations, and pharmacy inventory. Built to eliminate 45-minute lobby queues, prevent expensive medicine expiration write-offs with First-Expired, First-Out routing, and reduce prescription costs by up to 90% via real-time generic substitution.
+                  A clean clinic management tool that connects patient registration, doctor notes, and the pharmacy desk into one simple screen. It helps outpatient clinics run on time, cut wait times, and save patients money on their prescriptions.
                 </p>
 
-                {/* Staggered Outcome Blocks */}
-                <ScrollStagger staggerDelay={0.09} className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                {/* Nested Problem & Solution Cards */}
+                <ScrollStagger staggerDelay={0.09} className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                   <ScrollItem direction="up" distance={24}>
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Intake Protocol</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">Under 10 Seconds</span>
-                      <p className="text-xs text-neutral-600 font-normal">Contactless QR token check-in replaces paper logs</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Patients wait 45 minutes in crowded clinic lobbies to fill out paper forms and locate paper files.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How UniCare Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          Patients scan a simple QR code at reception to get an instant digital token in under 10 seconds.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
 
@@ -151,11 +160,20 @@ export const HomePage: React.FC = () => {
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Prescription Cost</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">Up to 90% Savings</span>
-                      <p className="text-xs text-neutral-600 font-normal">Direct bioequivalent generic substitution</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Patients often cannot afford expensive branded medicines written on paper prescriptions.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How UniCare Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          The system suggests high quality generic alternatives with the same ingredients for up to 90% less.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
 
@@ -163,11 +181,20 @@ export const HomePage: React.FC = () => {
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Dispensary Waste</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">Zero Expired Losses</span>
-                      <p className="text-xs text-neutral-600 font-normal">Automated FEFO inventory batch allocation</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Clinics lose money when unsold medicine boxes sit in the back of cabinets and expire.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How UniCare Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          Tracks expiry dates automatically and directs staff to dispense the earliest expiring batch first.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
                 </ScrollStagger>
@@ -229,20 +256,29 @@ export const HomePage: React.FC = () => {
                   Guild Orbit
                 </h3>
                 <p className="text-base text-gray-600 leading-relaxed font-normal">
-                  An integrated team execution platform uniting sprint deliverables, contextual discussion threads, and formal approval gates into one clear system. Designed to stop decisions from vanishing in chat streams, eliminate recurring status update meetings, and ensure transparent governance before launch.
+                  An all in one workspace for fast moving product teams that puts tasks, discussions, and launch approvals in one single place. It eliminates scattered chat messages and removes the need for daily status update meetings.
                 </p>
 
-                {/* Staggered Outcome Blocks */}
-                <ScrollStagger staggerDelay={0.09} className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                {/* Nested Problem & Solution Cards */}
+                <ScrollStagger staggerDelay={0.09} className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                   <ScrollItem direction="up" distance={24}>
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Context Retention</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">Deliverable-Tied Threads</span>
-                      <p className="text-xs text-neutral-600 font-normal">Discussions remain anchored to work items permanently</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Teams discuss critical project choices inside busy group chats where important context gets buried.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How Guild Orbit Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          Every discussion happens directly on the specific task card so the reasoning stays attached to the work forever.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
 
@@ -250,11 +286,20 @@ export const HomePage: React.FC = () => {
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Meeting Reduction</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">50% Fewer Sync Calls</span>
-                      <p className="text-xs text-neutral-600 font-normal">Live board telemetry replaces manual check-in pings</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Managers and team members spend hours each week in video calls just asking each other for quick updates.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How Guild Orbit Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          Live visual boards show the exact progress of every deliverable in real time, cutting status meetings in half.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
 
@@ -262,11 +307,20 @@ export const HomePage: React.FC = () => {
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Release Governance</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">Multi-Stage Sign-Offs</span>
-                      <p className="text-xs text-neutral-600 font-normal">Mandatory stakeholder review gates before deployment</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Features often get pushed live before design, testing, or security leads have reviewed them.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How Guild Orbit Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          Built in sign off checkpoints require explicit approval from team leads before anything goes live.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
                 </ScrollStagger>
@@ -328,20 +382,29 @@ export const HomePage: React.FC = () => {
                   Null Wave
                 </h3>
                 <p className="text-base text-gray-600 leading-relaxed font-normal">
-                  An ergonomic acoustic wearable engineered to contain voice audio at the mouth for confidential business calls and voice computing in public environments. Traps speech acoustic waves to drop vocal volume by over 40 decibels while silent perimeter micro-channels maintain continuous fresh air circulation.
+                  An ergonomic acoustic wearable mask that muffles your voice at your mouth so you can speak privately in public places like airports, cafes, or shared offices without anyone overhearing.
                 </p>
 
-                {/* Staggered Outcome Blocks */}
-                <ScrollStagger staggerDelay={0.09} className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                {/* Nested Problem & Solution Cards */}
+                <ScrollStagger staggerDelay={0.09} className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                   <ScrollItem direction="up" distance={24}>
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Acoustic Shield</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">40+ dB Reduction</span>
-                      <p className="text-xs text-neutral-600 font-normal">Converts conversational speech to an inaudible murmur</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Taking confidential work calls in cafes, trains, or open spaces leaks sensitive company info.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How Null Wave Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          A sound absorbing internal chamber traps speech, dropping your vocal volume by over 40 decibels.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
 
@@ -349,11 +412,20 @@ export const HomePage: React.FC = () => {
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Micro-Airflow</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">Silent Circulation</span>
-                      <p className="text-xs text-neutral-600 font-normal">Zero heat or humidity buildup without mic noise</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Standard enclosed face masks become hot, humid, and stuffy after speaking for just minutes.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How Null Wave Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          Silent internal air ducts keep fresh air circulating continuously without letting sound leak out.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
 
@@ -361,11 +433,20 @@ export const HomePage: React.FC = () => {
                     <motion.div
                       whileHover={{ y: -3, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
                       transition={{ duration: 0.18 }}
-                      className="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1 transition-colors"
+                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5 transition-colors h-full flex flex-col justify-between"
                     >
-                      <span className="text-xs font-mono text-neutral-500 uppercase block">Materials</span>
-                      <span className="text-sm font-semibold text-neutral-900 block">Titanium & Silicone</span>
-                      <p className="text-xs text-neutral-600 font-normal">Articulating jaw seal under 300g travel weight</p>
+                      <div className="space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block">The Problem</span>
+                        <p className="text-xs text-neutral-700 font-normal leading-relaxed">
+                          Privacy booths and traditional audio gear are bulky, heavy, and inconvenient to travel with.
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-neutral-200/80 space-y-1">
+                        <span className="text-[11px] font-mono text-neutral-900 font-medium uppercase tracking-wider block">How Null Wave Solves It</span>
+                        <p className="text-xs text-neutral-800 font-medium leading-relaxed">
+                          Engineered with titanium and soft silicone that fits snugly against your jaw under 300 grams.
+                        </p>
+                      </div>
                     </motion.div>
                   </ScrollItem>
                 </ScrollStagger>
@@ -473,7 +554,7 @@ export const HomePage: React.FC = () => {
                       Core Idea Behind the Book
                     </span>
                     <p className="text-base text-gray-700 leading-relaxed font-normal">
-                      Modern technology was built on the silent premise of infinite cheap energy, predictable semiconductor scaling, and frictionless supply chains. As physical power limits, thermal bottlenecks, and geopolitical realignments collide, those assumptions are breaking down. This book provides a strategic blueprint for how computing infrastructure, power availability, and architectural decisions will reshape technology over the next decade.
+                      A book exploring why the physical systems of our world, from power grids and computer chips to global supply chains, are hitting real physical limits, and what builders need to understand to create lasting technology over the next ten years.
                     </p>
                   </motion.div>
 
@@ -554,7 +635,7 @@ export const HomePage: React.FC = () => {
                       Core Idea Behind the Book
                     </span>
                     <p className="text-base text-gray-700 leading-relaxed font-normal">
-                      Having an audience is not the same as owning distribution. Relying on social media algorithms means renting attention from platforms that can slash reach overnight. This work outlines how durable products build organic distribution directly into product mechanics, user workflows, and structural referral loops that compound sustainably without continuous ad spend.
+                      A clear, practical breakdown of how products reach real customers. It explains why collecting social media followers is not the same as having real distribution, and how to build growth loops that keep working even when social media algorithms change.
                     </p>
                   </motion.div>
 

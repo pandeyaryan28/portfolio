@@ -24,7 +24,7 @@ export const WritingPage: React.FC = () => {
           Books & Writing
         </h1>
         <p className="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
-          In-depth research on computing infrastructure, energy constraints, and product distribution mechanics.
+          Clear thinking on computing, energy limits, and how products find real users.
         </p>
       </motion.div>
 
@@ -58,20 +58,20 @@ export const WritingPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-4 flex justify-center">
-                <div className="w-full max-w-[220px]">
+              <div className="md:col-span-5 flex justify-center">
+                <div className="w-full max-w-[260px]">
                   <ScrollParallax offset={28} direction="up">
                     <BookMockupTheSystem />
                   </ScrollParallax>
                 </div>
               </div>
 
-              <div className="md:col-span-8 space-y-4">
+              <div className="md:col-span-7 space-y-4">
                 <h2 className="text-2xl sm:text-3xl font-serif text-gray-900">
                   The System Is Being Rewritten
                 </h2>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-                  How energy limits, computing infrastructure, and economic systems are changing the next decade of technology. Over the past century, systems were built on assumptions that no longer hold today.
+                  A book exploring why the physical systems of our world (from power grids and computer chips to global supply chains) are hitting real physical limits, and what builders need to understand to create lasting technology over the next ten years.
                 </p>
 
                 <ScrollStagger staggerDelay={0.06} className="pt-2 flex flex-wrap gap-2 text-xs font-mono text-gray-600">
@@ -144,20 +144,20 @@ export const WritingPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-4 flex justify-center">
-                <div className="w-full max-w-[220px]">
+              <div className="md:col-span-5 flex justify-center">
+                <div className="w-full max-w-[260px]">
                   <ScrollParallax offset={28} direction="up">
                     <BookMockupDistribution />
                   </ScrollParallax>
                 </div>
               </div>
 
-              <div className="md:col-span-8 space-y-4">
+              <div className="md:col-span-7 space-y-4">
                 <h2 className="text-2xl sm:text-3xl font-serif text-gray-900">
                   Building Distribution
                 </h2>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-                  Why having social media followers is not the same as having real distribution. A practical breakdown of how products build direct, compounding distribution loops that survive algorithm changes.
+                  A clear, practical breakdown of how products reach real customers. It explains why collecting social media followers is not the same as having real distribution, and how to build growth loops that keep working even when social media algorithms change.
                 </p>
 
                 <ScrollStagger staggerDelay={0.06} className="pt-2 flex flex-wrap gap-2 text-xs font-mono text-gray-600">

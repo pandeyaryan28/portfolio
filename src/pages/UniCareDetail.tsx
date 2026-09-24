@@ -44,7 +44,7 @@ export const UniCareDetail: React.FC = () => {
         </h1>
 
         <p className="text-xl sm:text-2xl text-neutral-600 leading-relaxed font-normal max-w-3xl">
-          An operational case study on designing and deploying a unified clinic management platform that eliminates intake queues, ends pharmacy inventory expiration, and cuts patient medicine costs by up to 90%.
+          An operational case study on designing and deploying a simple clinic management tool that eliminates waiting lines, stops pharmacy medicine waste, and cuts prescription costs for patients by up to 90%.
         </p>
 
         {/* Primary Call to Action */}
@@ -71,15 +71,15 @@ export const UniCareDetail: React.FC = () => {
           </div>
           <div>
             <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Status</span>
-            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Live MVP in Production</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Live in Production</span>
           </div>
           <div>
             <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Scope</span>
-            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Full-Stack Clinical & Pharmacy Flow</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Front Desk, Doctor Notes & Pharmacy</span>
           </div>
           <div>
             <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Core Objective</span>
-            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Zero Waste, High-Velocity Intake</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">Zero Waste, High Velocity Care</span>
           </div>
         </div>
       </motion.header>
@@ -89,9 +89,9 @@ export const UniCareDetail: React.FC = () => {
         title="UniCare"
         sections={[
           { id: 'context', label: 'Context' },
-          { id: 'bottlenecks', label: 'Root Bottlenecks' },
-          { id: 'architecture', label: 'Architecture' },
-          { id: 'outcomes', label: 'Outcomes' },
+          { id: 'bottlenecks', label: 'Key Bottlenecks' },
+          { id: 'architecture', label: 'What I Built' },
+          { id: 'outcomes', label: 'Results' },
         ]}
       />
 
@@ -99,17 +99,17 @@ export const UniCareDetail: React.FC = () => {
       <ScrollReveal direction="up" distance={36} duration={0.6}>
         <section id="context" className="space-y-6 scroll-mt-24">
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            1. Context & The Outpatient Operational Crisis
+            1. The Real Problem in Outpatient Clinics
           </h2>
           <div className="space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
             <p>
-              Outpatient clinics and independent healthcare centers operate in high-friction environments. During peak morning and evening consultation windows, reception areas get overwhelmed with dozens of simultaneous patient arrivals. Front-desk staff juggle ringing telephones, handwriting physical paper logbooks, and manually searching through physical filing cabinets for returning patient files.
+              Walk into almost any local doctor clinic during busy hours and you see the exact same frustration: a crowded waiting room full of sick people, a receptionist overwhelmed by ringing phones and stacks of paper forms, and patients waiting over 45 minutes just to see a doctor for five minutes.
             </p>
             <p>
-              The consequences of this operational friction ripple through the entire clinical value chain: patients face 45-minute lobby waits before ever seeing a doctor; physicians conduct consultations under extreme time stress with fragmented historical context; and clinic dispensaries silently hemorrhage revenue through expired medicine write-offs.
+              When operations are run on clipboards and scattered spreadsheets, everyone suffers. Patients get anxious sitting in packed lobbies, doctors conduct visits under rush without seeing past medical history, and clinic pharmacies quietly lose thousands of dollars each month when unsold medicine boxes expire at the back of shelves.
             </p>
             <p>
-              Existing hospital enterprise resource planning (ERP) suites are bloated, prohibitively expensive, and require weeks of staff training. Small-to-mid clinics abandon them because they slow down consultations rather than accelerating them. UniCare was built from first principles to solve this operational breakdown through lean, low-latency workflow automation.
+              Large hospital enterprise software is too expensive, complicated, and slow for everyday clinics. Doctors end up abandoning them because they slow consultations down. I designed and built UniCare from the ground up to give clinics a fast, intuitive system that connects every step of the visit seamlessly.
             </p>
           </div>
         </section>
@@ -119,7 +119,7 @@ export const UniCareDetail: React.FC = () => {
       <section id="bottlenecks" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            2. Root Cause Analysis: Four Systemic Failures
+            2. The Key Bottlenecks
           </h2>
         </ScrollReveal>
 
@@ -131,9 +131,9 @@ export const UniCareDetail: React.FC = () => {
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 01</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Manual Front-Desk Intake Congestion</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Slow Paper Sign-In at Reception</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Manual clipboard sign-ins and identity re-verification take 10 to 15 minutes per patient. Clerical handwriting errors result in duplicate patient IDs, misplaced allergy notes, and crowded waiting lobbies that distress patients before consultations begin.
+                Writing names, addresses, and symptoms on paper forms takes 10 to 15 minutes per patient. Receptionists struggle to read messy handwriting, files get misplaced, and lines spill out into the hallway.
               </p>
             </motion.div>
           </ScrollItem>
@@ -145,9 +145,9 @@ export const UniCareDetail: React.FC = () => {
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 02</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Clinical Context Fragmentation</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Missing Medical History</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Doctors lack quick visibility into past visit history, chronic diagnostics, and allergy flags. When past charts are filed away in paper folders or incompatible portals, doctors waste valuable minutes re-asking basic history or ordering redundant tests.
+                Doctors often have no quick way to see a patient's past visit notes, chronic conditions, or allergies. They waste consultation minutes asking questions from scratch or repeating tests that were already done.
               </p>
             </motion.div>
           </ScrollItem>
@@ -159,9 +159,9 @@ export const UniCareDetail: React.FC = () => {
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 03</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Prescription Cost Inflation & Non-Adherence</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">High Prescription Costs</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Physicians naturally recall heavily marketed brand names when writing prescriptions. Without real-time formulary visibility, patients receive scripts for branded drugs costing up to 10x more than bioequivalent generics, causing prescription abandonment at the pharmacy counter.
+                Doctors naturally recall heavily advertised brand name drugs. Without a simple way to check lower cost alternatives in the moment, patients receive expensive prescriptions they cannot afford to buy.
               </p>
             </motion.div>
           </ScrollItem>
@@ -173,24 +173,24 @@ export const UniCareDetail: React.FC = () => {
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
               <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Bottleneck 04</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Dispensary Expiration & Margin Erosion</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Pharmacy Stock Expiration</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Without automated batch rotation, dispensary staff stock new deliveries on front shelves while older batches sit in the back. Clinics write off 4% to 8% of pharmacy stock annually due to expired medicines, eroding pharmacy operating margins.
+                Pharmacy staff stock new deliveries at the front of shelves while older boxes get pushed to the back. When older medicines expire before being sold, clinics take a direct financial hit.
               </p>
             </motion.div>
           </ScrollItem>
         </ScrollStagger>
       </section>
 
-      {/* Case Study Section 3: Architecture & Engineering Workflow */}
+      {/* Case Study Section 3: What I Built */}
       <section id="architecture" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            3. System Architecture & The Unified Operational Flow
+            3. What I Built: The Unified Clinic System
           </h2>
           <div className="space-y-4 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal mt-2">
             <p>
-              UniCare eliminates these bottlenecks by integrating every step of the patient journey into a single synchronized state machine. Each touchpoint directly feeds the next without redundant data entry:
+              I designed and built UniCare as a single, lightweight web platform that connects every step of the patient journey:
             </p>
           </div>
         </ScrollReveal>
@@ -207,11 +207,11 @@ export const UniCareDetail: React.FC = () => {
                   01
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Contactless Intake & Instant Token Allocation
+                  Ten-Second QR Check-In
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                Returning patients scan a personal digital QR pass upon arrival at the clinic. The system immediately retrieves their encrypted profile, generates a sequential consultation token, alerts the nursing desk, and dispatches their position to lobby display screens. Front-desk intake time drops from 12+ minutes to under 10 seconds.
+                Returning patients scan a personal QR code on arrival. The system immediately loads their profile, assigns a digital queue token, alerts the nursing desk, and displays their position on lobby TV screens in under 10 seconds.
               </p>
             </motion.div>
           </ScrollItem>
@@ -227,11 +227,11 @@ export const UniCareDetail: React.FC = () => {
                   02
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Single-Pane Clinical Consultation & Longitudinal History
+                  One-Screen Doctor Consultation
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                When a doctor calls the next token, the patient's vitals, past diagnoses, chronic conditions, and previous prescriptions load instantaneously on a low-latency consultation desk. Physicians capture observations in structured notes designed to minimize keystrokes, ensuring medical context is preserved without disrupting patient dialogue.
+                When a doctor calls the next patient, past medical history, previous visits, and allergies appear instantly on one simple screen. Doctors can type quick notes without clicking through confusing menus.
               </p>
             </motion.div>
           </ScrollItem>
@@ -247,11 +247,11 @@ export const UniCareDetail: React.FC = () => {
                   03
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Real-Time Therapeutic Substitution Engine
+                  Automatic Generic Medicine Suggestions
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                As a physician types a medication name, the prescribing engine parses the active molecule and interrogates current in-stock dispensary inventory. It displays verified generic bioequivalents alongside their wholesale and retail prices. Clinicians can substitute costly brand-name drugs with high-quality generic equivalents in a single click, saving patients up to 90% on their bill.
+                When a doctor prescribes a medicine, UniCare automatically checks pharmacy stock and suggests generic alternatives with the exact same active ingredients, saving patients up to 90% on their bill.
               </p>
             </motion.div>
           </ScrollItem>
@@ -267,11 +267,11 @@ export const UniCareDetail: React.FC = () => {
                   04
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  First-Expired, First-Out (FEFO) Dispensary Automation
+                  Earliest Expiry First Dispensing
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                Prescriptions stream directly to the pharmacy dispensary screen the moment the doctor confirms them. The inventory system algorithmically selects the exact batch number with the nearest valid expiry date (FEFO). Pharmacists simply scan the pre-assigned batch barcode to dispense, eliminating expired stock write-offs and safeguarding clinic margins.
+                Prescriptions appear on the pharmacy screen immediately. The system tells staff exactly which batch to grab based on expiry date, making sure older valid stock is used before newer stock, ending expired medicine waste.
               </p>
             </motion.div>
           </ScrollItem>
@@ -287,11 +287,11 @@ export const UniCareDetail: React.FC = () => {
                   05
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Lobby Queue Orchestration & Digital Signage
+                  Live Lobby TV Queue Display
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                A dedicated lightweight display route runs on lobby TV monitors. Tokens transition automatically between 'Waiting', 'In Consultation', and 'Pharmacy Ready', providing ambient visibility that calms patient anxiety and eliminates repetitive staff announcements.
+                A clean display runs on lobby TV monitors. Tokens move smoothly between Waiting, In Consultation, and Pharmacy Ready, so patients always know their place in line without receptionists having to shout names.
               </p>
             </motion.div>
           </ScrollItem>
@@ -349,7 +349,7 @@ export const UniCareDetail: React.FC = () => {
                 <ShieldCheck className="w-7 h-7 text-neutral-700" />
                 <h3 className="text-2xl font-semibold text-neutral-900">Zero Expiration Loss</h3>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                  FEFO-driven automated inventory batch allocation routes near-expiry inventory first, eliminating 4% to 8% clinic inventory write-offs.
+                  Automatic earliest-expiry routing dispenses older stock before it goes bad, completely stopping expired medicine losses.
                 </p>
               </motion.div>
             </ScrollParallax>
@@ -357,11 +357,11 @@ export const UniCareDetail: React.FC = () => {
         </ScrollStagger>
       </section>
 
-      {/* Case Study Section 5: Operator Reflections & Lessons */}
+      {/* Case Study Section 5: Key Lessons */}
       <ScrollReveal direction="scale" distance={36} duration={0.65}>
         <section className="space-y-6 border-t border-neutral-200 pt-10">
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            5. Operator Reflections: Engineering for Real Clinical Reality
+            5. Key Takeaways
           </h2>
           <motion.div
             whileHover={{ y: -2 }}
@@ -369,13 +369,13 @@ export const UniCareDetail: React.FC = () => {
             className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal shadow-2xs"
           >
             <p className="text-xl sm:text-2xl font-semibold text-neutral-950 leading-snug">
-              "Clinical software does not fail on technical capability; it fails on cognitive friction."
+              "Clinic software does not fail because of technical limits. It fails when it makes doctors and staff work slower."
             </p>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-              When designing systems for busy clinical environments, every additional form field or modal window is an invitation for user abandonment. Doctors who see 40 to 60 patients a day cannot spend 3 minutes typing detailed ICD-10 administrative codes into dense interfaces. If the software takes more than 15 seconds to prescribe a treatment, clinicians will revert to paper pads immediately.
+              Doctors who see dozens of patients every day cannot spend three minutes filling out complicated multi step forms. If software takes more than 15 seconds to write a prescription, doctors will immediately put it aside and pick up their pen and paper again.
             </p>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-              The success of UniCare stems from ruthless workflow compression. By treating clinic operations as an integrated physical-digital system — intake, consult, dispense — we removed clerical friction at each juncture. The result is a platform that healthcare workers actually want to use, proving that modern software can drive clinical efficiency while directly lowering healthcare costs for patients.
+              UniCare works because it strips away every unnecessary click. By connecting check-in, consultation, and medicine dispensing into one continuous flow, staff spend less time typing and patients spend less time waiting.
             </p>
           </motion.div>
 

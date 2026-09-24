@@ -41,11 +41,11 @@ export const NullWaveDetail: React.FC = () => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold text-neutral-950 tracking-tight leading-[1.12]">
-          Null Wave: Engineering Physical Speech Privacy
+          Null Wave: Engineering Voice Privacy for Public Work
         </h1>
 
         <p className="text-xl sm:text-2xl text-neutral-600 leading-relaxed font-normal max-w-3xl">
-          An engineering case study on designing an ergonomic acoustic wearable mask that attenuates spoken voice audio by over 40 decibels at the mouth, enabling confidential communication and voice computing anywhere in public.
+          An engineering case study on designing an acoustic wearable mask that muffles voice audio by over 40 decibels at the mouth, making confidential phone calls possible anywhere in public.
         </p>
 
         {/* Primary Call to Action */}
@@ -80,7 +80,7 @@ export const NullWaveDetail: React.FC = () => {
           </div>
           <div>
             <span className="text-neutral-500 block font-mono text-xs sm:text-sm uppercase tracking-wider">Core Metric</span>
-            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">40+ dB Acoustic Attenuation</span>
+            <span className="font-medium text-neutral-900 mt-1.5 block text-sm sm:text-base">40+ dB Voice Sound Reduction</span>
           </div>
         </div>
       </motion.header>
@@ -89,11 +89,11 @@ export const NullWaveDetail: React.FC = () => {
       <CaseStudyReadingRail
         title="Null Wave"
         sections={[
-          { id: 'specs', label: 'CAD & Specs' },
-          { id: 'context', label: 'Privacy Paradox' },
-          { id: 'constraints', label: 'Constraints' },
-          { id: 'architecture', label: 'Acoustic Architecture' },
-          { id: 'outcomes', label: 'Performance' },
+          { id: 'specs', label: 'Prototype' },
+          { id: 'context', label: 'Context' },
+          { id: 'constraints', label: 'Challenges' },
+          { id: 'architecture', label: 'What I Built' },
+          { id: 'outcomes', label: 'Results' },
         ]}
       />
 
@@ -110,17 +110,17 @@ export const NullWaveDetail: React.FC = () => {
       <ScrollReveal direction="up" distance={36} duration={0.6}>
         <section id="context" className="space-y-6 scroll-mt-24">
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            1. Context: The Mobile Voice Privacy Paradox
+            1. The Real Problem with Speaking in Public
           </h2>
           <div className="space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal">
             <p>
-              Spoken language is the highest-bandwidth human input mechanism, transmitting thoughts at 150 words per minute compared to roughly 40 words per minute on a phone keyboard. As generative AI models, voice assistants, and remote executive calls become primary work tools, speaking aloud is replacing typing.
+              Speaking aloud is the fastest way we communicate, but it has a major limitation in public spaces: zero privacy. When you are sitting in a crowded cafe, waiting at an airport gate, or riding a train, taking a confidential business call leaks sensitive numbers, strategy, and private client names to anyone sitting nearby.
             </p>
             <p>
-              However, voice has a fatal vulnerability: zero privacy in public. When traveling on high-speed trains, waiting in airline lounges, or sitting in open coworking cafes, speaking aloud exposes confidential corporate strategy, financial metrics, and customer information to strangers standing two feet away.
+              Standard noise cancelling headphones protect your own ears from background noise, but they do nothing to prevent your own voice from traveling into the room. If you need to discuss private matters, your only options have been whispering awkwardly or walking away to hunt for an empty room.
             </p>
             <p>
-              Commercial noise-cancelling headphones only protect incoming audio for the listener's own ears; they do nothing to prevent nearby bystanders from hearing every word the user utters. Null Wave was engineered to solve this physical limitation directly at the source — attenuating speech vibrations before sound waves radiate into the environment.
+              Null Wave was engineered to solve this physical problem right at the mouth. By trapping acoustic energy as you speak, it muffles your voice before sound waves ever radiate into the room.
             </p>
           </div>
         </section>
@@ -130,7 +130,7 @@ export const NullWaveDetail: React.FC = () => {
       <section id="constraints" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            2. Physical Challenges: Four Fundamental Engineering Constraints
+            2. The Key Engineering Challenges
           </h2>
         </ScrollReveal>
 
@@ -141,10 +141,10 @@ export const NullWaveDetail: React.FC = () => {
               transition={{ duration: 0.2 }}
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
-              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 01</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Acoustic Containment vs. Facial Articulation</h3>
+              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Challenge 01</span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Moving Jaw vs. Airtight Seal</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                When humans speak, the lower jaw drops and flexes dynamically. Rigid enclosures break perimeter seal during natural speech, causing catastrophic acoustic leakage. The interface must articulate seamlessly with jaw movement while maintaining airtight sound dampening.
+                When people speak, the jaw drops and flexes constantly. A rigid enclosure breaks its seal immediately, letting sound leak out. The seal had to flex naturally with facial movements while staying completely soundproof.
               </p>
             </motion.div>
           </ScrollItem>
@@ -155,10 +155,10 @@ export const NullWaveDetail: React.FC = () => {
               transition={{ duration: 0.2 }}
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
-              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 02</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Thermal Comfort & Airflow Aerodynamics</h3>
+              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Challenge 02</span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Heat and Moisture Buildup</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Sealing a wearable around the oral cavity traps warm exhaled moisture and carbon dioxide within seconds. If air holes are introduced, sound escapes. The acoustic pathway must allow smooth, silent air exchange without allowing sound waves to leak or creating wind noise on internal mics.
+                Covering your mouth traps warm exhaled breath within seconds. But if you add open air vents, sound escapes. The airflow design had to circulate fresh air silently without letting voice audio escape.
               </p>
             </motion.div>
           </ScrollItem>
@@ -169,10 +169,10 @@ export const NullWaveDetail: React.FC = () => {
               transition={{ duration: 0.2 }}
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
-              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 03</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Resonant Cavity Distortion on Voice Pick-Up</h3>
+              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Challenge 03</span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Clear Microphone Sound</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Speaking inside an enclosed chamber creates boomy acoustic resonances that render microphone audio muffled and unintelligible to call recipients or AI transcription. Internal acoustic chambers must absorb resonant frequencies while keeping vocal fidelity crisp.
+                Speaking inside a small enclosure causes boomy echoes that make your voice sound muffled on calls. The interior chambers had to absorb echoes so the person on the other end hears crisp, natural speech.
               </p>
             </motion.div>
           </ScrollItem>
@@ -183,25 +183,25 @@ export const NullWaveDetail: React.FC = () => {
               transition={{ duration: 0.2 }}
               className="p-6 sm:p-8 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-3 transition-colors shadow-2xs hover:shadow-sm h-full"
             >
-              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Constraint 04</span>
-              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Mass, Ergonomics & Travel Durability</h3>
+              <span className="font-mono text-xs sm:text-sm text-neutral-500 uppercase tracking-wider block">Challenge 04</span>
+              <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">Lightweight Travel Ergonomics</h3>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                Heavy headgear causes cervical neck strain within minutes. The structure must withstand everyday travel shocks and laptop bag compression while staying under a 300g target weight profile with hypoallergenic skin contact surfaces.
+                Heavy gear strains your neck after a few minutes. The mask needed to be tough enough for travel in a backpack while weighing under 300 grams with soft skin contact materials.
               </p>
             </motion.div>
           </ScrollItem>
         </ScrollStagger>
       </section>
 
-      {/* Case Study Section 3: Architecture & System Engineering */}
+      {/* Case Study Section 3: What I Built */}
       <section id="architecture" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            3. System Architecture & Hardware Engineering Solutions
+            3. What I Built: The Acoustic Privacy Mask
           </h2>
           <div className="space-y-4 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal mt-2">
             <p>
-              Null Wave resolves these trade-offs through an integrated mechanical and acoustic architecture:
+              Null Wave solves these trade offs with a custom mechanical and acoustic design:
             </p>
           </div>
         </ScrollReveal>
@@ -218,11 +218,11 @@ export const NullWaveDetail: React.FC = () => {
                   01
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Multi-Chamber Acoustic Baffle Geometry
+                  Internal Acoustic Sound Trap
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                The internal core features calibrated labyrinth acoustic baffles engineered to trap and dissipate human vocal frequencies between 200 Hz and 4,000 Hz. Sound energy undergoes multiple phase-cancelling reflections before reaching the perimeter, reducing spoken output by more than 40 decibels.
+                Inside the mask, voice sound waves travel through an acoustic maze engineered to trap speech frequencies. The acoustic energy is absorbed before it can escape into the room, reducing voice volume by over 40 decibels.
               </p>
             </motion.div>
           </ScrollItem>
@@ -238,11 +238,11 @@ export const NullWaveDetail: React.FC = () => {
                   02
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Whisper-Quiet Perimeter Airflow Ducts
+                  Quiet Fresh Air Channels
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                Continuous fresh air exchange is driven through passive micro-channel venturi ducts around the mask perimeter. The channels guide airflow along an acoustic dampening path that prevents humid air stagnation without allowing vocal frequencies to escape into the room.
+                Curved perimeter airflow ducts circulate fresh air continuously across your face without letting voice sound leak out or creating breathing wind noise on internal microphones.
               </p>
             </motion.div>
           </ScrollItem>
@@ -258,11 +258,11 @@ export const NullWaveDetail: React.FC = () => {
                   03
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Grade 5 Titanium Exoskeleton with Dynamic Silicone Gasket
+                  Titanium Frame & Flexible Silicone Seal
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                A precision-milled Grade 5 titanium outer frame delivers structural rigidity and scratch resistance while weighing mere ounces. Paired with a medical-grade hypoallergenic silicone contact gasket, the perimeter seal flexes dynamically with jaw speech motions without breaking acoustic isolation.
+                A lightweight Grade 5 titanium exoskeleton provides rigidity and durability. Soft medical grade silicone cushions the face and articulates naturally with jaw movements without breaking the sound seal.
               </p>
             </motion.div>
           </ScrollItem>
@@ -278,11 +278,11 @@ export const NullWaveDetail: React.FC = () => {
                   04
                 </span>
                 <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900">
-                  Internal Dual-MEMS Vocal Capture Array
+                  Clean Internal Microphone Capture
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-neutral-700 leading-relaxed pl-12 font-normal">
-                A custom directional dual-microphone array captures voice signals directly inside the acoustic cavity. Because the chamber blocks external environment noise, AI voice agents and phone call participants hear clean, studio-grade speech completely free of airport echoes or coffee grinder noise.
+                Custom directional microphones pick up your voice clearly inside the quiet chamber. Because external noise is blocked, people on your call hear clear, crisp speech free from loud cafe or airport background sounds.
               </p>
             </motion.div>
           </ScrollItem>
@@ -293,7 +293,7 @@ export const NullWaveDetail: React.FC = () => {
       <section id="outcomes" className="space-y-6 scroll-mt-24">
         <ScrollReveal direction="up" distance={32}>
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            4. Measurable Hardware Performance
+            4. The Measurable Results
           </h2>
         </ScrollReveal>
 
@@ -308,7 +308,7 @@ export const NullWaveDetail: React.FC = () => {
                 <Lock className="w-7 h-7 text-neutral-700" />
                 <h3 className="text-2xl font-semibold text-neutral-900">40+ dB Sound Isolation</h3>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                  Attenuates speech to an inaudible murmur, so passengers seated right beside you in transit cannot understand your conversation.
+                  Reduces normal conversation to an inaudible murmur so people sitting next to you cannot understand your private words.
                 </p>
               </motion.div>
             </ScrollParallax>
@@ -322,9 +322,9 @@ export const NullWaveDetail: React.FC = () => {
                 className="p-6 sm:p-8 rounded-2xl border border-neutral-200 bg-white space-y-3 shadow-xs h-full"
               >
                 <Compass className="w-7 h-7 text-neutral-700" />
-                <h3 className="text-2xl font-semibold text-neutral-900">Zero-Booth Mobility</h3>
+                <h3 className="text-2xl font-semibold text-neutral-900">No Phone Booth Needed</h3>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                  Take sensitive investor or confidential client calls instantly from airport gates, cafes, or hotel lobbies without seeking private booths.
+                  Take sensitive client calls right from airport gates, hotel lobbies, or crowded cafes without hunting for an empty room.
                 </p>
               </motion.div>
             </ScrollParallax>
@@ -340,7 +340,7 @@ export const NullWaveDetail: React.FC = () => {
                 <Smile className="w-7 h-7 text-neutral-700" />
                 <h3 className="text-2xl font-semibold text-neutral-900">Natural Respiration</h3>
                 <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-                  Passive micro-ducting permits silent air exchange without heat buildup or acoustic leakage onto sensitive internal microphones.
+                  Quiet air ducts allow fresh air exchange without heat buildup or noise leaking onto sensitive microphones.
                 </p>
               </motion.div>
             </ScrollParallax>
@@ -348,11 +348,11 @@ export const NullWaveDetail: React.FC = () => {
         </ScrollStagger>
       </section>
 
-      {/* Case Study Section 5: Operator Reflections */}
+      {/* Case Study Section 5: Key Lessons */}
       <ScrollReveal direction="scale" distance={36} duration={0.65}>
         <section className="space-y-6 border-t border-neutral-200 pt-10">
           <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
-            5. Operator Reflections: Bridging Physical Atoms & User Behavior
+            5. Key Takeaways
           </h2>
           <motion.div
             whileHover={{ y: -2 }}
@@ -360,13 +360,13 @@ export const NullWaveDetail: React.FC = () => {
             className="p-8 sm:p-10 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-5 text-lg sm:text-xl text-neutral-700 leading-relaxed font-normal shadow-2xs"
           >
             <p className="text-xl sm:text-2xl font-semibold text-neutral-950 leading-snug">
-              "Software allows infinite fast iterations; hardware forces you to confront physics on day one."
+              "Software lets you iterate quickly on screen. Hardware forces you to deal with physics and human comfort on day one."
             </p>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-              Prototyping Null Wave demanded an obsessive balance between acoustic physics and ergonomic psychology. An acoustic mask that achieves 50 dB attenuation is useless if it looks absurd, feels claustrophobic, or is too heavy to slip into a travel briefcase.
+              A device that achieves high sound reduction is useless if people feel embarrassed wearing it or cannot breathe comfortably. Making Null Wave work required testing physical prototypes by hand until we found the sweet spot between acoustic performance, fresh airflow, and lightweight comfort.
             </p>
             <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-normal">
-              By designing Grade 5 titanium structural ribbing and combining 3D acoustic baffle modeling with rapid silicone casting iterations, we proved that privacy in public does not require bulky industrial apparatus. High-ambiguity hardware engineering requires ruthless discipline: identifying the fundamental physical constraint, designing around natural human anatomy, and building until the prototype works seamlessly in the field.
+              By combining Grade 5 titanium structural framing with rapid silicone casting iterations, we proved that privacy in public spaces does not require bulky industrial equipment. Building hardware requires finding the fundamental physical limit and building until the solution feels effortless.
             </p>
           </motion.div>
 

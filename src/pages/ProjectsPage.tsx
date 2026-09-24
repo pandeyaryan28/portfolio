@@ -4,7 +4,7 @@ import { ArrowRight, Globe, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_LINKS } from '../data/links';
 import { springSmooth } from '../components/ui/motionVariants';
-import { ScrollReveal, ScrollStagger, ScrollItem, ScrollParallax } from '../components/ui/ScrollReveal';
+import { ScrollReveal, ScrollParallax } from '../components/ui/ScrollReveal';
 
 export const ProjectsPage: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'digital' | 'hardware'>('all');
@@ -17,21 +17,16 @@ export const ProjectsPage: React.FC = () => {
       categoryLabel: 'Healthcare Operations',
       status: 'Live Production',
       visitLabel: 'Visit UniCare',
-      tagline: 'A unified clinic management platform connecting patient intake, doctor consultations, and pharmacy inventory in real time.',
-      problemSolved: 'Outpatient clinics lose hours daily to 45-minute manual intake queues, fragmented paper charts, high drug costs, and pharmacy batch expiration losses.',
+      tagline: 'A unified clinic management tool connecting patient registration, doctor notes, and pharmacy inventory in real time.',
+      problemSolved: 'Outpatient clinics lose hours every day to manual paperwork, long patient lines, high drug costs, and expired medicine waste.',
       highlights: [
-        'Cuts patient intake duration from 12+ minutes to under 10 seconds via digital QR token protocol',
-        'Matches prescribed brand medicines with in-stock generic bioequivalents to save patients up to 90%',
-        'Automates dispensary batch routing with First-Expired, First-Out (FEFO) allocation to stop medicine waste',
+        'Cuts patient check in from 12 minutes to under 10 seconds with digital QR codes',
+        'Suggests high quality generic medicines to save patients up to 90% on prescriptions',
+        'Tracks expiry dates to dispense oldest stock first, eliminating medicine waste',
       ],
-      focusAreas: ['Clinical Workflow Optimization', 'FEFO Inventory Rotation', 'Contactless Intake'],
+      focusAreas: ['Clinic Workflow', 'Generic Prescriptions', 'Instant QR Check In'],
       path: '/work/unicare',
       liveUrl: SITE_LINKS.projects.unicare.url,
-      cardArchitecture: [
-        { label: 'Intake Velocity', val: '<10s QR Check-In' },
-        { label: 'Patient Savings', val: 'Up to 90% via Generics' },
-        { label: 'Dispensary Waste', val: '0% Expiration Write-Offs' },
-      ],
     },
     {
       id: 'guild-orbit',
@@ -40,21 +35,16 @@ export const ProjectsPage: React.FC = () => {
       categoryLabel: 'Team Execution Platform',
       status: 'Live Production',
       visitLabel: 'Visit Guild Orbit',
-      tagline: 'An integrated execution platform combining sprint deliverables, contextual discussion threads, and formal approval gates.',
-      problemSolved: 'Fast-moving product teams lose execution momentum when conversations scatter across chat channels, tasks sit in disconnected boards, and approvals stall in email inboxes.',
+      tagline: 'An all in one workspace combining sprint tasks, contextual discussion threads, and sign off gates.',
+      problemSolved: 'Fast growing teams lose momentum when decisions vanish in chat streams and tasks stall in email inboxes.',
       highlights: [
-        'Anchors every discussion thread directly to a sprint deliverable so strategic decisions are never lost',
-        'Visual execution boards provide live milestone velocity without requiring recurring status meetings',
-        'Multi-stage governance gates ensure design, QA, and security sign-offs are completed before release',
+        'Keeps every discussion permanently tied to the exact task card',
+        'Halves time spent in status update meetings with live visual progress boards',
+        'Multi person sign off gates prevent incomplete work from launching early',
       ],
-      focusAreas: ['Operational Velocity', 'Cross-Functional Alignment', 'Decision Visibility'],
+      focusAreas: ['Sprint Management', 'Contextual Discussions', 'Approval Gates'],
       path: '/work/guild-orbit',
       liveUrl: SITE_LINKS.projects.guildOrbit.url,
-      cardArchitecture: [
-        { label: 'Context Model', val: 'Deliverable-Tied Threads' },
-        { label: 'Meeting Reduction', val: '50% Fewer Status Calls' },
-        { label: 'Governance', val: 'Multi-Stage Sign-Off Gates' },
-      ],
     },
     {
       id: 'nullwave',
@@ -63,22 +53,17 @@ export const ProjectsPage: React.FC = () => {
       categoryLabel: 'Hardware Prototype',
       status: 'Working Prototype',
       visitLabel: 'Visit NullWave',
-      tagline: 'An ergonomic titanium acoustic wearable mask designed to contain speech audio for private conversations in public spaces.',
-      problemSolved: 'Remote leaders and knowledge workers taking confidential calls or dictating to AI in airports, trains, or cafes leak sensitive information to bystanders.',
+      tagline: 'An ergonomic acoustic wearable mask that muffles your voice at your mouth so you can speak privately in public spaces.',
+      problemSolved: 'Working professionals cannot discuss private business or dictate sensitive notes in public without being overheard.',
       highlights: [
-        'Internal multi-chamber acoustic labyrinth attenuates speech audio by over 40 decibels at the mouth',
-        'Silent perimeter micro-channel ducting circulates fresh air continuously without microphone turbulence',
-        'Grade 5 titanium outer exoskeleton paired with dynamic articulating hypoallergenic silicone seal',
+        'Reduces spoken voice volume by over 40 decibels at the mouth',
+        'Quiet airflow channels prevent heat and moisture buildup without microphone hiss',
+        'Durable titanium frame with soft silicone seal weighing under 300 grams',
       ],
       previewImg: '/assets/nullwave/mask-studio.png',
-      focusAreas: ['Voice Privacy', 'Acoustic Containment', 'Ergonomic Wearable Design'],
+      focusAreas: ['Voice Privacy', 'Acoustic Containment', 'Titanium Wearable'],
       path: '/work/nullwave',
       liveUrl: SITE_LINKS.projects.nullwave.url,
-      cardArchitecture: [
-        { label: 'Sound Isolation', val: '40+ dB Attenuation' },
-        { label: 'Airflow Design', val: 'Passive Venturi Micro-Ducts' },
-        { label: 'Form Factor', val: 'Grade 5 Titanium (<300g)' },
-      ],
     },
   ];
 
@@ -191,9 +176,9 @@ export const ProjectsPage: React.FC = () => {
                 </div>
 
                 {/* Content & Visual Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className={project.previewImg ? "grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" : "space-y-5"}>
                   {/* Text Info */}
-                  <div className="lg:col-span-7 space-y-4">
+                  <div className={project.previewImg ? "lg:col-span-7 space-y-4" : "space-y-4"}>
                     <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-950 tracking-tight">
                       {project.title}
                     </h2>
@@ -201,95 +186,58 @@ export const ProjectsPage: React.FC = () => {
                       {project.tagline}
                     </p>
 
-                    <motion.div
-                      whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
-                      transition={{ duration: 0.15 }}
-                      className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 space-y-1"
-                    >
-                      <span className="font-mono text-xs font-medium text-neutral-600 uppercase tracking-wider block">
-                        The Problem Space
-                      </span>
-                      <p className="leading-relaxed font-normal text-neutral-600">{project.problemSolved}</p>
-                    </motion.div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+                      <motion.div
+                        whileHover={{ y: -2, backgroundColor: '#FFFFFF', borderColor: '#D1D5DB' }}
+                        transition={{ duration: 0.15 }}
+                        className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 space-y-1.5"
+                      >
+                        <span className="font-mono text-xs font-medium text-neutral-500 uppercase tracking-wider block">
+                          The Problem
+                        </span>
+                        <p className="leading-relaxed font-normal text-neutral-700 text-xs sm:text-sm">{project.problemSolved}</p>
+                      </motion.div>
 
-                    <div className="space-y-2 pt-1">
-                      <div className="text-xs font-mono font-medium text-neutral-500 uppercase tracking-wider">
-                        Measurable Outcomes
-                      </div>
-                      <ScrollStagger staggerDelay={0.08} className="space-y-2 text-sm text-neutral-700">
-                        {project.highlights.map((h) => (
-                          <ScrollItem key={h} direction="up" distance={16} duration={0.4}>
-                            <div className="flex items-start gap-2.5">
-                              <span className="text-neutral-400 mt-1">•</span>
+                      <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-sm text-neutral-700 space-y-1.5">
+                        <span className="font-mono text-xs font-medium text-neutral-500 uppercase tracking-wider block">
+                          Measurable Impact
+                        </span>
+                        <div className="space-y-1.5">
+                          {project.highlights.map((h) => (
+                            <div key={h} className="flex items-start gap-2 text-xs sm:text-sm text-neutral-700">
+                              <span className="text-neutral-400 mt-0.5">•</span>
                               <span className="font-normal leading-relaxed">{h}</span>
                             </div>
-                          </ScrollItem>
-                        ))}
-                      </ScrollStagger>
+                          ))}
+                        </div>
+                      </div>
                     </div>
 
-                    <ScrollStagger staggerDelay={0.05} className="flex flex-wrap gap-1.5 pt-2">
+                    <div className="flex flex-wrap gap-1.5 pt-2">
                       {project.focusAreas.map((t) => (
-                        <ScrollItem key={t} direction="scale" duration={0.3}>
-                          <motion.span
-                            whileHover={{ scale: 1.05, y: -1 }}
-                            transition={{ duration: 0.15 }}
-                            className="px-2.5 py-1 rounded bg-neutral-100 text-neutral-700 text-xs font-mono cursor-default inline-block"
-                          >
-                            {t}
-                          </motion.span>
-                        </ScrollItem>
+                        <span
+                          key={t}
+                          className="px-2.5 py-1 rounded bg-neutral-100 text-neutral-700 text-xs font-mono cursor-default inline-block"
+                        >
+                          {t}
+                        </span>
                       ))}
-                    </ScrollStagger>
+                    </div>
                   </div>
 
-                  {/* Case Study Summary Card */}
-                  <div className="lg:col-span-5">
-                    <Link
-                      to={project.path}
-                      className="block rounded-xl overflow-hidden border border-neutral-200 bg-neutral-50 hover:border-neutral-400 transition-all p-5 space-y-4 group shadow-2xs hover:shadow-sm"
-                    >
-                      <div className="flex items-center justify-between border-b border-neutral-200 pb-3">
-                        <span className="font-mono text-xs font-medium text-neutral-700 uppercase tracking-wider">
-                          Case Study Architecture
-                        </span>
-                        <span className="text-xs font-medium text-neutral-900 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                          Read Details →
-                        </span>
+                  {project.previewImg ? (
+                    <div className="lg:col-span-5">
+                      <div className="aspect-[16/10] rounded-xl overflow-hidden bg-neutral-900 flex items-center justify-center p-3 border border-neutral-800">
+                        <ScrollParallax offset={18} direction="up">
+                          <img
+                            src={project.previewImg}
+                            alt={`${project.title} Prototype`}
+                            className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300"
+                          />
+                        </ScrollParallax>
                       </div>
-
-                      {project.id === 'nullwave' && project.previewImg ? (
-                        <div className="aspect-[16/10] rounded-lg overflow-hidden bg-neutral-900 flex items-center justify-center">
-                          <ScrollParallax offset={18} direction="up">
-                            <img
-                              src={project.previewImg}
-                              alt="NullWave Prototype"
-                              className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300"
-                            />
-                          </ScrollParallax>
-                        </div>
-                      ) : null}
-
-                      <ScrollStagger staggerDelay={0.06} className="space-y-2.5">
-                        {project.cardArchitecture.map((item) => (
-                          <ScrollItem key={item.label} direction="up" distance={14} duration={0.35}>
-                            <motion.div
-                              whileHover={{ x: 3 }}
-                              transition={{ duration: 0.15 }}
-                              className="p-3 bg-white rounded-lg border border-neutral-200 text-xs flex items-center justify-between"
-                            >
-                              <span className="font-mono text-neutral-500">{item.label}</span>
-                              <span className="font-semibold text-neutral-900">{item.val}</span>
-                            </motion.div>
-                          </ScrollItem>
-                        ))}
-                      </ScrollStagger>
-
-                      <div className="text-xs text-neutral-500 text-right pt-1 font-mono">
-                        Deep Case Study & Operational Data →
-                      </div>
-                    </Link>
-                  </div>
+                    </div>
+                  ) : null}
                 </div>
 
                 {/* Bottom Actions */}
